@@ -1,6 +1,6 @@
 #Ignore Mac system files
 .DS_Store
-
+../.DS_Store
 #Ignore latex compilation dfiels
 main.out
 main.lof
