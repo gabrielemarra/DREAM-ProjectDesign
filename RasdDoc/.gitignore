@@ -1,0 +1,12 @@
+#Ignore Mac system files
+.DS_Store
+
+#Ignore latex compilation dfiels
+main.out
+main.lof
+main.lot
+main.aux
+main.log
+main.toc
+main.synctex.gz
+main.pdf
