@@ -1,19 +1,25 @@
+
 % Use Case Table
 \begin{center}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Policy Maker Log-In}\\
+    \textbf{Name} & Configure and View Overall Ranking of Farmers\\
     \hline
    	\textbf{Actor} & Policy Maker\\
     \hline
-    \textbf{Entry Conditions} & \textit{Enter the entry conditions required for this use case to be relevant/ applicable}\\
+    \textbf{Entry Conditions} & User is logged in as a policy maker with valid credentials\\
     \hline
-    \textbf{Events Flow} & \textit{Enter the flow flow splash splash of events}\\
+    \textbf{Events Flow} & 
+    \begin{enumerate}
+   	\item Policy maker clicks on "View Rankings" button to navigate to the the page where all farmers in the area are listed in order of their ranking determined by the DREAM system. 
+    	\item Policy maker clicks on "Filter" button to configure the factors in the ranking such as ordering by water usage, production quantity, or production quality. 
+    	\item A new view of the ranking of the farmers is displayed in the window. 
+    	\item The policy maker can scroll up and down the list of farmers and scan their high-level details.
+    \end{enumerate} \\ \hline
+    \textbf{Exit Conditions} & A ranked list of the farmers is view-able by the policy maker with the configured settings and filters applied to the list.\\
     \hline
-    \textbf{Exit Conditions} & \textit{Enter the circumstances required to exit this use case situation}\\
-    \hline
-    \textbf{Exceptions} & \textit{Enter and exceptions}\\
+    \textbf{Exceptions} & There are no farmers whose parameters satisfy the filters and settings specified by the policy maker.\\
     \hline
 \end{tabular}
 \end{center}

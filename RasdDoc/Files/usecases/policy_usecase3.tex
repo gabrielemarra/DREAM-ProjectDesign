@@ -4,17 +4,22 @@
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Configure Ranking View}\\
+    \textbf{Name} & \textit{Set Trigger}\\
     \hline
    	\textbf{Actor} & Policy Maker\\
     \hline
-    \textbf{Entry Conditions} & \textit{Enter the entry conditions required for this use case to be relevant/ applicable}\\
+    \textbf{Entry Conditions} & User is logged in as a policy maker with valid credentials.\\
     \hline
-    \textbf{Events Flow} & \textit{Enter the flow flow splash splash of events}\\
+    \textbf{Events Flow} & 
+    \begin{enumerate}
+	    \item Policy maker clicks on "Create trigger" button.
+    	\item Policy maker is navigated to the create trigger wizard.
+    	\item Policy maker selects the parameters and limits for the trigger.
+    	\item Policy maker clicks on the "submit button"
+    \end{enumerate} \\ \hline
+    \textbf{Exit Conditions} & Sufficient information is provided to set the trigger and the trigger is entered into the system\\
     \hline
-    \textbf{Exit Conditions} & \textit{Enter the circumstances required to exit this use case situation}\\
-    \hline
-    \textbf{Exceptions} & \textit{Enter and exceptions}\\
+    \textbf{Exceptions} & Limits are missing for the parameters selected.\\
     \hline
 \end{tabular}
 \end{center}
