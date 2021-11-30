@@ -6,10 +6,17 @@ Organize this section according to the rules defined in the project description.
 \subsection{Functional Requirements}
 Definition of use case diagrams, use cases and associated sequence/activity diagrams, and mapping on requirements
 
-% Usecases related to farmer
-\input{Files/usecases/usecase1.tex}
+%Use this counter for the scenarios and command \addOne to print and increase at the same time
+\newcounter{usecase_counter}
+\setcounter{usecase_counter}{1}
+
+
+% Usecases TEMPLATE
+\input{Files/usecases/usecase_template.tex}
 %\input{Files/sequence_diagrams/sequence_diagram_stencil_pic.jpg}
-% \input{Files/usecases/usecase2.tex}
+
+%FARMERS
+ \input{Files/usecases/farmer1.tex}
 %\input{Files/sequence_diagrams/sequence2.jpg
 % Usecases related to agronomist
 % \input{Files/usecases/usecase3.tex}
