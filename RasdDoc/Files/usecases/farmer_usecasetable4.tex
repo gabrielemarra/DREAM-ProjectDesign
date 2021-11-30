@@ -1,0 +1,34 @@
+% Use Case Table
+\begin{center}
+\begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
+
+    \hline
+    \textbf{Name} & \textit{Upload info about production status}\\
+    \hline
+   	\textbf{Actor} & \textit{Farmer}\\
+    \hline
+    \textbf{Entry Conditions} & \textit{The farmer uses valid credentials to login into the application and has new data to upload}\\
+    \hline
+    
+    \textbf{Events Flow} & \textit{
+    		\begin{enumerate}
+    			\item The farmer opens the "My production" section
+    			\item The farmer click on the "Update production data" button
+    			\item The farmer select the field to update from a list
+    			\item The farmer add the desired info
+    			\item The farmer click on the "Submit" button
+    		\end{enumerate}
+    	}\\
+    \hline
+    \textbf{Exit Conditions} & \textit{The farmer submit the info}\\
+    \hline
+    \textbf{Exceptions} & \textit{
+    		\begin{itemize}
+    			\item The server is not available
+    			\item The data are not valid
+    			\item Some required info are left void
+    		\end{itemize}
+    }\\
+    \hline
+\end{tabular}
+\end{center}
