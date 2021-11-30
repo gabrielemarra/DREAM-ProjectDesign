@@ -1,0 +1,28 @@
+% Use Case Table
+
+\begin{center}
+\begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
+
+    \hline
+    \textbf{Name} & \textit{Confirmation of the daily plan}\\
+    \hline
+   	\textbf{Actor} & \textit{Agronomist}\\
+    \hline
+    \textbf{Entry Conditions} & \textit{The user has opened the app, is logged in and has inserted the area is responsible of and has a daily plan created for that specific day}\\
+    \hline
+    \textbf{Events Flow} & \textit{\begin{enumerate}
+            \item The user click on the daily plan interface
+            \item The user clicks on the "your daily plans" 
+            \item The user can then choose a specific daily plan and view information about it or modify it
+       \end{enumerate}}\\
+    \hline
+    \textbf{Exit Conditions} & \textit{The plans are correctly modified and saved by the system}\\
+    \hline
+    \textbf{Exceptions} & \textit{
+       \begin{itemize}
+          \item The database with daily plans data is not accessible at the moment the user is asked to try again later
+        \end{itemize}
+     }\\
+    \hline
+\end{tabular}
+\end{center}

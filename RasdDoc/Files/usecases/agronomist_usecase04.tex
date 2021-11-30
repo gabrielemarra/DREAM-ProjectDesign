@@ -1,0 +1,30 @@
+% Use Case Table
+
+\begin{center}
+\begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
+
+    \hline
+    \textbf{Name} & \textit{Answer to help requests}\\
+    \hline
+   	\textbf{Actor} & \textit{Agronomist}\\
+    \hline
+    \textbf{Entry Conditions} & \textit{The user has opened the app, is logged in, has inserted the area is responsible of and an help request has been sent to him}\\
+    \hline
+    \textbf{Events Flow} & \textit{\begin{enumerate}
+            \item The user clicks on the "help request" interface
+            \item The user can click on different help requests received by farmers
+            \item The user can inspect data about the farmer such as location, position on the ranking and evaluation
+            \item The user reads the help requests and can then reply with solutions and suggestions
+       \end{enumerate}}\\
+    \hline
+    \textbf{Exit Conditions} & \textit{The user has answered to the farmer and the response has been sent to him/her}\\
+    \hline
+    \textbf{Exceptions} & \textit{
+       \begin{itemize}
+          \item The messages are not accessible at the moment the user is asked to try again later
+          \item A message cannot be sent in this moment the user is asked to try again later
+        \end{itemize}
+     }\\
+    \hline
+\end{tabular}
+\end{center}
