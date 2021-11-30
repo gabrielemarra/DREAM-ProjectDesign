@@ -1,0 +1,36 @@
+% Use Case Table
+\begin{center}
+\begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
+
+    \hline
+    \textbf{Name} & \textit{Add field location with GPS}\\
+    \hline
+   	\textbf{Actor} & \textit{Farmer}\\
+    \hline
+    \textbf{Entry Conditions} & \textit{The farmer uses valid credentials to log into the application and is physically in the field}\\
+    \hline
+    
+    \textbf{Events Flow} & \textit{
+    		\begin{enumerate}
+    			\item The farmer opens the "My fields" section
+    			\item The farmer clicks on the "Add new field" button
+    			\item The farmer allows the application to locate him using GPS
+    			\item The farmer adds information about the size of the field and the crop currently planted
+    			\item The farmer clicks on the "Submit" button
+    		\end{enumerate}
+    	}\\
+    \hline
+    \textbf{Exit Conditions} & \textit{The farmer submits the information about the new field}\\
+    \hline
+    \textbf{Exceptions} & \textit{
+    		\begin{itemize}
+    			\item The server is not available
+    			\item The application is not able to use the GPS
+    			\item The farmer doesn't allow the application to use GPS
+    			\item The provided information is not valid
+    			\item Some required information is left empty
+    		\end{itemize}
+    }\\
+    \hline
+\end{tabular}
+\end{center}
