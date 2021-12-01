@@ -1,82 +1,105 @@
+\newcounter{goals_counter}
+\setcounter{goals_counter}{1}
+
+
 Intro text...
 
 \subsection{Purpose}
-
-
-The main purpose of this system is to centralize and process interaction between farmers, agronomists, and policy makers. \\
-
-The world's food supply chain is threatened by climate change as well as an unsustainable rate of rising population. Since the Telangana region plays a large part in participating in the world's food economy, the Telangana government is interested in pursuing initiatives aimed at addressing these issues. In this case, the Telangana government wants to reform the way they build their policies regarding food production. Their goal is to utilize digital public goods and community-centric approaches in order to build resiliency against these dynamic challenges by build policies that are more agile and data-driven. 
-
-This initiative, named Data-dRiven PrEdictive FArMing, or DREAM, intends to 
-
-%In order to adapt to these dynamic circumstances, the Telangana government aims to 
-
-
-\begin{itemize}
-\item
-telengana government wants to change the way they design their policies related to food production. 
-\item
-
-the problem: climate change + rising population = food supply chains at risk
-\item
-
-in order to adapt to these fast changing problems, telengana gov wants to reform the way they build their policies regarding food production
-\item
-
-this system is mean to meet the needs of the telengana government to provide a product focused on the following stakeholders from the larger problem: farmers, agronomists, and policy makers. 
-\item
-main pillars include using digital public goods and community centric approaches
-\item
-this is hopefully enrich the approach to the main issue at hand (climate change + rising population = food supply chains at risk)
-\end{itemize}
 \begin{flushleft}
-
-\medskip
-Focus on farmers, agronomists, and policy makers\\
-\medskip
-
-Focus on data-driven design and implementing community-centric approaches.\\
-\medskip
-
-Goals: \\
-The following goals are an aggregate collection of the goals that serve the three main stakeholders that are in the scope of this system.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% THE PROBLEM %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The world's food supply chain is threatened by climate change and an unsustainable rate of rising population. Since the Telangana region largely participates in the world's food economy, the Telangana government is interested in pursuing initiatives aimed at mitigating these issues. In this case, the Telangana government wants to reform the way they build their policies regarding food production. Their goal is to utilize digital public goods and community-centric approaches in order to build resiliency against these dynamic challenges by building policies that are more agile and data-driven. 
+\smallskip\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% THE PROPOSED SOLUTION %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This initiative, named Data-dRiven PrEdictive FArMing, or DREAM, intends to provide a solution that focuses on serving the needs of three stakeholders: farmers, agronomists, and policy makers.  %% add more content here? more high level description of DREAM...
+%\smallskip\\
 \end{flushleft}
-\begin{center}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|c| >{\raggedright\arraybackslash}p{12cm}|} \hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% THE GOALS %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Goals}
+The following table lists an aggregate collection of the goals that serve the three main stakeholders that are in the scope of this system.
 
-    \textbf{ID} & \textbf{Goals}\\\hline
-    G1  & Farmers can visualize relevant data and suggestions based on their location and type of production.\\
-    G2  & Agronomists and farmers can view weather forecast data.\\
-    G3  & Farmers can interact with others farmers and agronomists by requesting for help and suggestions.\\
-    G4  & Farmers can create discussion forums with other farmers.\\
-    G5  & Agronomists can supervise a sub-area inside the region. \\
-    G6  & Agronomists can view the ranking of farmers’ performance in their specific area.\\
-    G7  & Agronomists can visualize and update a daily plan to visit farms in their area.\\
-    G8  & Agronomists can specify the deviations from their daily plan and confirm the execution of their daily plan at the end of each day.\\
-    G9  & Telengana’s policy makers can view the performance of the farmers and the ranking of the farmers.\\
-    G10 & Telengana’s policy makers can determine if support from agronomists and well-performing farmers produces significant results.\\\hline
+%%%% GOALS TABLE %%%%
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|c| >{\raggedright\arraybackslash}p{12cm}|} \hline
+    \textbf{ID} & \textbf{Goals}\\
+    \hline
+    G\addOne{goals_counter}  & Farmers can visualize relevant data and suggestions based on their location and type of production.\\ 
+    \hline
+    G\addOne{goals_counter}  & Agronomists and farmers can view weather forecast data.\\ 
+    \hline
+    G\addOne{goals_counter}  & Farmers can interact with others farmers and agronomists by requesting for help and suggestions.\\
+    \hline
+    G\addOne{goals_counter}  & Farmers can create discussion forums with other farmers.\\
+    \hline
+    G\addOne{goals_counter}  & Agronomists can supervise a sub-area inside the region. \\
+    \hline
+    G\addOne{goals_counter}  & Agronomists can view the ranking of farmers’ performance in their specific area.\\
+    \hline
+    G\addOne{goals_counter}  & Agronomists can visualize and update a daily plan to visit farms in their area.\\
+    \hline
+    G\addOne{goals_counter}  & Agronomists can specify the deviations from their daily plan and confirm the execution of their daily plan at the end of each day.\\
+    \hline
+    G\addOne{goals_counter}  & Telengana’s policy makers can view the performance of the farmers and the ranking of the farmers.\\
+    \hline
+    G\addOne{goals_counter} & Telengana’s policy makers can determine if support from agronomists and well-performing farmers produces significant results.\\
+    \hline
 \end{tabular}
 \end{center}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% PHENOMENA %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scope}
-Here we include an analysis of the world and of the shared phenomena 
 
-Considering these users, the design of the system must first consider the following phenomena as features [facts, ??] of the context in which the system will operate in:
+\begin{flushleft} %Here we include an analysis of the world and of the shared phenomena 
 
+Considering the three users in the scope of this initiative, the design of the system must first consider the following phenomena in context in which the system will operate.
 
+%%%% PHENOMENA TABLE %%%%
+
+\end{flushleft}
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|>{\raggedright\arraybackslash}m{12cm}|c|} \hline
     \textbf{Phenomena} & \textbf{Type}\\ \hline % adds a line
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. & W \\%\hline % adds a line; table formatting choice?
-    Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. & M\\ %\hline % adds a line; table formatting choice?
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. & W \\
+    \hline
+    Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. & M\\
+    \hline
     Curabitur dictum gravidamauris. & S\\
     \hline
 \end{tabular}
 \end{center}
 
 \subsection{Definitions, Acronyms, Abbreviations}
-\subsection{Revision history}
+
+%%%% DEFINITIONS TABLE %%%%
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l >{\raggedright\arraybackslash}m{12cm} } \hline
+    \textbf{Term} & \textbf{Definition}\\ 
+	Policy Maker & definition of policy maker \\
+	Agronomist & definition of agronomist \\
+    Farmer & A user who uses DREAM to help manage data relating to their farms and fields.\\
+    Field & One enclosed area that corresponds to one crop. Many fields can make up a farm. The locations of the various fields do not need to be co-located.\\
+    Farm & A set of one or many fields that are managed by one farmer.\\
+    DREAM & The system described in this document; Data-dRiven PrEdictive FArMing\\
+    Production yields & The amount of crop harvested compared to the amount of crop planted. Measured comparatively by percentage or numerically by weight.\\
+    User & Farmer, agronomist, or policy user; anyone who uses the system.\\
+    \hline
+\end{tabular}
+\end{center}
+
+
+
+\subsection{Revision History}
 \subsection{Reference Documents}
 \subsection{Document Structure}
