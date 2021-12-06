@@ -1,24 +1,24 @@
 
 % Use Case Table
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
-
     \hline
-    \textbf{Name} & Flag Farmers\\
+    \textbf{Name} & Flagging Poor-Performing Farmers\\
     \hline
    	\textbf{Actor} & Policy Maker\\
     \hline
-    \textbf{Entry Conditions} & User is logged in as a policy maker with valid credentials. User has configured a ranking view.\\
+    \textbf{Entry Conditions} & The user has logged in with valid credentials and configured a ranking view.\\
     \hline
-    \textbf{Events Flow} & \begin{enumerate}
-    \item Policy maker chooses to rank farmers at one extremity of the ranking list. 
-    \item Policy maker scrolls to the desired extremity of the list.
-    \item Policy maker clicks on the grey "flag" icon on the top right of the tile for each respective farmer they would like to flag. 
+    \textbf{Events Flow} & 
+    \begin{enumerate}
+    	\item The user scrolls the low-ranking section of the list.
+    	\item The user clicks on the grey "flag" icon for each respective farmer they would like to flag. 
     \end{enumerate}\\
     \hline
-    \textbf{Exit Conditions} & The flag icon turns red \\
+    \textbf{Exit Conditions} & The flag icon turns red.\\
     \hline
-    \textbf{Exceptions} & server not responding[ edit wording]\\
+    \textbf{Exceptions} The database is unavailable.\\
     \hline
 \end{tabular}
 \end{center}

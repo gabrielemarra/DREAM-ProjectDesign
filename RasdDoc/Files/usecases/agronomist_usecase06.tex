@@ -1,28 +1,30 @@
 % Use Case Table
 
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
+
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Confirmation of the daily plan}\\
+    \textbf{Name} & Confirming a daily plan\\
     \hline
-   	\textbf{Actor} & \textit{Agronomist}\\
+   	\textbf{Actor} & Agronomist\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user has opened the app, is logged in and has inserted the area is responsible of and has a daily plan created for that specific day}\\
+    \textbf{Entry Conditions} & The user has opened the application, logged in with valid credentials, specified their responsible area, and created a daily plan for that specific day.\\
     \hline
-    \textbf{Events Flow} & \textit{\begin{enumerate}
-            \item The user click on the daily plan interface
-            \item The user clicks on the "your daily plans" 
-            \item The user can then choose a specific daily plan and view information about it or modify it
-       \end{enumerate}}\\
+    \textbf{Events Flow} & \begin{enumerate}
+            \item The user click on the daily plan interface.
+            \item The user clicks on the "Your Daily Plans."
+            \item The user can then choose a specific daily plan and view or modify the information.
+       \end{enumerate}\\
     \hline
-    \textbf{Exit Conditions} & \textit{The plans are correctly modified and saved by the system}\\
+    \textbf{Exit Conditions} & The plans are correctly modified and saved by the system\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
        \begin{itemize}
-          \item The database with daily plans data is not accessible at the moment the user is asked to try again later
+          \item The database with daily plans data is not accessible at the moment the user is asked to try again later.
         \end{itemize}
-     }\\
+     \\
     \hline
 \end{tabular}
 \end{center}

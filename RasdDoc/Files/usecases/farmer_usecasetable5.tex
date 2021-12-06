@@ -1,34 +1,35 @@
 % Use Case Table
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Upload information about production status}\\
+    \textbf{Name} & Upload information about production\\
     \hline
-   	\textbf{Actor} & \textit{Farmer}\\
+   	\textbf{Actor} & Farmer\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user uses valid credentials to log into the application and has new data to upload}\\
+    \textbf{Entry Conditions} & The user logs into the application with valid credentials and has new data to upload.\\
     \hline
     
-    \textbf{Events Flow} & \textit{
+    \textbf{Events Flow} & 
     		\begin{enumerate}
-    			\item The user opens the "My production" section
-    			\item The user clicks on the "Update production data" button
-    			\item The user selects the field to update from a list
-    			\item The user adds the desired info
-    			\item The user clicks on the "Submit" button
+    			\item The user opens the "My Production" section.
+    			\item The user clicks on the "Update Production Data" button.
+    			\item The user selects a field to update from a list of fields.
+    			\item The user adds the desired information.
+    			\item The user clicks on the "Submit" button.
     		\end{enumerate}
-    	}\\
+    	\\
     \hline
-    \textbf{Exit Conditions} & \textit{The user submits the information}\\
+    \textbf{Exit Conditions} & The user submits the information.\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
     		\begin{itemize}
-    			\item The server is not available
-    			\item The provided information is not valid
-    			\item Some required information is left empty
+    			\item The server is not available.
+    			\item The provided information is not valid.
+    			\item Some required information is left empty.
     		\end{itemize}
-    }\\
+    \\
     \hline
 \end{tabular}
 \end{center}

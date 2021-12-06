@@ -1,26 +1,27 @@
 % Use Case Table
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
     \hline
-    \textbf{Name} & \textit{Inspecting weather forecasts}\\
+    \textbf{Name} & Inspecting weather forecasts\\
     \hline
-   	\textbf{Actor} & \textit{Agronomist}\\
+   	\textbf{Actor} & Agronomist\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user has opened the app, is logged in and has inserted the area is responsible of}\\
+    \textbf{Entry Conditions} & The user has opened the application, logged in with valid credentials, and specified their responsible area.\\    
     \hline
-    \textbf{Events Flow} & \textit{
-    \begin{enumerate}
-            \item The user clicks on the weather forecast interface
-            \item The user can click on a sub-area of the area is responsible and inspect weather forecast
-       \end{enumerate}}\\
+    \textbf{Events Flow} & 
+    	\begin{enumerate}
+            \item The user clicks on the weather forecast interface.
+            \item The user clicks on a section of their responsible area.
+            \item The user inspects the weather forecast for the selected area.
+       \end{enumerate}\\
     \hline
-    \textbf{Exit Conditions} & \textit{The user has inspected the information he/she wanted to }\\
+    \textbf{Exit Conditions} & The user exits the weather forecast section.\\
     \hline
-    \textbf{Exceptions} & \textit{
-       \begin{itemize}
-          \item The data about weather forecast is not accessible at the moment the user is asked to try again later
-        \end{itemize}
-     }\\
-    \hline
+    \textbf{Exceptions} & 
+    	\begin{itemize}
+	    	\item The data about weather forecast is not accessible.
+    	\end{itemize}\\
+    \hline 
 \end{tabular}
 \end{center}

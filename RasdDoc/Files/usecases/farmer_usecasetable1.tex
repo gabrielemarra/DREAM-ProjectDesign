@@ -1,31 +1,35 @@
 % Use Case Table
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
-
     \hline
-    \textbf{Name} & \textit{Create a thread in farmers' forum}\\
+    \textbf{Name} & Create a thread in the discussion forum\\
     \hline
-   	\textbf{Actor} & \textit{Farmer}\\
+   	\textbf{Actor} & Farmer\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user uses valid credentials to log into the application}\\
+    \textbf{Entry Conditions} & The user logs into the application with valid credentials.\\
     \hline
-    \textbf{Events Flow} & \textit{
+    \textbf{Events Flow} & 
     		\begin{enumerate}
-    			\item The user opens the forums section
-    			\item The user clicks on "Create thread"
-    			\item The user writes a valid title and message
-    			\item The user clicks on "Publish"
-    			\item The user can answer to messages published in his conversation
+    			\item The user opens the "Forums" section.
+    			\item The user clicks on the "Create Thread" button.
+    			\item The user provides a valid title and message.
+    			\item The user clicks on the "Publish" button.
+    			\item The user can answer messages published in their thread.
     		\end{enumerate}
-    	}\\
+    	\\
     \hline
-    \textbf{Exit Conditions} & \textit{The user closes the forum section or the entire application}\\
+    \textbf{Exit Conditions} & \begin{itemize}
+    	\item The user exits the "Forums" section.
+    	\item The user close the entire application.    
+    	\end{itemize}
+	\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
     		\begin{itemize}
-    			\item The server is not available
+    			\item The server is not available.
     		\end{itemize}
-    	}\\
+    	\\
     \hline
 \end{tabular}
 \end{center}

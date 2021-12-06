@@ -1,25 +1,35 @@
 
 % Use Case Table
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & Configure and View Overall Ranking of Farmers\\
+    \textbf{Name} & Configure and view overall ranking of farmers\\
     \hline
    	\textbf{Actor} & Policy Maker\\
     \hline
-    \textbf{Entry Conditions} & User is logged in as a policy maker with valid credentials\\
+    \textbf{Entry Conditions} & The user is logged in with valid credentials.\\
     \hline
     \textbf{Events Flow} & 
     \begin{enumerate}
-   	\item Policy maker clicks on "View Rankings" button to navigate to the the page where all farmers in the area are listed in order of their ranking determined by the DREAM system. 
-    	\item Policy maker clicks on "Filter" button to configure the factors in the ranking such as ordering by water usage, production quantity, or production quality. 
-    	\item A new view of the ranking of the farmers is displayed in the window. 
-    	\item The policy maker can scroll up and down the list of farmers and scan their high-level details.
+   	\item The user clicks on "View Rankings" button.
+   	\item The user is navigated to list-view of all the farmers in order of their overall ranking. 
+    \item The user clicks on the "Filter" button to configure the ranking (ie, ordering by water usage, production quantity, or production quality). 
+    	\item The user views a new ranking of the farmers. 
+    	\item The user can scroll up and down the list of farmers.
     \end{enumerate} \\ \hline
-    \textbf{Exit Conditions} & A ranked list of the farmers is view-able by the policy maker with the configured settings and filters applied to the list.\\
+    \textbf{Exit Conditions} & 
+    \begin{itemize}
+    	\item The user navigates out of the "View Rankings" section. 
+    	\item The user closes the application.
+    \end{itemize}\\
     \hline
-    \textbf{Exceptions} & There are no farmers whose parameters satisfy the filters and settings specified by the policy maker.\\
+    \textbf{Exceptions} & 
+    \begin{itemize}
+    	\item There are no farmers whose parameters satisfy the filters and settings specified.
+    	\item The database is unavailable.
+    \end{itemize}\\
     \hline
 \end{tabular}
 \end{center}

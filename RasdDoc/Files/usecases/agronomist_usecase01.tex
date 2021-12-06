@@ -1,27 +1,29 @@
 % Use Case Table
 
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Choosing the location}\\
+    \textbf{Name} & Choosing the location\\
     \hline
-   	\textbf{Actor} & \textit{Agronomist}\\
+   	\textbf{Actor} & Agronomist\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user has opened the app and is logged in}\\
+    \textbf{Entry Conditions} & The user has the application open and has logged in with valid credentials.\\
     \hline
-    \textbf{Events Flow} & \textit{\begin{enumerate}
-            \item The user open the "My area" section of the application
-            \item The user selects the area he/she his responsible of on a map
-       \end{enumerate}}\\
+    \textbf{Events Flow} & \begin{enumerate}
+            \item \hl{The user opens the "My Area"} section of the application.
+            % should we specify that user selects an "edit" button?
+            \item The user selects the area in which they are responsible for on the map.
+       \end{enumerate}\\
     \hline
-    \textbf{Exit Conditions} & \textit{The system saves the area chosen }\\
+    \textbf{Exit Conditions} & The system saves the area chosen.\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
         \begin{itemize}
-          \item The site is not accessible at the moment so the user is asked to try again later
+          \item The site is not accessible at the moment so the user is asked to try again later.
         \end{itemize}
-     }\\
+     \\
     \hline
 \end{tabular}
 \end{center}

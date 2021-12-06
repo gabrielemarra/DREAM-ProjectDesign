@@ -1,36 +1,37 @@
 % Use Case Table
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Add field location with GPS}\\
+    \textbf{Name} & Add field location with GPS\\
     \hline
-   	\textbf{Actor} & \textit{Farmer}\\
+   	\textbf{Actor} & Farmer\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user uses valid credentials to log into the application and is physically in the field}\\
+    \textbf{Entry Conditions} & The user logs into the application with valid credentials and is physically in the field.\\
     \hline
-    
-    \textbf{Events Flow} & \textit{
+    \textbf{Events Flow} & 
     		\begin{enumerate}
-    			\item The user opens the "My fields" section
-    			\item The user clicks on the "Add new field" button
-    			\item The user allows the application to locate him using GPS
-    			\item The user adds information about the size of the field and the crop currently planted
-    			\item The user clicks on the "Submit" button
+    			\item The user opens the "My Fields" section.
+    			\item The user clicks on the "Add New Field" button.
+    			\item The user is prompted to allow the application to use their GPS location.
+    			\item The user clicks on the "Allow" button, allowing the application to locate them using GPS.
+    			\item The user adds information about the size of the field, crop currently planted, the fertilizer in use, and any other information they deem relevant.
+    			\item The user clicks on the "Submit" button.
     		\end{enumerate}
-    	}\\
+    	\\
     \hline
-    \textbf{Exit Conditions} & \textit{The user submits the information about the new field}\\
+    \textbf{Exit Conditions} & The user submits the information about the new field.\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
     		\begin{itemize}
-    			\item The server is not available
-    			\item The application is not able to use the GPS
-    			\item The user doesn't allow the application to use GPS
-    			\item The provided information is not valid
-    			\item Some required information is left empty
+    			\item The server is not available.
+    			\item The application is not able to use the GPS.
+    			\item The user doesn't allow the application to use GPS.
+    			\item The provided information is not valid.
+    			\item Some required information is left empty.
     		\end{itemize}
-    }\\
+    \\
     \hline
 \end{tabular}
 \end{center}

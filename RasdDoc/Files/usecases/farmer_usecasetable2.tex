@@ -1,30 +1,33 @@
 % Use Case Table
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Visit the farmers forum}\\
+    \textbf{Name} & Visit the discussion forum\\
     \hline
-   	\textbf{Actor} & \textit{Farmer}\\
+   	\textbf{Actor} & Farmer\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user uses valid credentials to log into the application}\\
+    \textbf{Entry Conditions} & The logs into the application with valid credentials.\\
     \hline
-    \textbf{Events Flow} & \textit{
+    \textbf{Events Flow} & 
     		\begin{enumerate}
-    			\item The user opens the forums section
-    			\item The user opens a thread and reads the conversation
-    			\item The user answers to an existing thread
+    			\item The user opens the "Forums" section.
+    			\item The user opens a thread and reads the conversation.
+    			\item The user submits a post in an existing thread.
     		\end{enumerate}
-    	}\\
+    	\\
     \hline
-    \textbf{Exit Conditions} & \textit{The user closes the forum section or the entire application}\\
+    \textbf{Exit Conditions} & \begin{itemize}
+    	\item The user exits the "Forum" section.
+    	\item The user closes the entire application.\end{itemize}\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
     		\begin{itemize}
-    			\item The server is not available
-    			\item There are no existing thread
+    			\item The server is not available.
+    			\item There are no existing threads.
     		\end{itemize}
-    	}\\
+    	\\
     \hline
 \end{tabular}
 \end{center}

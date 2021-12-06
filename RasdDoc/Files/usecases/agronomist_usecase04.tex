@@ -1,30 +1,34 @@
 % Use Case Table
 
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Answer to help requests}\\
+    \textbf{Name} & Respond to help requests\\
     \hline
-   	\textbf{Actor} & \textit{Agronomist}\\
+   	\textbf{Actor} & Agronomist\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user has opened the app, is logged in, has inserted the area is responsible of and an help request has been sent to him}\\
+    \textbf{Entry Conditions} & The user has opened the application, logged in with valid credentials, specified their responsible area, and received at least one help request.\\
     \hline
-    \textbf{Events Flow} & \textit{\begin{enumerate}
-            \item The user clicks on the "help request" interface
-            \item The user can click on different help requests received by farmers
-            \item The user can inspect data about the farmer such as location, position on the ranking and evaluation
-            \item The user reads the help requests and can then reply with solutions and suggestions
-       \end{enumerate}}\\
+    \textbf{Events Flow} & \begin{enumerate}
+            \item The user clicks on the "Help Requests" button.
+            \item The user views the list of the the different help requests received from different farmers.
+            \item The user can select a farmer from the list of help request and inspect data about the farmer such as location, ranking, and evaluation.
+            \item The user reads the help requests and can then reply with solutions and suggestions.
+       \end{enumerate}\\
     \hline
-    \textbf{Exit Conditions} & \textit{The user has answered to the farmer and the response has been sent to him/her}\\
+    \textbf{Exit Conditions} & \begin{itemize}
+    	\item The user has answered to the farmer and the response has been sent to the farmer.
+    	\item The user navigates out of the "Help Requests" section.
+    \end{itemize}\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
        \begin{itemize}
-          \item The messages are not accessible at the moment the user is asked to try again later
-          \item A message cannot be sent in this moment the user is asked to try again later
+          \item The messages are not accessible at the moment the user is asked to try again later.
+          \item A message cannot be sent in this moment the user is asked to try again later.
         \end{itemize}
-     }\\
+     \\
     \hline
 \end{tabular}
 \end{center}

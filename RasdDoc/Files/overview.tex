@@ -1,10 +1,16 @@
 Here you can see how to include an image in your document.
 
 \subsection{Product Perspective}
-Here we include scenarios and further details on the shared phenomena and a domain model (class diagrams and statecharts)
+\begin{flushleft}
 
+Here we include scenarios and further details on the shared phenomena and a domain model (class diagrams and statecharts)
+\end{flushleft}
 
 \begin{itemize}
+\item
+include a class diagram?
+\item
+flow chart of system?
 \item
 main objective of this system is to serve as an interface (intermediary?) between the farmers, agronomists, and policy makers. 
 \item
@@ -19,67 +25,39 @@ strengthen the cohesiveness of the policies generated and informed by data provi
 
 
 \subsection{Product Functions}
+\begin{flushleft}
 
-\subsubsection{Data visualization for Farmers and Agronomists}
-DREAMS helps the farmers to visualize and analyze data about their production: providing simple graphs and statistics to the users, the app allows them to better understand their needs.\\
-In the section named "My Fields" each user can find personalized suggestions: thanks to the data provided by the farmers, DREAMS can recommend the type of crop to plant or the best fertilizer to use.\\
-DREAMS also provides the users a precise and constantly updated weather forecast with an incredible level of detail.
+Below is a description of all the main functions of the product. The functions described are generalizations of the specific goals of the product. There functions are further specified in the requirements section and are somewhat (loosely) demonstrated in the scenarios section. 
 
-\subsubsection{Support for farmers and discussion forums}
-With DREAMS, each farmer can easily ask for help or suggestions directly from professional agronomists: inside the "Ask experts" section, the user can send messages to agronomists and obtain vital information to improve their production.\\
-Another opportunity is the "Farmers Forum" where each farmer can ask for help from other farmers or read answers to already posted questions.
+\subsubsection{Data Visualization}
+DREAMS helps the farmers to visualize and analyze data about their production: providing simple graphs and statistics to the users, the app allows them to better understand their needs.In the section named "My Fields" each user can find personalized suggestions: thanks to the data provided by the farmers, DREAMS can recommend the type of crop to plant or the best fertilizer to use.DREAMS also provides the users a precise weather forecast that is constantly updated.
 
-\subsubsection{Farmer ranking for agronomist and policy makers}
-The DREAM system offers a ranking view to both agronomists and policy makers. Agronomists only see a ranking of the farmers inside their responsible area whereas policy makers can see a ranking of all the farmers involved in the DREAM initiative. By default, this ranking organizes farmers by their overall score which combines data such as crop quality, production yields, water usage, and evaluations by the agronomists. Users can also configure their ranking view to filter by one of these metrics, by location, or by other attributes of the farmers. 
-\subsubsection{Agronomist daily plan creation, edit and confirmation}
-The DREAM system helps the agronomists with a tool for daily plan creation, modification and confirmation. During the creation of the daily plan the system recommends farmers to visit based on their performance and frequency of visits of their farms. It also displays the map with all the farmers' fields and while the agronomists modifies the list of farmers to visit it updates the path connecting them. During the confirmation of the daily plan the system lets the agronomist insert all the data about the visits he/she performed during the day.
-%\subsubsection{View Weather Forecast Data}
-%\textbf{Agronomists and farmers can view weather forecast data.}
+\subsubsection{Support for Farmers and Discussion Forums}
+With DREAMS, each farmer can easily ask for help or suggestions directly from professional agronomists: inside the "Ask experts" section, the user can send messages to agronomists and obtain vital information to improve their production.Another opportunity is the "Farmers Forum" where each farmer can ask for help from other farmers or read answers to already posted questions.
 
-%OLD PRODUCT FUNCTION
+\subsubsection{Performance Visualization and Evaluations}
+The DREAM system offers agronomists and policy makers a visualization of the performance of the farmers by means of a ranked list view. Agronomists only visualize the performance of the farmers inside their responsible area whereas policy makers can visualize the performance of all the farmers involved in the DREAM initiative. By default, this visualization of the ranking organizes farmers by their overall score which combines data such as crop quality, production yields, water usage, and evaluations by the agronomists. Users can also configure their ranking view to filter by one of these metrics, by location, or by other attributes of the farmers. \\
+\smallskip
+In addition to a visualization of performance, policy makers can also access evaluations of the farmers issued by agronomists that enable the policy makers to determine the efficacy of the support provided to the farmer. 
 
-%\subsubsection{Enable Help Requests and Exchange of Suggestions+discussion---merge the two}
-%\subsubsection{Sub area?}
-%\subsubsection{View Ranking of Farmers  for agronomists +policy makers}
-%\subsubsection{Manage Daily Plans and edit and modify} 
-%\subsubsection{Modify and Edit Daily Plans}
-%\subsubsection{View Performance and Ranking of Farmers (policy makers)}
-%\subsubsection{View Efficacy of Support Provided.}
-
-
-
-%\input{Files/requirements_table.tex}
+\subsubsection{Daily Plan}
+The DREAM system provides the agronomists a tool for managing their daily plans with functions such as plan creation, modification and confirmation. During the creation of the daily plan the system recommends farmers to visit based on the performance of the farmers and the \hl{and frequency of visits of their farms}. The system also displays a map containing all the fields of the farmers. As the agronomist modifies their list of farmers to visit as part of the daily plan, the DREAM system updates the travel path connecting the fields. During the confirmation of the daily plan, the system allows the agronomist insert all the data about the visits they performed during the day.
+\end{flushleft}
 
 \subsection{User Characteristics}
 \begin{flushleft}
-This system expects three different types of users: farmer, agronomist, and policy maker.
+Users of the system fall into one of the following categories: farmer, agronomist, or policy maker.
 \subsubsection{Farmer}
-A farmer is a type of user that intends to use the DREAM system to visualize data relevant to them: for example, weather forecasts, personalized suggestions concerning specific crops to plant, or specific fertilizers to use.
-Using the DREAM system, a farmer would like to ask for help and suggestions from a professional agronomist or other farmers.\\
+A farmer is the type of user that intends to use the DREAM system to visualize data relevant to them such as: weather forecasts or personalized suggestions. Personalized suggestions generated by the DREAM product may consist of new crops to consider planting, different fertilizers to try, or other cultivating methods to attempt. Farmers can also use the DREAM system to ask professional agronomists and other nearby farmers for help and suggestions.\\
 \subsubsection{Agronomist}
-An Agronomist is a type of user that intends to use the DREAM system to make their job easier. Agronomists want to: receive information about requests for help from the farmers and answer to them; inspect rankings and evaluation about farmers performance; have a tool for the creation, modification and confirmation of daily plan for farms' visits.
+An Agronomist is a type of user that intends to use the DREAM system as a tool to manage some of their job responsibilities. Agronomists want to: receive requests for help from the farmers; answer requests from farmers; inspect rankings of the performance of farmers; provide evaluations regarding farmers performance; utilize a tool to create, modify and confirm daily plans to manage farms visits.
 \subsubsection{Policy Maker}
 A Telangana policy maker is a type of user that intends to use the DREAM system to drive policy decisions. Policy makers are mainly interested in accessing rankings and evaluations of all the farmers in the entire area as well as identifying broader trends in the data such as relating the community-provided support to production outcomes. Since policy makers have a more holistic view of the region, they use the DREAM system to configure metrics that are used to classify "well-performing" and "poor-performing" farmers based on rankings, evaluations, and data.\\
-%\begin{itemize}
-%\item
-%mainly interested in seeing the evaluations generated by the system
-%\item 
-%may configure the metric to classify “well-performing” and “bad-performing” farmers based on rankings generated by system, evaluations from data, and natural/ climate circumstances specific to the year 
-%\item
-%will use the results seen on DREAM system to make policy decisions. These policy decisions exists outside of the system but will eventually affect the farmers and their production therefore may have an indirect after-effect on the data later inputted into the system
-%\item
-%the system should provide sufficient and clear data and analysis to enable telengana policy makers to make clear determinations of the efficacy of their policy decisions. 
-%\end{itemize}
-%
-
-
-
 \end{flushleft}
 
-
 \subsection{Assumptions, dependencies and constraints}
-Here we include domain assumptions
-
+\begin{flushleft}
+The following table lists the domain assumptions relevant to the context in which the DREAM system operates.
+\end{flushleft} 
 \input{Files/assumptions.tex}
-
 

@@ -1,33 +1,40 @@
 % Use Case Table
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
+
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Asking advice to agronomists}\\
+    \textbf{Name} & Asking for advice from agronomists\\
     \hline
-   	\textbf{Actor} & \textit{Farmer}\\
+   	\textbf{Actor} & Farmer\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user uses valid credentials to log into the application}\\
+    \textbf{Entry Conditions} & The user logs into the application with valid credentials.\\
     \hline
     
-    \textbf{Events Flow} & \textit{
+    \textbf{Events Flow} & 
     		\begin{enumerate}
-    			\item The user opens the "Ask experts" section
-    			\item The user selects the assigned agronomist
-    			\item The user writes a short request and submit it
-    			\item After receiving a notification, The user can see the answer
-    			\item Eventually, The user can continue the conversation asking further questions
+    			\item The user opens the "Ask Experts" section.
+    			\item The user selects their assigned agronomist.
+    			\item The user writes a request for help.
+    			\item The user submits the written request.
+    			\item After receiving notification of an answer, the user can see the response from the agronomist.
+    			\item The user can continue the conversation by asking more questions.
     		\end{enumerate}
-    	}\\
+    	\\
     \hline
-    \textbf{Exit Conditions} & \textit{The conversation is closed by either the farmer or the agronomist}\\
+    \textbf{Exit Conditions} & \begin{itemize}
+    	\item The conversation is closed by the farmer.
+    	\item The conversation is closed by the agronomist.
+    	\end{itemize}
+    	\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
     		\begin{itemize}
-    		    	\item The server is not available
-    			\item The agronomist doesn't answer to the message
+    		    	\item The server is not available.
+    			\item The agronomist does not answer to the message.
     		\end{itemize}
-    }\\
+    \\
     \hline
 \end{tabular}
 \end{center}

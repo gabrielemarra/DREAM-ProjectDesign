@@ -1,31 +1,31 @@
 % Use Case Table
 
 \begin{center}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
-
     \hline
-    \textbf{Name} & \textit{Daily plan creation}\\
+    \textbf{Name} & Creating a daily plan\\
     \hline
-   	\textbf{Actor} & \textit{Agronomist}\\
+   	\textbf{Actor} & Agronomist\\
     \hline
-    \textbf{Entry Conditions} & \textit{The agronomist has opened the app and is logged in}\\
+    \textbf{Entry Conditions} & The user has opened the application and logged in with valid credentials.\\    
     \hline
-    \textbf{Events Flow} & \textit{\begin{enumerate}
-            \item The user clicks on the daily plans interface
-            \item The user clicks on create a new daily plan
-            \item The user chooses a day from a calendar
-            \item The user can then choose multiple farmers to visit that day from a list of recommended ones
-            \item Whenever a farmer is added to the daily plan the system recalculates the best path that connects all selected farmers and updates the map
-       \end{enumerate}}\\
+    \textbf{Events Flow} & \begin{enumerate}
+            \item The user clicks on the daily plans interface.
+            \item The user clicks on the "Create New Plan" button.
+            \item The user selects a day from a calendar interface.
+            \item The user can then choose multiple farmers to visit that day from a list of recommended farmers.
+            \item Whenever a farmer is added to the daily plan the system recalculates the best path that \hl{connects} all selected farmers and updates the map.
+       \end{enumerate} \\
     \hline
-    \textbf{Exit Conditions} & \textit{The daily plan is created and inserted in the “your daily plans” section by the system}\\
+    \textbf{Exit Conditions} & The daily plan is created and inserted in the “Your Daily Plans” section.\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} &
       \begin{itemize}
-          \item The server is not responding so the user is asked to try again later
-          \item The google API is not working at the moment so the user is asked to try again later
+          \item The server is not responding.% so the user is asked to try again later
+          \item The Google API is not working.% at the moment so the user is asked to try again later
         \end{itemize}
-     }\\
+ \\
     \hline
 \end{tabular}
 \end{center}

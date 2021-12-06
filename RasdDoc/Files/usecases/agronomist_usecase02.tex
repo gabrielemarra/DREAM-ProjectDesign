@@ -4,25 +4,27 @@
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
 
     \hline
-    \textbf{Name} & \textit{Viewing the ranking}\\
+    \textbf{Name} & Viewing the ranking\\
     \hline
-   	\textbf{Actor} & \textit{Agronomist}\\
+   	\textbf{Actor} & Agronomist\\
     \hline
-    \textbf{Entry Conditions} & \textit{The user has opened the app, is logged in and has inserted the area is responsible of}\\
+    
+    %The user logs into the application with valid credentials
+    \textbf{Entry Conditions} & The user has opened the application, logged in with valid credentials, and specified their responsible area. \\
     \hline
-    \textbf{Events Flow} & \textit{\begin{enumerate}
-            \item The user clicks on the farmers ranking interface 
-            \item The user can view general statistics of the area
-            \item The user can click on any farmer to view his/her evaluation and statistics
-       \end{enumerate}}\\
+    \textbf{Events Flow} & \begin{enumerate}
+            \item The user clicks on the farmers ranking interface.
+            \item The user can view general statistics of the area.
+            \item The user can click on any farmer to view their evaluation and statistics.
+       \end{enumerate}\\
     \hline
-    \textbf{Exit Conditions} & \textit{The user has inspected the information he/she wanted to }\\
+    \textbf{Exit Conditions} & The user selects another tab to exit the ranking view.\\
     \hline
-    \textbf{Exceptions} & \textit{
+    \textbf{Exceptions} & 
        \begin{itemize}
-          \item The database of farmers performance is not accessible at the moment the user is asked to try again later
+          \item The database of farmers performance is not accessible.% at the moment the user is asked to try again later.
         \end{itemize}
-     }\\
+     \\
     \hline
 \end{tabular}
 \end{center}
