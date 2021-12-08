@@ -61,8 +61,11 @@ sig Area {
 
 sig Plan {
 	visits : some Visit,
-	date : one Date
+	date : one Date,
+	confirmed : one Boolean
 }
+
+sig Boolean{}
 
 sig Visit {
 	farmers : one Farmer,
