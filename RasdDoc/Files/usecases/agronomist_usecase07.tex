@@ -1,0 +1,27 @@
+% Use Case Table
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|}
+    \hline
+    \textbf{Name} & Sending a report\\
+    \hline
+   	\textbf{Actor} & Agronomist\\
+    \hline
+    \textbf{Entry Conditions} & The user has opened the application, logged in with valid credentials, and specified their responsible area.\\    
+    \hline
+    \textbf{Events Flow} & 
+    	\begin{enumerate}
+            \item The user clicks on the daily plan interface.
+            \item The user click on the daily plan of the day and selects a farmer also based on the GPS position.
+            \item The user can fill a form about the farmer's data, evaluation and 
+       \end{enumerate}\\
+    \hline
+    \textbf{Exit Conditions} & The user has correctly sent the information to the server and the data have been saved.\\
+    \hline
+    \textbf{Exceptions} & 
+    	\begin{itemize}
+	    	\item The server is not accessible at the moment.
+    	\end{itemize}\\
+    \hline 
+\end{tabular}
+\end{center}
