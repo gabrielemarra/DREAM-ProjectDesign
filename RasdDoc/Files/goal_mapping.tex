@@ -1,0 +1,141 @@
+\newcommand\goal[1]{\item[[ G#1]]}
+\newcommand\dom[1]{\item[[ D#1]]}
+\newcommand\req[1]{\item[[ R#1]]}
+
+Requirements must ensure satisfaction of the goal given the context of the domain assumption.
+
+
+\begin{itemize}
+\goal{1} \textbf{Farmers can visualize relevant data and suggestions based on their location and type of production.}
+
+\begin{itemize}
+\dom{1}  Users must have a device connected to internet.
+\dom{2} To access to the system the user must have valid credentials.
+\dom{3} The data about weather forecast, the farmers and their production, the sensors, the agronomist are correct, complete and sent to the application
+\dom{4} The user has granted permission for GPS, notifications and disk usage
+\dom{5} Farmers have an existing system to quantify, track, and organize their production yields
+\dom{6} Users can successfully operate an interactive application
+
+\req{1} The system must allow the farmer to set the production types of their fields.
+\req{2} The system must allow the farmer to set the position of their fields manually.
+\req{3} The system must allow the farmer to set the position of their fields through their devices' GPS.
+\req{4} The system must keep track of the data about farmers
+\req{5} The system must provide an interface to visualize data
+\req{6} The system must be able to analyze data and show statistics
+\req{7} The system must enable farmers to modify their production type.
+\req{8} The system must enable farmers to report issues they may face. 
+\req{9} The system must allow the farmer to report production data at a frequency chosen by the farmer.
+\end{itemize}
+
+\goal{2}  \textbf{Agronomists and farmers can view weather forecast data.}
+
+\begin{itemize}
+\dom{7} Business competition will not influence the farmers' willingness to help
+\dom{8} Farmers are willing to ask for help from other farmers and/or agronomists
+\dom{9} Farmers have industry knowledge about fertilizers, crops, etc 
+\dom{10} Farmers are willing to interact with other farmers 
+
+\req{10} The system must retrieve the weather forecast data from the data that the Telengana government collects.
+\req{11} The system must show updated weather forecast data at most 5 minutes from which the data has been published by the Telengana government.
+\req{12} The system must provide weather data that forecasts at least 3 days ahead
+\req{13} The system must allow agronomists to access weather forecast data specific to their responsible area
+\req{14} The system must allow farmers to access weather forecast data based on their GPS location [or from the location of thier farm on record]
+
+\end{itemize}
+
+\goal{3} \textbf{Farmers can interact with others farmers and agronomists by requesting for help and suggestions.}
+
+\begin{itemize}
+
+
+\req{15} The system must provide an interface for farmers to request help and suggestions from other farmers
+\req{16} The system must provide an interface for farmers to recieve help requests and recieve suggestions sent to them from other farmers
+\req{17} The system must provide an interface for farmers to provide suggestions to other farmers
+\req{18} The system must provide an interface for farmers to respond to help requests sent to them from other farmers
+\req{19} The system must provide an interface for farmers to request help and suggestions from other agronomists
+\req{20} The system must provide an interface for agronomists to recieve help requests sent to them from other farmers
+\req{21} The system must provide an interface for agronomists to respond to help requests sent to them from other farmers 
+\req{22} The system must provide an interface for agronomists to provide suggestions to other farmers
+\end{itemize}
+
+\goal{4} \textbf{Farmers can create discussion forums with other farmers}
+\begin{itemize}
+\dom{11} Farmers can recognize issues and production abnormalities
+
+
+\req{23}  The system must provide a forum interface
+\req{24}  The system must allow the farmer to create discussion forums.
+\req{25}  The system must allow the farmer to create discussion forums.
+\req{26}  The system must allow farmers to post replies in the discussion forum
+\req{27}  The system must keep track of all the forum discussion
+\end{itemize}
+
+\goal{5} \textbf{Agronomists can supervise a sub-area inside the region}
+\begin{itemize}
+\dom{12} Agronomists are assigned an area by their superiors
+\dom{13} Agronomists can effectively manage an area assigned to them (ie, the agronomist is not overworked)
+
+\req{28} The system must allow agronomists to specify the geographic area in which they are responsible for.
+\req{29} The system must allow agronomists to specify the geographic area in which they are responsible for.
+\end{itemize}
+
+\goal{6} \textbf{Agronomists can view the ranking of farmers’ performance in their specific area.}
+\begin{itemize}
+\dom{14} Agronomists are experts in their field
+\dom{15} Agronomists will be effective in addressing issues farmers face
+\dom{15} DOMAIN ASSUMPTION RIPETUTAAAA (la 1)  Agronomists have access to an internet connection
+\dom{16} DOMAIN ASSUMPTION RIPETUTAAAA (la 6)  Agronomists can successfully operate an interactive application
+
+\req{30}  The system must be able to analyze data and show statistics
+\req{31}  The system must allow agronomist to view the list of all farmers in their area.
+\req{32}  The system must provide an evaluation of farmers such that the exaluation reflects the quality and quantity of their crop production
+\req{33}  The system must enable agronomists to access farmer evaluations from their specific area
+\req{34}  The system updates farmers' evaluation when new data is available (ie, new farmer event entries or after an agronomist visit, etc)
+\end{itemize}
+
+\goal{7} \textbf{Agronomists can visualize and update a daily plan to visit farms in their area}
+\begin{itemize}
+
+
+
+\req{35}  The system must provide an interface for daily plans
+\req{36}  The system must recomend which farmers should be included in the agronomist's daily plan
+\req{37}  The system must generate recomendations such that farmers are visited by their respective agronomists at least twice a year
+\req{38}  The system must generate recomendations such that farmers with low evaluation are visited more often than twice a year
+\req{39}  The system must allow agronomist to view the list of all farms to visit on a specific day.
+\req{40}  The system must allow agronomists to modify which farmers they visit in their plan
+\req{41}  The system must allow agronomists to specify and modify the duration of the visits in their plan
+\req{42}  The system must maintain a record of farmers who have been visited by their respective agronomists
+
+\end{itemize}
+
+\goal{8} \textbf{Agronomists can specify the deviations from their daily plan and confirm the execution of their daily plan at the end of each day. }
+\begin{itemize}
+\req{43} The system must allow agronomists to modify the daily plan at the end of the day.
+\req{44} The system must allow agronomists to confirm that the daily plan was executed that the end of that day
+\req{45} The system must not allow anymore modifications to the plan after the plan is confirmed by the agronomist
+\req{46} The system must only generate a new plan for a new day after the plan from the preceeding day was confirmed by the agronomist.
+\end{itemize}
+
+\goal{9} \textbf{Telengana’s policy makers can view the performance of the farmers and the ranking of the farmers. }
+\begin{itemize}
+\req{47} The system must allow Telengana’s policy makers to view the list of all farmers.
+\req{48} The system must allow Telengana’s policy makers to view the performance and evaluation of the farmers.
+\req{49} The system must allow Telengana’s policy makers to view the ranking of the farmers.
+\req{50} The system must allow Telengana’s policy makers to view well-performing and poor-performing farmers.
+\req{51} The system must allow Telengana’s policy makers to flag the farmers that need to be helped based on their performance.
+\end{itemize}
+
+\goal{10} \textbf{Telengana’s policy makers can use the system to determine if support from agronomists and well-performing farmers produces significant results.}
+
+\begin{itemize}
+\dom{24} Policy makers want to see the success of farmers in the form of production yields and crop quality
+
+\req{52} The system must designate each farmer a measure of support received by agronomists and other well-performing farmers.
+\req{53} The system must allow policy makers to view the history of farmers’ performance/ evaluation (score over time)
+\req{54} The system must allow Telengana policy makers to view this measure of support designated to each farmer.
+\end{itemize}
+
+
+
+\end{itemize}
