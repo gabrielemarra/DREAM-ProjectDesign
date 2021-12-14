@@ -4,9 +4,9 @@ abstract sig User {
 	email : one Email
 }
 
-sig Username {}
+sig Username {}{one u:User | u.username=this}
 
-sig Email {}
+sig Email {}{one u:User | u.email=this}
 
 sig Farmer extends User {
 	farm : one Farm, 
@@ -18,8 +18,6 @@ sig Farm{
 	farmer : one Farmer,
 	subarea : one Area
 }
-
-
 
 // Each Farm belongs to only one farmer and each farmer has only one farm
 fact {
@@ -119,7 +117,7 @@ sig Crop {
 	suggestedFertilizers : set Fertilizer
 }
 
-sig CropName{}
+sig CropName{}{one c:Crop | c.name=this}
 sig Date {}
 sig Time {}
 sig Timestamp{
@@ -132,7 +130,7 @@ sig Fertilizer {
 	suggestedCrops : set Crop
 }
 
-sig FertilizerName{}
+sig FertilizerName{}{one f:Fertilizer | f.name=this}
 
 
 
@@ -179,4 +177,4 @@ fact {
 	
 
 pred show{}
-run show for 6 but exactly 6 Field
+run show for 10
