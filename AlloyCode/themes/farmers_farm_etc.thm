@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Black">
+   <type name="Date"/>
+</node>
+
+<node color="Blue">
+   <type name="Fertilizer"/>
+   <type name="Username"/>
+</node>
+
+<node color="Gray">
+   <type name="Field"/>
+   <type name="SqMetersArea"/>
+</node>
+
+<node color="Green">
+   <type name="Farm"/>
+   <type name="User"/>
+</node>
+
+<node color="Red">
+   <type name="FertilizerName"/>
+</node>
+
+<node color="White">
+   <type name="FieldStatus"/>
+</node>
+
+<node color="Yellow">
+   <type name="Email"/>
+   <type name="HarvestAmount"/>
+</node>
+
+<node shape="Box">
+   <type name="Agronomist"/>
+</node>
+
+<node shape="Egg">
+   <type name="AgronimistReport"/>
+</node>
+
+<node shape="Hexagon" color="White">
+   <type name="CropName"/>
+</node>
+
+<node shape="House">
+   <type name="PolicyMaker"/>
+</node>
+
+<node shape="Inv House">
+   <type name="False"/>
+</node>
+
+<node shape="Inv Trapezoid">
+   <type name="True"/>
+</node>
+
+<node shape="Inv Triangle" color="Red">
+   <type name="Boolean"/>
+</node>
+
+<node shape="Lined Diamond" color="Gray">
+   <type name="Crop"/>
+</node>
+
+<node shape="Parallelogram" color="Blue">
+   <type name="Area"/>
+</node>
+
+<node shape="Trapezoid">
+   <type name="Farmer"/>
+</node>
+
+<node visible="no" color="Black">
+   <type name="Forum"/>
+   <type name="Plan"/>
+   <type name="ThreadTitle"/>
+</node>
+
+<node visible="no" color="Blue">
+   <type name="Location"/>
+   <type name="Request"/>
+</node>
+
+<node visible="no" color="Gray">
+   <type name="Message"/>
+   <type name="VisitDuration"/>
+</node>
+
+<node visible="no" color="Green">
+   <type name="PostContent"/>
+   <type name="Timestamp"/>
+</node>
+
+<node visible="no" color="Red">
+   <type name="Score"/>
+   <type name="Visit"/>
+</node>
+
+<node visible="no" color="White">
+   <type name="MessageContent"/>
+   <type name="Thread"/>
+   <type name="WaterUsage"/>
+</node>
+
+<node visible="no" color="Yellow">
+   <type name="Post"/>
+   <type name="Time"/>
+</node>
+
+<node visible="no" shape="Ellipse" color="Yellow">
+   <type name="Report"/>
+</node>
+
+</view>
+
+</alloy>
