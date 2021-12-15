@@ -10,7 +10,8 @@ sig Email {}{one u:User | u.email=this}
 
 sig Farmer extends User {
 	farm : one Farm, 
-	reports : set Report
+	reports : set Report,
+	requests : set Request
 }
 
 sig Farm{
@@ -102,15 +103,29 @@ sig Request{
 	agronomist : one Agronomist
 }
 
+//One Request belongs to only one Farmer and one Agronomist. Check also if the relation is bidirectional
+fact{
+	all r:Request | #{a:Agronomist | r in a.requests}=1
+	all r:Request | #{f:Farmer | r in f.requests}=1
+	all r:Request | one a:Agronomist | (r in a.requests) and (r.agronomist=a)
+	all r:Request | one f:Farmer | (r in f.requests) and (r.farmer=f)
+}
+
 sig Message {
 	request : one Request,
 	messageContent : one MessageContent,
 	sender : one User, 
 	receiver : one User,
 	timestamp : one Timestamp
+}{one r:Request | (request = r) and ( this in r.messages)}
+
+//One Message belongs to only one Request and receiver and sender must be the two User owning in the Request
+fact {
+	all m:Message | (m.sender=m.request.farmer and m.receiver=m.request.agronomist) or (m.sender=m.request.agronomist and m.receiver=m.request.farmer)
+	all m:Message | #{r:Request | m in r.messages}=1
 }
 
-sig MessageContent{}
+sig MessageContent{}{one m:Message | m.messageContent=this}
 
 sig Crop {
 	name : one CropName,
@@ -138,6 +153,7 @@ sig PolicyMaker extends User {
 	
 }
 
+//Only one Forum possible - Singleton
 one sig Forum {
 	threads: set Thread
 }
@@ -177,4 +193,4 @@ fact {
 	
 
 pred show{}
-run show for 10
+run show for 8 but exactly 2 Request, exactly 9 Message, exactly 9 MessageContent, exactly 4 Farmer, exactly 4 Agronomist
