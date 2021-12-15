@@ -1,7 +1,6 @@
 %Here you can see how to include an image in your document.
 
 \subsection{Product Perspective}
-
 %
 %
 %DREAM aims to make communication between the users more cohesive, agile, and effective.\\
@@ -27,7 +26,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% CLASS DIAGRAM  %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The UML class diagram provided shows a simplified view of the classes needed to support the functions expected by the system. This is not a comprehensive view of all the classes needed but rather a focused-view to capture the general decomposition of the different classes and the different relations.
+The UML class diagram provided shows a simplified view of the classes needed to support the functions expected by the system. This is not a comprehensive view of all the classes needed but rather a focused view to capture the general decomposition of the different classes and the different relations. In general, this class diagram shows the distinct classes needed to achieve the following main functions:
+\begin{itemize}
+\item farmers accessing a discussion board,
+\item farmers and agronomists issuing their respective reports,
+\item farmers and agronomists accessing weather data,
+\item agronomists managing their daily plan,
+\item and data being aggregated to generate rankings of farmers and suggestions for farmers. 
+\end{itemize} 
+\smallskip
 
 \begin{center}
 \includegraphics[scale=0.4]{../images_diagrams/class_diagram.drawio.png}
@@ -82,31 +89,7 @@ The Ranking class is related to the PolicyMaker class because policy makers must
 
 \item \textbf{PolicyMaker}\\
 The PolicyMaker class corresponds to a policy maker user. The class should have access to all the functions necessary to support the use cases related to a policy maker user. 
-
 \end{itemize}
-
-\subsubsection{Flowcharts}
-
-
-\begin{center}
-\includegraphics[scale=0.4]{../images_diagrams/adjustvisitpriority.png}
-\end{center}
-
-
-
-\begin{center}
-\includegraphics[scale=0.4]{../images_diagrams/agronomistexecutesplan.png}
-\end{center}
-
-text \\
-\medskip
-\\
-
-\begin{center}
-\includegraphics[scale=0.4]{../images_diagrams/newfarmerdata_trigger.png}
-\end{center}
-
-
 
 \subsection{Product Functions}
 \begin{flushleft}
@@ -139,10 +122,39 @@ An Agronomist is a type of user that intends to use the DREAM system as a tool t
 A Telangana policy maker is a type of user that intends to use the DREAM system to drive policy decisions. Policy makers are mainly interested in accessing rankings and evaluations of all the farmers in the entire area as well as identifying broader trends in the data such as relating the community-provided support to production outcomes. Since policy makers have a more holistic view of the region, they use the DREAM system to configure metrics that are used to classify "well-performing" and "poor-performing" farmers based on rankings, evaluations, and data.\\
 \end{flushleft}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% FLOWCHARTS %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Flowcharts}
+\begin{flushleft}
+This first UML flowchart describes the correlation between the agronomist user and the farmer user when the agronomist launches the interface to start a new daily plan. In the beginning of the flow, the agronomist can manually modify the farmers they are scheduled to visit that day. Then for each farmer the agronomist visits, the agronomist generates a report to capture a snapshot of the farmer's status. After visiting all the farmers scheduled, the agronomist must confirm all the details such as ensuring that all the reports are complete and all the farmers that were in fact visited are included. After confirming, the daily plan is submitted into the system.
+\end{flushleft}
+\begin{center}
+\includegraphics[scale=0.4]{../images_diagrams/agronomistexecutesplan.png}
+\end{center}
+
+\begin{flushleft}
+This UML flowchart goes into more detail about how the other elements in the system affect the method in which farmers are chosen when the agronomist launches a new daily plan. The general mandate is that farmers must be visited at least twice a year so the first pass deprioritizes farmers who have been visited more than twice in the last year. Then there is a check to increase the priority for farmers that have not yet met the twice-a-year minimum. Specifically, this pass looks for farmers in which it would be the last day to satisfy the minimum. The last pass increases the priority for farmers who have been flagged, either manually by policy makers or automatically by the triggers set in the system. This flowchart does not detail the specific way in with the farmer visiting queue is generated but instead gives a high level view of the other elements of the system that contribute to the calculation of the priority. 
+\end{flushleft}
+\begin{center}
+\includegraphics[scale=0.4]{../images_diagrams/adjustvisitpriority.png}
+\end{center}
+
+\begin{flushleft}
+This UML flowchart provides a simple view of how the farmer user is indirectly related to the policy maker user. The policy maker is the responsible user for generating triggers. When the farmer user enters new data, the system checks if any of the triggers are satisfied. If so, the system automatically flags the farmer and notifies the policy maker who configured the trigger. 
+\end{flushleft}
+\begin{center}
+\includegraphics[scale=0.4]{../images_diagrams/newfarmerdata_trigger.png}
+\end{center}
+
+
 \subsection{Assumptions, dependencies and constraints}
 \subsubsection{Domain Assumptions}
 \begin{flushleft}
-The following table lists the domain assumptions relevant to the context in which the DREAM system operates.
+The following table lists the domain assumptions that are relevant to the context in which the DREAM system operates. 
 \end{flushleft} 
 \input{Files/assumptions.tex}
 \begin{flushleft}
@@ -151,20 +163,18 @@ The following table lists the domain assumptions relevant to the context in whic
 
 \subsubsection{Dependencies}
 \begin{flushleft}
-\begin{itemize}
-
-\item uses google api when generating the travel itinerary for the farmers inserted into a daily plan
-\item suggestions class uses an API with raw agriculture data for 1000+ crops (made up?) instead: database with this information is build by agronomists before; it is assumed our system will access this db
-\item weather forecast data comes from telangana data source 
-\end{itemize}
-
+To support the travel itinerary generated agronomists build their daily plan, the DREAM back-end must utilize the Google Maps API. \\
+\smallskip 
+The weather data is retrieved from the data collected by the Telangana State Development Planning Society. The TSDPS publishes temperature, rainfall, and humidity data retrieved by over 1000 automated weather stations scattered in the region. The data used by the DREAM system will use the respective data from the closest weather station to the GPS location of the farmer and the currentness of the data is limited to how often the TSDPS publishes the data. \\
+\smallskip
+The personalized suggestions provided to the farmers rely on a database with agricultural data built by agronomists. It is assumed that this database exists and our system can access it. \\
 \end{flushleft}
 
 \subsubsection{Constraints}
 \begin{flushleft}
-\begin{itemize}
-\item location data must be provides by either contsenting to GPS or manually entering a valid address
-\item must have good security because farmer's data is sensitive; this data reveals practices for which their livelihood relies on. also telangana credentials are sensitive and must be checked against the gov cendentials 
-\item policy makers might need training on how to configure different filters and triggers, since they will have access to alot of somewhat raw data. the tools can be very powerful in configuring different views of the data
-\end{itemize}
+Users must consent to allow the software to use their GPS location otherwise the location data must be entered manually. This includes farmers when they are accessing weather data or entering the location of their individual fields as well as agronomists when providing the start point for the travel itinerary in the daily plan interface. \\
+\smallskip
+The system must have effective security measures in place to secure the farmers' sensitive data. The farmers' data is sensitive because their livelihood depends on their agricultural practices Additionally, since policy makers have special privileges to view farmers' data from the entire region, their credentials must be secured, as well. If the policy makers log in as government employees, their credentials must be kept very secure.\\
+\smallskip
+Policy makers may need training on how to configure different filters and triggers, since they will have access to a lot of raw data. The filters and triggers can be very powerful in configuring different views of the data and the rankings but training may be requirement to enable policy makers to take full advantage of the tools. 
 \end{flushleft}
