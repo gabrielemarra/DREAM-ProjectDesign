@@ -10,7 +10,7 @@ sig Email {}{one u:User | u.email=this}
 
 sig Farmer extends User {
 	farm : one Farm, 
-	reports : set Report,
+	farmerReports : set FarmerReport,
 	requests : set Request
 }
 
@@ -22,16 +22,18 @@ sig Farm{
 
 // Each Farm belongs to only one farmer and each farmer has only one farm
 fact {
-	all ff:Farm | one f:Farmer|f.farm=ff and ff.farmer=f
+	all ff:Farm, f:Farmer|f.farm=ff iff ff.farmer=f
 }
 
 //Production data? Production problems?
-sig Report{
+abstract sig Report{
 	timestamp : one Timestamp,
 	fieldStatus : one FieldStatus,
 	waterUsage : lone WaterUsage,
 	harvestAmount : lone HarvestAmount
 }
+
+sig FarmerReport extends Report{}{#{f:Farmer | this in f.farmerReports}=1}
 
 sig WaterUsage{}
 
@@ -53,6 +55,7 @@ sig Field{
 fact {
 	all fi:Field | one f:Farm| (fi in f.fields) and (fi.farm=f)
 	all fi:Field | #{f:Farm | fi in f.fields}=1
+	//all fi:Field, f:Farm | (fi in f.fields) iff (fi.farm=f)
 }
 
 
@@ -76,9 +79,9 @@ sig Plan {
 	visits : some Visit,
 	date : one Date,
 	confirmed : one Boolean
-}
+}{#{a:Agronomist|this in a.plans}=1}
 
-sig Boolean {}
+abstract sig Boolean {}
 
 one sig True, False extends Boolean {}
 
@@ -86,14 +89,14 @@ sig Visit {
 	farmers : one Farmer,
 	time : one Time,
 	duration : one VisitDuration,
-	report : one AgronimistReport
-}
+	agronomistReport : one AgronimistReport
+}{#{p:Plan | this in p.visits}=1}
 
 sig VisitDuration{}
 
 sig AgronimistReport extends Report{
 	score : one Score
-}
+}{one v:Visit|v.agronomistReport = this}
 
 sig Score {}
 
@@ -145,10 +148,14 @@ sig Fertilizer {
 	suggestedCrops : set Crop
 }
 
+//If a fertilizer is suggested for a specific crop, then that crop should be also listed in the suggested crop field 
+fact {
+	all f:Fertilizer, c:Crop| (f in c.suggestedFertilizers) iff (c in f.suggestedCrops)
+}
+
 sig FertilizerName{}{one f:Fertilizer | f.name=this}
 
-
-
+//todo
 sig PolicyMaker extends User {
 	
 }
@@ -193,4 +200,4 @@ fact {
 	
 
 pred show{}
-run show for 8 but exactly 2 Request, exactly 9 Message, exactly 9 MessageContent, exactly 4 Farmer, exactly 4 Agronomist
+run show for 8 but exactly 4 Farmer, exactly 8 Field
