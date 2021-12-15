@@ -33,7 +33,13 @@ abstract sig Report{
 	harvestAmount : lone HarvestAmount
 }
 
-sig FarmerReport extends Report{}{#{f:Farmer | this in f.farmerReports}=1}
+sig FarmerReport extends Report{}
+
+//Each Report belongs to only one Farmer
+fact {
+	all f1,f2:Farmer, fr:FarmerReport | ((fr in f1.farmerReports) and (fr in f2.farmerReports)) implies f1=f2
+	all fr:FarmerReport | one f:Farmer | fr in f.farmerReports
+}
 
 sig WaterUsage{}
 
@@ -53,9 +59,7 @@ sig Field{
 
 // Each Field belongs to only one farm and the relation is bidirectional
 fact {
-	all fi:Field | one f:Farm| (fi in f.fields) and (fi.farm=f)
-	all fi:Field | #{f:Farm | fi in f.fields}=1
-	//all fi:Field, f:Farm | (fi in f.fields) iff (fi.farm=f)
+	all fi:Field, f:Farm | (fi in f.fields) iff (fi.farm=f)
 }
 
 
@@ -79,7 +83,13 @@ sig Plan {
 	visits : some Visit,
 	date : one Date,
 	confirmed : one Boolean
-}{#{a:Agronomist|this in a.plans}=1}
+}
+
+// Each Plan belongs to only one Agronomist
+fact {
+	all a1,a2:Agronomist, p:Plan | ((p in a1.plans) and (p in a2.plans)) implies a1=a2
+	all p:Plan | one a:Agronomist | p in a.plans
+}
 
 abstract sig Boolean {}
 
@@ -90,7 +100,13 @@ sig Visit {
 	time : one Time,
 	duration : one VisitDuration,
 	agronomistReport : one AgronimistReport
-}{#{p:Plan | this in p.visits}=1}
+}
+
+// Each Visit belongs to only one plan
+fact{
+	all p1,p2:Plan, v:Visit | ((v in p1.visits) and (v in p2.visits)) implies p1=p2
+	all v:Visit | one p:Plan | v in p.visits
+}
 
 sig VisitDuration{}
 
@@ -108,8 +124,8 @@ sig Request{
 
 //One Request belongs to only one Farmer and one Agronomist. Check also if the relation is bidirectional
 fact{
-	all r:Request | #{a:Agronomist | r in a.requests}=1
-	all r:Request | #{f:Farmer | r in f.requests}=1
+	all a1,a2:Agronomist, r:Request| ((r in a1.requests) and (r in a2.requests)) implies a1=a2
+	all f1,f2:Farmer, r:Request| ((r in f1.requests) and (r in f2.requests)) implies f1=f2
 	all r:Request | one a:Agronomist | (r in a.requests) and (r.agronomist=a)
 	all r:Request | one f:Farmer | (r in f.requests) and (r.farmer=f)
 }
@@ -125,7 +141,7 @@ sig Message {
 //One Message belongs to only one Request and receiver and sender must be the two User owning in the Request
 fact {
 	all m:Message | (m.sender=m.request.farmer and m.receiver=m.request.agronomist) or (m.sender=m.request.agronomist and m.receiver=m.request.farmer)
-	all m:Message | #{r:Request | m in r.messages}=1
+	all r1,r2:Request, m:Message | ((m in r1.messages) and (m in r2.messages)) implies r1=r2
 }
 
 sig MessageContent{}{one m:Message | m.messageContent=this}
@@ -200,4 +216,4 @@ fact {
 	
 
 pred show{}
-run show for 8 but exactly 4 Farmer, exactly 8 Field
+run show for 12 but exactly 7 Request, exactly 3 Agronomist, exactly 3 Farmer, exactly 12 Message
