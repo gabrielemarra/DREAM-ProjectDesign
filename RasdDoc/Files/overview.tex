@@ -1,27 +1,111 @@
-Here you can see how to include an image in your document.
+%Here you can see how to include an image in your document.
 
 \subsection{Product Perspective}
-\begin{flushleft}
 
-Here we include scenarios and further details on the shared phenomena and a domain model (class diagrams and statecharts)
-\end{flushleft}
+%
+%
+%DREAM aims to make communication between the users more cohesive, agile, and effective.\\
+%
+%between farmers and agronomists, \\
+%
+%DREAM provides a tool for agronomists to manage visits to the farmers that belong to htier responsible area. \\
+%
+%dream provides an interface for farmers to enter their data related to their production. also dream serves as a informational tool for farmers to quickly access weather forecast data, suggestions regarding fertilizer or cultivation methods as well as access to a discussion forum to seek support from their community. the key point of dream is that since all the data is entered in the system, the suggestions are more personalized and influenced (?) by the historical data. these suggestions and data are also corrected by anecdotal data provided by other neighboring farmers. \\
+%
+%back to agronomists, they also use DREAM to verify the data entered by the farmers when they visit. \\
+%
+%additionally, all of this data is used to generate scores and rankings of the farmers' performance.\\
+%
+%these rankings serves as a concise and compact way for policy makers to evaluate the performance of the farmers. policy makers can access rankings and evaluations from different axes. this is a key point, that with all the data in one place and with the added automation of rankings and evaluations based on the raw data inputted, policy makers have immediate access to data so this super speeds up the timeline it takes to roll out different policies. makes data immediately accessible. accelerates the turn around time to launch new policies, \\
+%speeds the time \\
+%accelerates \\
+%skips? \\
+%by providing direct access... streamline**
+%the suggestion class generates suggestions using data from the weather, 
 
+\subsubsection{Class Diagram}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% CLASS DIAGRAM  %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The UML class diagram provided shows a simplified view of the classes needed to support the functions expected by the system. This is not a comprehensive view of all the classes needed but rather a focused-view to capture the general decomposition of the different classes and the different relations.
+
+\begin{center}
+\includegraphics[scale=0.4]{../images_diagrams/class_diagram.drawio.png}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% DESCRIPTION OF CLASSES %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The following classes are represented in the class diagram:
 \begin{itemize}
-\item
-include a class diagram?
-\item
-flow chart of system?
-\item
-main objective of this system is to serve as an interface (intermediary?) between the farmers, agronomists, and policy makers. 
-\item
-intention is that this system will incorporate data-driven [blank] and include community focused [blank]? 
-\item
-this system will bridge the gap across these stakeholders with the goal for the telengana to to produce more effective and data-driven policies.
-\item
-since this is a big problem, with many involved people, people geographically spread out, etc this system provides an interface to that data can be shared and effectively used across users. 
-\item
-strengthen the cohesiveness of the policies generated and informed by data provided by users
+
+\item \textbf{Farmer}\\
+The Farmer class corresponds to a farmer user. The class should have access to all the functions necessary to support the use cases related to a farmer user. 
+
+\item \textbf{Farm}\\
+The Farm class corresponds to a farm. As demonstrated by the class diagram, each instance of the Farm class is managed by one Farmer. The Telangana region is split into multiple subareas therefore the Farm class is associated with a subarea, not one GPS location.
+
+\item \textbf{Field}\\
+The Field class is distinct from the Farm class to enable a farmer to manage physically disjoint properties. Each farm is made up of one or more fields. Each field has its own GPS location as well as other agriculture-specific attributes.
+
+\item \textbf{Report}\\
+The FarmerReport class is related to the Farmer class because farmers can submit reports with data regarding their fields in order to maintain a historical record of their progress. 
+
+\item \textbf{DiscussionBoard}\\
+The Farmer class also interacts with the DiscussionBoard class to indicate that the farmer user can interact with the discussion board. For simplicity, other classes that support the implementation of the forum, such as a Thread class or a Post class, are abstracted into DiscussionBoard. 
+
+\item \textbf{Agronomist}\\
+The Agronomist class corresponds to an agronomist user. The class should have access to all the functions necessary to support the use cases related to an agronomist user. 
+
+\item \textbf{AgronomistReport}\\
+The AgronomistReport class extends from the Report class that is used by the Farmer class. The difference is that the AgronomistReport also includes a numerical score issued by the agronomist user. 
+
+\item \textbf{DailyPlan}\\
+The DailyPlan class is related to the Agronomist class because the plans created are specifically for agronomists. This class includes all the functions necessary to support an agronomist user managing their daily plan such as viewing the route, modifying the farmers included in the plan, or entering reports for each farmer visit. Again, the other classes necessary to support the implementation of these functions are abstracted into DailyPlan.
+
+\item \textbf{Weather}\\
+The Weather class is related to both the Farmer class and the Agronomist class because both the farmer user and agronomist user need to access weather information. Again, other classes necessary to implement an interface to visualize weather data such as in a map view are not abstracted out for simplicity.
+\smallskip\\
+Since the Agronomist class is associated with an assigned subarea, the class diagram omits an Area class and relates the Agronomist class with the Weather class directly. Similarly, since the Farmer class is associated with a Farm class which is associated with as many Field classes which is associated with a GPS location for each field overseen by a farmer, the Farmer class can relate to the Weather class directly. 
+
+\item \textbf{Message}\\
+The Message class is related to the Farmer class and the Agronomist class because both the farmer users and the agronomist users can send and receive messages to each other. Again, other classes that may be necessary to implement the messaging feature are ommited from this diagram for simplicity.
+
+\item \textbf{Data}\\
+The Data class aggregates data from the Weather class, the Report class, and the AgronomistReport class. This class uses that data to generate suggestions and rankings, hence the relation to the Suggestion class and the Ranking class. 
+
+\item \textbf{Suggestion}\\
+The Suggestion class is related to the Farmer class because personalized suggestions are auto-generated and issued to farmers based on the data aggregated in the Data class.
+
+\item \textbf{Ranking}\\
+The Ranking class is related to the PolicyMaker class because policy makers must access ranking views of the farmers. The Ranking class is also related to the Agronomist class because agronomists must also access ranking views of the farmers, but their view is limited to the farmers in their subarea. These configurable ranking views are based on the data aggregated in the Data class. This ranking influences the priority farmers are given when scheduling the daily plans for agronomists, therefore the Ranking class is related to the DailyPlan class.
+
+\item \textbf{PolicyMaker}\\
+The PolicyMaker class corresponds to a policy maker user. The class should have access to all the functions necessary to support the use cases related to a policy maker user. 
+
 \end{itemize}
+
+\subsubsection{Flowcharts}
+
+
+\begin{center}
+\includegraphics[scale=0.4]{../images_diagrams/adjustvisitpriority.png}
+\end{center}
+
+
+
+\begin{center}
+\includegraphics[scale=0.4]{../images_diagrams/agronomistexecutesplan.png}
+\end{center}
+
+text \\
+\medskip
+\\
+
+\begin{center}
+\includegraphics[scale=0.4]{../images_diagrams/newfarmerdata_trigger.png}
+\end{center}
+
 
 
 \subsection{Product Functions}
@@ -56,8 +140,31 @@ A Telangana policy maker is a type of user that intends to use the DREAM system 
 \end{flushleft}
 
 \subsection{Assumptions, dependencies and constraints}
+\subsubsection{Domain Assumptions}
 \begin{flushleft}
 The following table lists the domain assumptions relevant to the context in which the DREAM system operates.
 \end{flushleft} 
 \input{Files/assumptions.tex}
+\begin{flushleft}
 
+\end{flushleft}
+
+\subsubsection{Dependencies}
+\begin{flushleft}
+\begin{itemize}
+
+\item uses google api when generating the travel itinerary for the farmers inserted into a daily plan
+\item suggestions class uses an API with raw agriculture data for 1000+ crops (made up?) instead: database with this information is build by agronomists before; it is assumed our system will access this db
+\item weather forecast data comes from telangana data source 
+\end{itemize}
+
+\end{flushleft}
+
+\subsubsection{Constraints}
+\begin{flushleft}
+\begin{itemize}
+\item location data must be provides by either contsenting to GPS or manually entering a valid address
+\item must have good security because farmer's data is sensitive; this data reveals practices for which their livelihood relies on. also telangana credentials are sensitive and must be checked against the gov cendentials 
+\item policy makers might need training on how to configure different filters and triggers, since they will have access to alot of somewhat raw data. the tools can be very powerful in configuring different views of the data
+\end{itemize}
+\end{flushleft}
