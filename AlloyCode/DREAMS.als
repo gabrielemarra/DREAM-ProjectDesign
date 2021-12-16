@@ -35,7 +35,7 @@ abstract sig Report{
 
 sig FarmerReport extends Report{}
 
-//Each Report belongs to only one Farmer
+//Each FarmerReport belongs to only one Farmer
 fact {
 	all f1,f2:Farmer, fr:FarmerReport | ((fr in f1.farmerReports) and (fr in f2.farmerReports)) implies f1=f2
 	all fr:FarmerReport | one f:Farmer | fr in f.farmerReports
@@ -77,6 +77,15 @@ sig Location {}{one f:Field | f.location=this}
 sig Area {
 	farms : some Farm,
 	agronomists : some Agronomist
+}
+
+//A farm belongs to only one Area
+
+//TODO 
+fact {
+	all a1,a2:Area, f:Farm | ((f in a1.farms) and (f in a2.farms)) implies a1=a2
+	//all a:Area| f:Farm | (f in a.farms) implies f.subarea=a
+	//all a:Area | one f:Farm | (f in a.farms) and (f.subarea=a)
 }
 
 sig Plan {
@@ -138,7 +147,7 @@ sig Message {
 	timestamp : one Timestamp
 }{one r:Request | (request = r) and ( this in r.messages)}
 
-//One Message belongs to only one Request and receiver and sender must be the two User owning in the Request
+//One Message belongs to only one Request and receiver and sender must be the two Users owning the Request
 fact {
 	all m:Message | (m.sender=m.request.farmer and m.receiver=m.request.agronomist) or (m.sender=m.request.agronomist and m.receiver=m.request.farmer)
 	all r1,r2:Request, m:Message | ((m in r1.messages) and (m in r2.messages)) implies r1=r2
@@ -171,7 +180,7 @@ fact {
 
 sig FertilizerName{}{one f:Fertilizer | f.name=this}
 
-//todo
+//TODO
 sig PolicyMaker extends User {
 	
 }
@@ -186,6 +195,11 @@ sig Thread {
 	posts : some Post,
 	creator : one Farmer,
 	timestamp : one Timestamp
+}
+
+//Thread belogns to the FORUM
+fact {
+	all t:Thread, f:Forum | t in f.threads
 }
 
 sig ThreadTitle {}
@@ -205,15 +219,15 @@ sig Post {
 // Check bidirectional relation between Post and Thread
 fact {
 	all p:Post | one t:Thread | (p.thread = t) and (p in t.posts)
+	all t1, t2: Thread, p:Post | ((p in t1.posts) and (p in t2.posts)) implies t1=t2
 }
 
 sig PostContent{}
 
-// Each PostContent has one thread
+// Each PostContent has one post
 fact {
 	all pc:PostContent | one p:Post | pc = p.postContent 
 }
-	
 
 pred show{}
-run show for 12 but exactly 7 Request, exactly 3 Agronomist, exactly 3 Farmer, exactly 12 Message
+run show for 8 but exactly 4 Thread, exactly 8 PostContent, exactly 3 Farmer
