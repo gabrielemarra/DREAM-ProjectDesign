@@ -2,13 +2,14 @@
 
 \newcounter{phenomena_counter}
 \setcounter{phenomena_counter}{1}
-
-\begin{center}
+\begin{table}[hb]
+\centering
+\caption{\label{tab:addOne{table_counter}} Caption hello why out of order!}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|} \hline
     \textbf{World Phenomena} & \textbf{Description}\\\hline
 	WP\addOne{phenomena_counter} & An agronomist visits a farm\\\hline
 	WP\addOne{phenomena_counter} & Farmer has an issue with the farm\\\hline
-
 \end{tabular}
-\end{center}
+
+\end{table}

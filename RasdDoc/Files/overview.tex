@@ -1,26 +1,6 @@
 %Here you can see how to include an image in your document.
 
 \subsection{Product Perspective}
-%
-%
-%DREAM aims to make communication between the users more cohesive, agile, and effective.\\
-%
-%between farmers and agronomists, \\
-%
-%DREAM provides a tool for agronomists to manage visits to the farmers that belong to htier responsible area. \\
-%
-%dream provides an interface for farmers to enter their data related to their production. also dream serves as a informational tool for farmers to quickly access weather forecast data, suggestions regarding fertilizer or cultivation methods as well as access to a discussion forum to seek support from their community. the key point of dream is that since all the data is entered in the system, the suggestions are more personalized and influenced (?) by the historical data. these suggestions and data are also corrected by anecdotal data provided by other neighboring farmers. \\
-%
-%back to agronomists, they also use DREAM to verify the data entered by the farmers when they visit. \\
-%
-%additionally, all of this data is used to generate scores and rankings of the farmers' performance.\\
-%
-%these rankings serves as a concise and compact way for policy makers to evaluate the performance of the farmers. policy makers can access rankings and evaluations from different axes. this is a key point, that with all the data in one place and with the added automation of rankings and evaluations based on the raw data inputted, policy makers have immediate access to data so this super speeds up the timeline it takes to roll out different policies. makes data immediately accessible. accelerates the turn around time to launch new policies, \\
-%speeds the time \\
-%accelerates \\
-%skips? \\
-%by providing direct access... streamline**
-%the suggestion class generates suggestions using data from the weather, 
 
 \subsubsection{Class Diagram}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,11 +14,13 @@ The UML class diagram provided shows a simplified view of the classes needed to 
 \item agronomists managing their daily plan,
 \item and aggregating data to generate rankings of farmers and suggestions for farmers. 
 \end{itemize} 
-\smallskip
 
-\begin{center}
-\includegraphics[scale=0.4]{../images_diagrams/class_diagram.drawio.png}
-\end{center}
+\begin{figure}[hbt!]
+\centering
+\includegraphics[scale=0.35]{../images_diagrams/class_diagram.drawio.png}
+\caption{\label{fig:addOne{figure_counter}}this is the caption for class diagram}
+\end{figure}
+\medskip
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% DESCRIPTION OF CLASSES %%%%%
@@ -132,23 +114,38 @@ A Telangana policy maker is a type of user that intends to use the DREAM system 
 \begin{flushleft}
 This first UML flowchart describes the correlation between the agronomist user and the farmer user when the agronomist launches the interface to start a new daily plan. In the beginning of the flow, the agronomist can manually modify the farmers they are scheduled to visit that day. Then for each farmer the agronomist visits, the agronomist generates a report to capture a snapshot of the farmer's status. After visiting all the farmers scheduled, the agronomist must confirm all the details such as ensuring that all the reports are complete and all the farmers that were in fact visited are included. After confirming, the daily plan is submitted into the system.
 \end{flushleft}
-\begin{center}
+
+
+
+\begin{figure}[hbt!]
 \includegraphics[scale=0.4]{../images_diagrams/agronomistexecutesplan.png}
-\end{center}
+
+\caption{\label{fig:addOne{figure_counter}}This flowchart shows the process of the agronomist entering their reports as they visit the farmers in their plan. After all the farmers have been visited, the agronomist can modify the plan and other details before confirming the plan.}
+
+
+\end{figure}
 
 \begin{flushleft}
 This UML flowchart goes into more detail about how the other elements in the system affect the method in which farmers are chosen when the agronomist launches a new daily plan. The general mandate is that farmers must be visited at least twice a year, therefore the first pass deprioritizes farmers who have been visited more than twice in the last year. Then, there is a check to increase the priority for farmers that have not yet met the twice-a-year minimum. Specifically, this pass looks for farmers where it would be the last day to satisfy the minimum. The last pass increases the priority for farmers who have been flagged, either manually by policy makers or automatically by the triggers set in the system. This flowchart does not detail the specific way in which the farmer visiting queue is generated but instead gives a high-level view of the other elements of the system that contribute to the calculation of the priority. 
 \end{flushleft}
-\begin{center}
+
+\begin{figure}[hbt!]
 \includegraphics[scale=0.4]{../images_diagrams/adjustvisitpriority.png}
-\end{center}
+\caption{\label{fig:addOne{figure_counter}}This flowchart gives a general sense of how DREAM determines the priority for the farmers when providing agronomists a list of recommended farmers to visit for that day.}
+\end{figure}
+
+\newpage
 
 \begin{flushleft}
 This UML flowchart provides a simple view of how the farmer user is indirectly related to the policy maker user. The policy maker is the responsible user for generating triggers. When the farmer user enters new data, the system checks if any of the triggers are satisfied. If so, the system automatically flags the farmer and notifies the policy makers. 
 \end{flushleft}
-\begin{center}
+
+
+\begin{figure}[hbt!]
 \includegraphics[scale=0.4]{../images_diagrams/newfarmerdata_trigger.png}
-\end{center}
+\caption{\label{fig:addOne{figure_counter}}This flowchart demonstrates how farmers and policy makers are indirectly related.}
+
+\end{figure}
 
 
 \subsection{Assumptions, dependencies and constraints}
