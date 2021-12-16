@@ -153,6 +153,8 @@ fact{
 	all r:Request | one f:Farmer | (r in f.requests) and (r.farmer=f)
 }
 
+//TODO at least one message send by a farmer
+
 sig Message {
 	request : one Request,
 	messageContent : one MessageContent,
@@ -302,6 +304,30 @@ pred createThread (newThread:Thread, forum:Forum, f:Farmer, tt:ThreadTitle, firs
 	forum.threads = forum.threads + newThread
 }
 //run createThread for 6 but exactly 6 Post, exactly 2 Farmer, exactly 2 Thread
+
+pred sendMessage (newMessage:Message, req:Request, mc:MessageContent, sen: User, rec:User, ts:Timestamp){
+	newMessage.request = req
+	newMessage.messageContent = mc
+	newMessage.sender = sen
+	newMessage.receiver = rec
+	newMessage.timestamp = ts
+	
+	req.messages = req.messages + newMessage
+}
+//run sendMessage for 6 but exactly 4 Message
+
+pred sendRequestToAgronomist (newRequest: Request, firstMessage:Message, far:Farmer, agr:Agronomist, mc:MessageContent, ts:Timestamp){
+	newRequest.farmer = far
+	newRequest.agronomist = agr
+	
+	sendMessage[firstMessage, newRequest, mc, far, agr, ts]
+	
+	far.requests = far.requests + newRequest
+	agr.requests = agr.requests + newRequest	
+}
+
+run sendRequestToAgronomist for 6 but exactly 4 Message
+
 
 //pred show{}
 //run show for 8 but exactly 4 Farmer
