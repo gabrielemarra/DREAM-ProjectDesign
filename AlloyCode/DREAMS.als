@@ -66,7 +66,7 @@ fact {
 sig SqMetersArea{}
 
 sig Agronomist extends User {
-	subarea : lone Area,
+	subarea : one Area,
 	plans : set Plan,
 	requests : set Request
 }
@@ -80,12 +80,15 @@ sig Area {
 }
 
 //A farm belongs to only one Area
-
-//TODO 
 fact {
 	all a1,a2:Area, f:Farm | ((f in a1.farms) and (f in a2.farms)) implies a1=a2
-	//all a:Area| f:Farm | (f in a.farms) implies f.subarea=a
-	//all a:Area | one f:Farm | (f in a.farms) and (f.subarea=a)
+	all a:Area, f:Farm | (f in a.farms) iff (f.subarea=a)
+}
+
+//An Agronomist belongs to only one Area
+fact {
+	all a1,a2:Area, ag:Agronomist | ((ag in a1.agronomists) and (ag in a2.agronomists)) implies a1=a2
+	all a:Area, ag:Agronomist | (ag in a.agronomists) iff (ag.subarea=a)
 }
 
 sig Plan {
@@ -230,4 +233,4 @@ fact {
 }
 
 pred show{}
-run show for 8 but exactly 4 Thread, exactly 8 PostContent, exactly 3 Farmer
+run show for 3 //but exactly 3 Area, exactly 5 Agronomist, exactly 6 Farm
