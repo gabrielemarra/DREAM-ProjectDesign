@@ -65,6 +65,11 @@ fact {
 
 sig SqMetersArea{}
 
+
+//TODO
+sig Suggestion {}
+
+
 sig Agronomist extends User {
 	subarea : one Area,
 	plans : set Plan,
@@ -183,10 +188,7 @@ fact {
 
 sig FertilizerName{}{one f:Fertilizer | f.name=this}
 
-//TODO
-sig PolicyMaker extends User {
-	
-}
+sig PolicyMaker extends User {}
 
 //Only one Forum possible - Singleton
 one sig Forum {
@@ -232,5 +234,43 @@ fact {
 	all pc:PostContent | one p:Post | pc = p.postContent 
 }
 
+abstract sig Ranking {
+	farmers: some Farmer,
+	rankingType: one RankingType
+}
+
+sig RankingType{}
+
+sig PolicyRanking extends Ranking{}
+
+//All farmers listed in the Ranking and Rankings
+fact {
+	all pr:PolicyRanking, f:Farmer | f in pr.farmers
+	}
+
+//Two different PolicyRankings with same farmers have different Type
+fact {
+	all pr1, pr2:PolicyRanking | ((pr1.farmers=pr2.farmers) and (pr1.rankingType=pr2.rankingType)) implies pr1=pr2
+}
+
+sig AgronomistRanking extends Ranking{
+	allowedAgronomists: set Agronomist,
+	area: one Area
+}
+
+//Agronomists can see the rankings of only their Area
+//Contains only the Farmer in that Area
+fact {
+	all ar:AgronomistRanking, f:Farmer | (f in ar.farmers) iff (f.farm.subarea=ar.area)
+	all ar:AgronomistRanking, a:Agronomist | (a in ar.allowedAgronomists) iff (a.subarea=ar.area)
+}
+
+//Two different PolicyRankings with same Area have different Type (check only Area, not farmers and allowedAgronomists)
+fact {
+	all ar1, ar2:AgronomistRanking | ((ar1.area=ar2.area) and (ar1.rankingType=ar2.rankingType)) implies ar1=ar2
+}
+
+//TODO if same area, different types
+
 pred show{}
-run show for 3 //but exactly 3 Area, exactly 5 Agronomist, exactly 6 Farm
+run show for 8 but exactly 4 Farmer, exactly 3 AgronomistRanking, exactly 2 Area, exactly 3 RankingType
