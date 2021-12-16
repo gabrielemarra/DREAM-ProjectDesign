@@ -338,9 +338,33 @@ pred sendRequestToAgronomist (newRequest: Request, firstMessage:Message, far:Far
 	far.requests = far.requests + newRequest
 	agr.requests = agr.requests + newRequest	
 }
-
 //run sendRequestToAgronomist for 6 but exactly 4 Message
 
+pred createAgronomistReport (newReport: AgronimistReport, vis:Visit, ts:Timestamp, fs: FieldStatus, wu:WaterUsage, ha:HarvestAmount, sc:Score){
+	newReport.timestamp = ts
+	newReport.fieldStatus = fs
+	newReport.waterUsage = wu
+	newReport.harvestAmount = ha
+	newReport.score = sc
+	
+	vis.agronomistReport = newReport
+}
+//run createAgronomistReport for 4
+
+pred createVisit (newVisit: Visit, p:Plan, f:Farmer, t:Time, dur: VisitDuration, ar:AgronimistReport){
+	newVisit.farmer = f
+	newVisit.time = t
+	newVisit.duration = dur
+	newVisit.agronomistReport = ar
+	
+	p.visits = p.visits + newVisit 
+}
+//run createVisit for 4
+
+pred confirmPlan (p:Plan){
+	p.confirmed = True
+}
+run confirmPlan for 3 
 
 pred show{}
-run show for 12 but exactly 4 Farmer, exactly 4 Visit, exactly 4 Area
+//run show for 12 but exactly 4 Farmer, exactly 4 Visit, exactly 4 Area
