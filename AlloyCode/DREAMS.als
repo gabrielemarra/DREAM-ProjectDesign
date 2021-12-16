@@ -68,7 +68,6 @@ fact {
 sig SqMetersArea{}
 
 
-//TODO
 sig Suggestion {}
 
 //All suggestion belongs to different farmers
@@ -277,5 +276,32 @@ fact {
 	all ar1, ar2:AgronomistRanking | ((ar1.area=ar2.area) and (ar1.rankingType=ar2.rankingType)) implies ar1=ar2
 }
 
-pred show{}
-run show for 8 but exactly 4 Farmer
+pred flagFarmer (f:Farmer){
+	f.policyMakerFlag = True
+}
+//run flagFarmer for 5 but exactly 2 Farmer
+
+//Create a new Post inside a Thread
+pred createPost (newPost:Post, t:Thread, pc:PostContent, f:Farmer, ts:Timestamp){
+	newPost.thread = t
+	newPost.postContent = pc
+	newPost.creator = f
+	newPost.timestamp = ts
+	
+	t.posts = t.posts + newPost
+}
+
+//Create a new Thread inside the Farmers' Forum
+pred createThread (newThread:Thread, forum:Forum, f:Farmer, tt:ThreadTitle, firstPost:Post, pc:PostContent, ts: Timestamp){
+	newThread.title = tt
+	newThread.creator = f
+	newThread.timestamp = ts
+	
+	createPost[firstPost, newThread, pc, f, ts]
+	
+	forum.threads = forum.threads + newThread
+}
+//run createThread for 6 but exactly 6 Post, exactly 2 Farmer, exactly 2 Thread
+
+//pred show{}
+//run show for 8 but exactly 4 Farmer
