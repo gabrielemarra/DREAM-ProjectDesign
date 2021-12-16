@@ -11,7 +11,9 @@ sig Email {}{one u:User | u.email=this}
 sig Farmer extends User {
 	farm : one Farm, 
 	farmerReports : set FarmerReport,
-	requests : set Request
+	requests : set Request,
+	policyMakerFlag: one Boolean,
+	suggestions: set Suggestion
 }
 
 sig Farm{
@@ -68,6 +70,11 @@ sig SqMetersArea{}
 
 //TODO
 sig Suggestion {}
+
+//All suggestion belongs to different farmers
+fact {
+	all f1, f2: Farmer, s:Suggestion | ((s in f1.suggestions) and (s in f2.suggestions)) implies f1=f2
+}
 
 
 sig Agronomist extends User {
@@ -202,7 +209,7 @@ sig Thread {
 	timestamp : one Timestamp
 }
 
-//Thread belogns to the FORUM
+//Thread belongs to the FORUM
 fact {
 	all t:Thread, f:Forum | t in f.threads
 }
@@ -270,7 +277,5 @@ fact {
 	all ar1, ar2:AgronomistRanking | ((ar1.area=ar2.area) and (ar1.rankingType=ar2.rankingType)) implies ar1=ar2
 }
 
-//TODO if same area, different types
-
 pred show{}
-run show for 8 but exactly 4 Farmer, exactly 3 AgronomistRanking, exactly 2 Area, exactly 3 RankingType
+run show for 8 but exactly 4 Farmer
