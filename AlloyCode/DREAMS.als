@@ -27,7 +27,7 @@ fact {
 	all ff:Farm, f:Farmer|f.farm=ff iff ff.farmer=f
 }
 
-//Production data? Production problems?
+//TODO Production data? Production problems?
 abstract sig Report{
 	timestamp : one Timestamp,
 	fieldStatus : one FieldStatus,
@@ -119,10 +119,14 @@ abstract sig Boolean {}
 one sig True, False extends Boolean {}
 
 sig Visit {
-	farmers : one Farmer,
+	farmer : one Farmer,
 	time : one Time,
 	duration : one VisitDuration,
 	agronomistReport : one AgronimistReport
+}
+
+fact {
+	all a:Agronomist, p:Plan, v:Visit, f:Farmer | ((p in a.plans) and (v in p.visits) and (f=v.farmer)) implies (a.subarea = v.farmer.farm.subarea)
 }
 
 // Each Visit belongs to only one plan
@@ -153,7 +157,16 @@ fact{
 	all r:Request | one f:Farmer | (r in f.requests) and (r.farmer=f)
 }
 
-//TODO at least one message send by a farmer
+//The Agronomist inside the request must be the one of the subarea of the Farm 
+fact {
+	all r:Request | r.agronomist.subarea = r.farmer.farm.subarea
+}
+
+
+//At least one message send by a farmer
+fact {
+	all r:Request | some m: Message | (m in r.messages) and (m.sender=r.farmer)
+}
 
 sig Message {
 	request : one Request,
@@ -326,8 +339,8 @@ pred sendRequestToAgronomist (newRequest: Request, firstMessage:Message, far:Far
 	agr.requests = agr.requests + newRequest	
 }
 
-run sendRequestToAgronomist for 6 but exactly 4 Message
+//run sendRequestToAgronomist for 6 but exactly 4 Message
 
 
-//pred show{}
-//run show for 8 but exactly 4 Farmer
+pred show{}
+run show for 12 but exactly 4 Farmer, exactly 4 Visit, exactly 4 Area
