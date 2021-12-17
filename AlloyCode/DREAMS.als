@@ -316,8 +316,8 @@ pred createThread (newThread:Thread, forum:Forum, f:Farmer, tt:ThreadTitle, firs
 	
 	forum.threads = forum.threads + newThread
 }
-//run createThread for 6 but exactly 6 Post, exactly 2 Farmer, exactly 2 Thread
 
+//Send a Message inside a Request
 pred sendMessage (newMessage:Message, req:Request, mc:MessageContent, sen: User, rec:User, ts:Timestamp){
 	newMessage.request = req
 	newMessage.messageContent = mc
@@ -327,8 +327,8 @@ pred sendMessage (newMessage:Message, req:Request, mc:MessageContent, sen: User,
 	
 	req.messages = req.messages + newMessage
 }
-//run sendMessage for 6 but exactly 4 Message
 
+//A Farmer create a new Request sending the first Message
 pred sendRequestToAgronomist (newRequest: Request, firstMessage:Message, far:Farmer, agr:Agronomist, mc:MessageContent, ts:Timestamp){
 	newRequest.farmer = far
 	newRequest.agronomist = agr
@@ -338,8 +338,8 @@ pred sendRequestToAgronomist (newRequest: Request, firstMessage:Message, far:Far
 	far.requests = far.requests + newRequest
 	agr.requests = agr.requests + newRequest	
 }
-//run sendRequestToAgronomist for 6 but exactly 4 Message
 
+// Create an AgronomistReport inside a Visit
 pred createAgronomistReport (newReport: AgronimistReport, vis:Visit, ts:Timestamp, fs: FieldStatus, wu:WaterUsage, ha:HarvestAmount, sc:Score){
 	newReport.timestamp = ts
 	newReport.fieldStatus = fs
@@ -349,8 +349,8 @@ pred createAgronomistReport (newReport: AgronimistReport, vis:Visit, ts:Timestam
 	
 	vis.agronomistReport = newReport
 }
-//run createAgronomistReport for 4
 
+// Create an agronomist Visit inside a Plan
 pred createVisit (newVisit: Visit, p:Plan, f:Farmer, t:Time, dur: VisitDuration, ar:AgronimistReport){
 	newVisit.farmer = f
 	newVisit.time = t
@@ -359,12 +359,27 @@ pred createVisit (newVisit: Visit, p:Plan, f:Farmer, t:Time, dur: VisitDuration,
 	
 	p.visits = p.visits + newVisit 
 }
-//run createVisit for 4
 
+// Confirm an existing Plan
 pred confirmPlan (p:Plan){
 	p.confirmed = True
 }
-run confirmPlan for 3 
+
+// All the farmers have at least an associated agronomist
+assert allFarmersHaveAtLeastAnAgronomist {
+	all f:Farmer | some a:Agronomist | f.farm.subarea = a.subarea
+}
+
 
 pred show{}
-//run show for 12 but exactly 4 Farmer, exactly 4 Visit, exactly 4 Area
+
+//RUN
+run show for 12
+run createThread for 6
+run sendMessage for 6
+run sendRequestToAgronomist for 6
+run createAgronomistReport for 4
+run createVisit for 4
+run confirmPlan for 3
+check allFarmersHaveAtLeastAnAgronomist for 10
+
