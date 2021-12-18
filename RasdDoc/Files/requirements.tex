@@ -1,7 +1,4 @@
-Organize this section according to the rules defined in the project description. 
 \subsection{External Interface Requirements}
-
-
 
 \subsubsection{User Interfaces}
 \subsubsection{App Mockups}
@@ -86,6 +83,7 @@ Definition of use case diagrams, use cases and associated sequence/activity diag
 %inspect weather forecast
 \input{Files/usecases/agronomist_usecase03.tex}
 
+\newpage
 %POLICY MAKERS
 \subsubsection{Policy Maker}
 %\input{Files/usecases/policy_scenario1.tex}
@@ -104,6 +102,12 @@ Definition of use case diagrams, use cases and associated sequence/activity diag
 \input{Files/usecases/policy_usecase1.tex}
 
 
+\begin{figure}[hbt!]
+\centering
+\includegraphics[scale=0.6]{../images_diagrams/usecasediagram.png}
+\caption{\label{fig:usecase}Use case diagram.}
+\end{figure}
+
 \newpage
 \subsection{Sequence Diagrams}
 
@@ -111,30 +115,35 @@ Definition of use case diagrams, use cases and associated sequence/activity diag
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/farmer_askExperts.png}
-\caption{\label{fig:addOne{figure_counter}}Sequence Diagram for Farmer.}
+\caption{\label{fig:farmerSeqRequest}Sequence Diagram for Farmer.}
 \end{figure}
-text text hello describe
+
+\begin{flushleft}
+As demonstrated in the sequence diagram, when the farmer user access the "Ask Experts" area in the application, the farmer will send a request for help to their assigned agronomist in the form of a message. The agronomist and the farmer can continue to exchange messages until either user chooses to end the conversation.
+\end{flushleft}
 
 
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/farmer_createThread.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Farmer.}
+\caption{\label{tab:farmerSeqNewThread}Sequence Diagram for Farmer.}
 \end{figure}
 
-test test describe hello
-
+\begin{flushleft}
+This sequence diagram shows the exchange of information between the user and the DREAM application when the farmer user creates a new thread. After the user publishes the new thread, the DREAM application has to save the submitted form and update its servers.
+\end{flushleft}
 
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/farmer_newField.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Farmer.}
+\caption{\label{tab:farmerSeqNewField}Sequence Diagram for Farmer.}
 \end{figure}
 
-hello hello why is there so much space 
-
+\begin{flushleft}
+This sequence diagram shows how the farmer user interacts with the DREAMs application when adding a new field to their farm. Part of adding a new field to their farm involves providing the GPS location (if the user chooses to consent the DREAM application to access their location) and entering some information about the field such as the crop planted and the fertilizer used. After submitting the necessary information, the DREAM application saves and updated its servers and the farmer can then view the new field in their "My Fields" interface. 
+\end{flushleft}
 
 
 
@@ -143,66 +152,116 @@ hello hello why is there so much space
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_choosingLocation.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Agronomist.}
+\caption{\label{fig:agrSeqArea}Sequence Diagram for Agronomist.}
 \end{figure}
 
+\begin{flushleft}
+This sequence diagram shows how the agronomist user interacts with the DREAM servers when modifying the area that they are responsible of with a map display interface. 
+\end{flushleft}
 
-\begin{figure}[hbt!]
-\centering
-\includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_confirmPlan.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Agronomist.}
-\end{figure}
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_createPlan.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Agronomist.}
+\caption{\label{fig:agrSeqCreatePlan}Sequence Diagram for Agronomist.}
 \end{figure}
+\begin{flushleft}
+This sequence diagram shows how the agronomist user interacts with the DREAM servers when creating a new daily plan in the daily plan interface including some of the specific calls that occur between the DREAM servers and the user's device. As the agronomist modifying the list of farmers to visit for the day, the agronomist's map is updated to show the new navigation path. From the list of farmers to visit, the agronomist can confirm or cancel /remove each farmer from the plan. Then, at the end, the agronomist can confirm the daily plan and the data is updated on the DREAM servers. 
+\end{flushleft}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_confirmPlan.png}\\
+\caption{\label{fig:agrSeqConfirmPlan}Sequence Diagram for Agronomist.}
+\end{figure}
+
+\begin{flushleft}
+This sequence diagram shows how the agronomist user interacts with the DREAM servers when confirming a daily plan. Confirmation of a daily plan should occur after the agronomist has completed all the farmers they intend to visit that day. When confirming, the agronomist can modify the plan so that the plan accurately reflects the visits that the agronomist actually completed that day.
+\end{flushleft}
+
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_sendReport.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Agronomist.}
+\caption{\label{fig:agrSeqSendReport}Sequence Diagram for Agronomist.}
 \end{figure}
 
 \subsubsection{Policy Maker}
 
+
+
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_setFlag.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Policy Maker.}
+\caption{\label{fig:policySeqSetFlag}Sequence Diagram for Policy Maker.}
 \end{figure}
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_setTrigger.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Policy Maker.}
+\caption{\label{fig:policySeqSetTrig}Sequence Diagram for Policy Maker.}
 \end{figure}
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_viewRanking.png}\\
-\caption{\label{tab:addOne{figure_counter}}Sequence Diagram for Policy Maker.}
+\caption{\label{fig:policySeqViewRank}Sequence Diagram for Policy Maker.}
 \end{figure}
 
 
-
-%
-%\textbf{EXAMPLE:} if the system determines that precipitation levels are decreasing and enabling a water scarcity crisis, policy makers should be able to see that identify that trend in the system and this can motivate them to enforce policy such as investing in water irrigation technologies that increase efficiency and reduce water waste. Once such policies are in place, telengana policy makers can identify if the new policy mediates the water scarcity problem. 
-%\\
-
-% \input{Files/usecases/usecase6.tex}
-% .......
-
-
 \subsection{Performance Requirements}
+- many users
+- expected widespread use among farmer population
+-policy makers are not many, about 100 users
+- main thing will be the amount of data to handle
+- 
+
+
 \subsection{Design Constraints}
+
+
+
+
 \subsubsection{Standards compliance}
+-security?
+-geolocation?
+-government 
 \subsubsection{Hardware limitations}
+- for the policy makers, thier screen must be sufficient to generate good and accurate visutalizations of the data
+- gps sensors on devices are not required because users can enter location data manually but it would 1) make for a more seamless user expereince and 2) more convenient for the user
+- cameras are not required but definitely can be helpful and effective when farmers communicate their issues in their requests for help
+- need good internet connects so devices must be somewhat current 
+- 
+
 \subsubsection{Any other constraints}
-\subsection{Software System Attributes}
+since we are going to be working with alot of data, the interface should be simple enough as to not overwhelm the user but also ensure that the user has access to all the feature, tools, and configurations (ie, policy makers and agronomists configuring ranking views, or farmers providing qualitative data. 
+
+
+
 \subsubsection{Reliability}
+- data backups 
+
+
+mtbf: mean time between failure
+mttf: mean time to failure
+mttr: mean time to recover
 \subsubsection{Availability}
+policy makers will work exclusively during buisness hours: access to DREAM servers msut be available
+agronomists will also work during business hours so this is also just dream servers
+farmers may have extended hours but suggestions (access to external db generated by agronomists can be made; also a possibility: farmers can complete their data entry while physically in their fields but then the app submits their data when they get stable internet connection
+
+also access to a db can be done during evenings. off hours when traffic across the DREAM servers is low to distribute strain on the system
 \subsubsection{Security}
+
+log in credentials may be extra sensitive because some users are government employees
+farmer data is senstive, because 1) their livelihood and 2) address information
 \subsubsection{Maintainability}
+scalability as data collection grows
+good coding practices
+adherence to standards
+
 \subsubsection{Portability}
+android devices
+ios devices
+web browser
+

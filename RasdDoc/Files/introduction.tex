@@ -5,34 +5,37 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% THE PROBLEM %%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The world's food supply chain is threatened by climate change and an unsustainable rate of rising population. Since the Telangana region largely participates in the world's food economy, the Telangana government is interested in pursuing initiatives aimed at mitigating the effect of these issues. In this case, the Telangana government wants to reform the way they build their policies around food production. Their goal is to utilize digital public goods and community-centric approaches in order to build resiliency against these dynamic challenges by building policies that are more agile and data-driven. 
-
+The world's food supply chain is threatened by climate change and an unsustainable rate of rising population. Since the Telangana region largely participates in the world's food economy, the Telangana government is interested in pursuing initiatives aimed at mitigating the effect of these issues. More specifically, the Telangana government aims to reform the way they build their policies related to food production. Their goal is to utilize digital public goods and community-centric approaches in order to build resiliency against these dynamic challenges by building policies that are more agile and data-driven. 
+\end{flushleft}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% PURPOSE %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Purpose}
 \subsubsection{Purpose of the Document}
-The purpose of this document is to provide a comprehensive description of the requirements and specifications of the project. This includes clearly defining the problem, then specifying the expectations of the proposed solution. In order to provide a comprehensive analysis of the requirements and specifications of the DREAM product, the product will be described in terms of the necessary functions required and a look at how the product will serve its specific users. Then, the requirements will be detailed including the interface requirements, functional requirements, and the performance requirements. The requirements defined will be subsequently analyzed using Alloy. 
+\begin{flushleft}
+The purpose of this document is to present a comprehensive description of the requirements and specifications for the project. This is achieved by outlining the main goals of the product as well as describing the domain. The product will be specified further with the aid of more detailed descriptions, models, and diagrams. This document will specify all the information needed to understand exactly the requirements that should be satisfied. 
+\end{flushleft} 
 
-\subsubsection{Purpose of the Project}
-The purpose of this effort is to provide a solution to address the problem previously outlined. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% THE PROPOSED SOLUTION %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This initiative, named {\bf D}ata-d{\bf R}iven Pr{\bf E}dictive F{\bf A}r{\bf M}ing, or DREAM, intends to provide a solution that focuses on serving the needs of three stakeholders: farmers, agronomists, and policy makers. 
-\smallskip \\
+\subsubsection{Purpose of the Product}
+The purpose of the product is to provide a solution to address the problem previously outlined. 
+This initiative, named {\bf D}ata-d{\bf R}iven Pr{\bf E}dictive F{\bf A}r{\bf M}ing, or DREAM, intends to provide a solution that focuses on serving the needs of three stakeholders: farmers, agronomists, and policy makers as shown in \textbf{Figure \ref{fig:stakeholders}}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% GENERAL DIAGRAM %%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}
+\begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{../images_diagrams/stakeholders_in_broader_gov_objective.png}
-\caption{The main objective of this initiative may involve many stakeholders but we will focus on farmers, agronomists, and policy holders.}\label{fig:addOne{figure_counter}}
+\caption{The main objective and the primary stakeholders.}
+\label{fig:stakeholders}
 \end{figure}
 
-
-The general aim is to take advantage of the present-day abundance of data and potential for platforms to streamline communication. By introducing data analysis, farmers can have access to automated solutions, therefore tackling their issues with agility and confidence. Additionally, by offering a means of communication, farmers can leverage their own community as a resource for information and support. Regarding policy makers and agronomists, the product will serve as a tool to aid their respective work-flows. 
+\begin{flushleft}
+The general aim is to take advantage of the present-day abundance of data and the potential for platforms to streamline communication. By utilizing data analysis, farmers can have access to automated solutions, therefore tackling their issues with agility and confidence. Additionally, by offering a means of communication, farmers can leverage their own community as a resource for information and support. Regarding policy makers and agronomists, the product will serve as a tool to aid their respective work-flows. 
 \end{flushleft}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,13 +43,14 @@ The general aim is to take advantage of the present-day abundance of data and po
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Goals}
 
-DREAM will serve as a central tool for policy makers to access data about the region. For farmers, DREAM will serve as a tool to help them organize their own production data as well as provide an interface to seek for support from their community. Finally, agronomists will use DREAM as a tool to manage their work such as planning field visits or verifying the data provided by farmers. The following table lists an aggregate collection of the distinct goals that serve the three main stakeholders in the scope of this system.
+The DREAM system is intended to provide a solution for the many issues that arise when food production sector is strained by slow communication and ineffective policies. Regarding the utility for farmers, the approach of the DREAM system is to serve as a tool for farmers to input and manage the data relevant to their farms, provide a discussion forum for farmers to draw support from their community, provide a messaging tool to make support from agronomists more accessible, and aggregate the raw data to provide farmers custom and automated suggestions. For agronomists, the DREAM system serves as a tool to manage their work-flows such as: managing their responsible area, managing their daily plans, providing a messaging tool to easily communicate with farmers directly, and visualize data regarding the farmers in their responsible area.
+Finally, DREAM serves policy makers by providing a tool to visualize the data and quantify the performance of the farmers from the entire Telangana region. \textbf{Table \ref{tab:goals}} provides an aggregate list of the specific goals that are to be accomplished by the DREAM system.
 
 %%%% GOALS TABLE %%%%
 \renewcommand{\arraystretch}{1.25}
-\begin{table}
+\begin{table}[hbt!]
 \centering
-\caption{\label{tab:addOne{table_counter}}Your caption.}
+\caption{\label{tab:goals}The goals on the system derived from the needs of the end-user.}
 \begin{tabular}{|c| >{\raggedright\arraybackslash}p{12cm}|} \hline
     \textbf{ID} & \textbf{Goals}\\
     \hline
@@ -77,22 +81,27 @@ DREAM will serve as a central tool for policy makers to access data about the re
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%% PHENOMENA %%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Scope}
 
 \begin{flushleft} 
-Considering the three users in the scope of this initiative, the design of the system must first consider the following phenomena in the context in which the system will operate.  
+Considering the three users in the scope of this initiative, the design of the system must first consider the following phenomena in the context in which the system will operate. The world phenomena specifies phenomena or attributes of the environment that merely exist. For example, WP2 in \textbf{Table \ref{tab:worldphenomena}} indicates that farmers will have issues on the farm, whether the system exists, or not.\\ 
+The machine phenomena specifies the phenomena that occur inside the system and because of the system. For example, SP5 in \textbf{Table \ref{tab:machinephenomena}} indicates that users will inspect the data produced by the system. This real-world event would not occur if the system did not exist. \\
+The shared phenomena, however, specifies the phenomena that satisfies both descriptions above. For example, SP2 in \textbf{Table \ref{tab:sharedphenomena}} indicates that a farmer sends a message to the agronomist. This real-world event would happen if the system did not exist, but due to the functionality offered by the DREAM product, this event occurs within the system. 
+\end{flushleft}
 
 %%%% PHENOMENA TABLE %%%%
 \subsubsection{World Phenomena}
+% the label is worldphenomena
 \input{Files/phenomena/world_phenomena.tex}
-\smallskip
+
 \subsubsection{Shared Phenomena}
+% the label is sharedphenomena
 \input{Files/phenomena/shared_phenomena.tex}
-\smallskip
+
 \subsubsection{Machine Phenomena}
+% the label is machinephenomena
 \input{Files/phenomena/machine_phenomena.tex}
-\smallskip
-\end{flushleft}
 
 \subsection{Definitions, Acronyms, Abbreviations}
 
