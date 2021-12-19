@@ -155,7 +155,7 @@ The sequence diagram in \textbf{Figure \ref{fig:farmerSeqNewField}} shows how th
 \newpage
 \subsubsection{Agronomist}
 
-\begin{figure}[h!]
+\begin{figure}[hpt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_choosingLocation.png}\\
 \caption{\label{fig:agrSeqArea}Sequence Diagram for Agronomist.}
@@ -166,18 +166,18 @@ The sequence diagram in \textbf{Figure \ref{fig:agrSeqArea}} shows how the agron
 \end{flushleft}
 
 
-\begin{figure}[h!]
+\begin{figure}[hpt!]
 \centering
-\includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_createPlan.png}\\
+\includegraphics[scale=0.5]{Files/sequence_disgrams/thePNGs/agronomist_createPlan.png}\\
 \caption{\label{fig:agrSeqCreatePlan}Sequence Diagram for Agronomist.}
 \end{figure}
 \begin{flushleft}
 The sequence diagram in \textbf{Figure \ref{fig:agrSeqCreatePlan}}shows how the agronomist user interacts with the DREAM servers when creating a new daily plan in the daily plan interface including some of the specific calls that occur between the DREAM servers and the user's device. As the agronomist modifies the list of farmers to visit for the day, the agronomist's map is updated to show the new navigation path. From the list of farmers to visit, the agronomist can include or remove each farmer from the plan. Then, at the end, the agronomist can confirm the daily plan and the data is updated on the DREAM servers. 
 \end{flushleft}
 
-\begin{figure}[h!]
+\begin{figure}[hpt!]
 \centering
-\includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_confirmPlan.png}\\
+\includegraphics[scale=0.5]{Files/sequence_disgrams/thePNGs/agronomist_confirmPlan.png}\\
 \caption{\label{fig:agrSeqConfirmPlan}Sequence Diagram for Agronomist.}
 \end{figure}
 
@@ -186,9 +186,9 @@ At the end of a agronomist's day of visiting farmers, the agronomist has to conf
 \end{flushleft}
 
 
-\begin{figure}[h!]
+\begin{figure}[hpt!]
 \centering
-\includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_sendReport.png}\\
+\includegraphics[scale=0.5]{Files/sequence_disgrams/thePNGs/agronomist_sendReport.png}\\
 \caption{\label{fig:agrSeqSendReport}Sequence Diagram for Agronomist.}
 \end{figure}
 
@@ -205,7 +205,7 @@ Thee sequence diagram in \textbf{Figure \ref{fig:agrSeqSendReport}} shows the in
 The policy maker's use cases revolve around examining the results of the data analysis from a holistic point of view. The sequence diagram in \textbf{Figure \ref{fig:policySeqSetFlag}} shows how the policy maker user interacts with the DREAM servers when they set a flag on a farmer. After the policy maker flags a farmer from the ranking list view, the DREAM servers save the flag and send the policy maker user a confirmation that the flag has been set. 
 \end{flushleft}
 
-\begin{figure}[h!]
+\begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_setFlag.png}\\
 \caption{\label{fig:policySeqSetFlag}Sequence Diagram for Policy Maker.}
@@ -217,7 +217,7 @@ The policy maker's use cases revolve around examining the results of the data an
 The sequence diagram in \textbf{Figure \ref{fig:policySeqSetTrig}} shows how the policy maker user interacts with the DREAM servers when setting a trigger. Once the trigger parameters are set by the policy maker user, the DREAM servers saves them and confirms them with the user. Then, the data that the farmer enters thereafter is checked against the triggers saves on the DREAM servers. If the data entered satisfies a trigger, a notification is sent to the policy maker users. 
 \end{flushleft}
 
-\begin{figure}[h!]
+\begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_setTrigger.png}\\
 \caption{\label{fig:policySeqSetTrig}Sequence Diagram for Policy Maker.}
@@ -228,7 +228,7 @@ The sequence diagram in \textbf{Figure \ref{fig:policySeqSetTrig}} shows how the
 The sequence diagram in \textbf{Figure \ref{fig:policySeqViewRank}} shows the simple interaction between the policy maker user and the DREAM servers when the policy maker navigates to a ranking view. According to this sequence diagram, the ranking is calculated when the policy maker requests the view. This way, the view considers the most up-to-date data when ranking the farmers. The policy maker can also filter their view such as only considering corn farmers or only considering farmers from specific subareas. 
 \end{flushleft}
 
-\begin{figure}[h!]
+\begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_viewRanking.png}\\
 \caption{\label{fig:policySeqViewRank}Sequence Diagram for Policy Maker.}
