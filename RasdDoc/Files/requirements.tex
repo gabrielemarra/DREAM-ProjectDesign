@@ -32,12 +32,19 @@ This product is accessible through a mobile-friendly application. Farmers will s
 \subsubsection{Communication Interfaces}
 The mobile-friendly web application will communicate with DREAM servers over an internet connection. 
 
+\newpage
 \subsection{Functional Requirements}
-Definition of use case diagrams, use cases and associated sequence/activity diagrams, and mapping on requirements
 
 %Use this counter for the scenarios and command \addOne to print and increase at the same time
 \newcounter{usecase_counter}
 \setcounter{usecase_counter}{1}
+
+The use case diagram in \textbf{Figure \ref{fig:usecase}} shows how the different actors expect to use the system. Each use case in the diagram can be further disseminated into other more specific use cases as described in the subsequent \textbf{Tables \ref{tab:farmerNewThread} - \ref{tab:farmerWeather}}.  
+\begin{figure}[htb!]
+\centering
+\includegraphics[scale=0.6]{../images_diagrams/usecasediagram.png}
+\caption{\label{fig:usecase}Use case diagram.}
+\end{figure}
 
 %GENERICS USE CASES
 \input{Files/usecases/user_registration_usecase.tex}
@@ -54,7 +61,7 @@ Definition of use case diagrams, use cases and associated sequence/activity diag
 \input{Files/usecases/farmer_usecasetable4.tex}
 \input{Files/usecases/farmer_usecasetable6.tex}
 
-\newpage
+
 %AGRONOMISTS
 \subsubsection{Agronomist}
 %before: emails for help, data, now can consult
@@ -102,166 +109,183 @@ Definition of use case diagrams, use cases and associated sequence/activity diag
 \input{Files/usecases/policy_usecase1.tex}
 
 
-\begin{figure}[hbt!]
-\centering
-\includegraphics[scale=0.6]{../images_diagrams/usecasediagram.png}
-\caption{\label{fig:usecase}Use case diagram.}
-\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% SEQUENCE DIAGRAMS %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \newpage
 \subsection{Sequence Diagrams}
 
 \subsubsection{Farmer}
+
+\begin{flushleft}
+As demonstrated in the sequence diagram in \textbf{Figure \ref{fig:farmerSeqRequest}}, when the farmer user access the "Ask Experts" area in the application, the farmer will send a request for help to their assigned agronomist in the form of a message. The agronomist and the farmer can continue to exchange messages until either user chooses to end the conversation.
+\end{flushleft}
+
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/farmer_askExperts.png}
-\caption{\label{fig:farmerSeqRequest}Sequence Diagram for Farmer.}
+\caption{\label{fig:farmerSeqRequest}Sequence Diagram for Farmer Requesting Help.}
 \end{figure}
 
+
 \begin{flushleft}
-As demonstrated in the sequence diagram, when the farmer user access the "Ask Experts" area in the application, the farmer will send a request for help to their assigned agronomist in the form of a message. The agronomist and the farmer can continue to exchange messages until either user chooses to end the conversation.
+The sequence diagram in \textbf{Figure \ref{fig:farmerSeqNewThread}} shows the exchange of information between the user and the DREAM application when the farmer user creates a new thread. After the user publishes the new thread, the DREAM application saves the submitted form and updates its servers.
 \end{flushleft}
-
-
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/farmer_createThread.png}\\
-\caption{\label{tab:farmerSeqNewThread}Sequence Diagram for Farmer.}
+\caption{\label{fig:farmerSeqNewThread}Sequence Diagram for Farmer Creating Thread.}
 \end{figure}
 
+
 \begin{flushleft}
-This sequence diagram shows the exchange of information between the user and the DREAM application when the farmer user creates a new thread. After the user publishes the new thread, the DREAM application has to save the submitted form and update its servers.
+The sequence diagram in \textbf{Figure \ref{fig:farmerSeqNewField}} shows how the farmer user interacts with the DREAM application when adding a new field to their farm. Part of adding a new field to their farm involves providing the GPS location (if the user chooses to consent the DREAM application to access their location) and entering some information about the field such as the crop planted and the fertilizer used. After submitting the necessary information, the DREAM application saves and updated its servers and the farmer can then view the new field in their "My Fields" interface. 
 \end{flushleft}
 
-
-\begin{figure}[hbt!]
+\begin{figure}[htb!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/farmer_newField.png}\\
-\caption{\label{tab:farmerSeqNewField}Sequence Diagram for Farmer.}
+\caption{\label{fig:farmerSeqNewField}Sequence Diagram for Farmer Adding Field.}
 \end{figure}
 
-\begin{flushleft}
-This sequence diagram shows how the farmer user interacts with the DREAMs application when adding a new field to their farm. Part of adding a new field to their farm involves providing the GPS location (if the user chooses to consent the DREAM application to access their location) and entering some information about the field such as the crop planted and the fertilizer used. After submitting the necessary information, the DREAM application saves and updated its servers and the farmer can then view the new field in their "My Fields" interface. 
-\end{flushleft}
-
-
-
+\newpage
 \subsubsection{Agronomist}
 
-\begin{figure}[hbt!]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_choosingLocation.png}\\
 \caption{\label{fig:agrSeqArea}Sequence Diagram for Agronomist.}
 \end{figure}
 
 \begin{flushleft}
-This sequence diagram shows how the agronomist user interacts with the DREAM servers when modifying the area that they are responsible of with a map display interface. 
+The sequence diagram in \textbf{Figure \ref{fig:agrSeqArea}} shows how the agronomist user interacts with the DREAM servers when modifying the area that they are responsible of with a map display interface. 
 \end{flushleft}
 
 
-\begin{figure}[hbt!]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_createPlan.png}\\
 \caption{\label{fig:agrSeqCreatePlan}Sequence Diagram for Agronomist.}
 \end{figure}
 \begin{flushleft}
-This sequence diagram shows how the agronomist user interacts with the DREAM servers when creating a new daily plan in the daily plan interface including some of the specific calls that occur between the DREAM servers and the user's device. As the agronomist modifying the list of farmers to visit for the day, the agronomist's map is updated to show the new navigation path. From the list of farmers to visit, the agronomist can confirm or cancel /remove each farmer from the plan. Then, at the end, the agronomist can confirm the daily plan and the data is updated on the DREAM servers. 
+The sequence diagram in \textbf{Figure \ref{fig:agrSeqCreatePlan}}shows how the agronomist user interacts with the DREAM servers when creating a new daily plan in the daily plan interface including some of the specific calls that occur between the DREAM servers and the user's device. As the agronomist modifies the list of farmers to visit for the day, the agronomist's map is updated to show the new navigation path. From the list of farmers to visit, the agronomist can include or remove each farmer from the plan. Then, at the end, the agronomist can confirm the daily plan and the data is updated on the DREAM servers. 
 \end{flushleft}
 
-\begin{figure}[hbt!]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_confirmPlan.png}\\
 \caption{\label{fig:agrSeqConfirmPlan}Sequence Diagram for Agronomist.}
 \end{figure}
 
 \begin{flushleft}
-This sequence diagram shows how the agronomist user interacts with the DREAM servers when confirming a daily plan. Confirmation of a daily plan should occur after the agronomist has completed all the farmers they intend to visit that day. When confirming, the agronomist can modify the plan so that the plan accurately reflects the visits that the agronomist actually completed that day.
+At the end of a agronomist's day of visiting farmers, the agronomist has to confirm the execution of the plan. \textbf{Figure \ref{fig:agrSeqConfirmPlan}} shows how the agronomist user interacts with the DREAM servers when confirming a daily plan. Confirmation of a daily plan should occur after the agronomist has completed all the farmers they intend to visit that day. When confirming, the agronomist can modify the plan so that the plan accurately reflects the visits that the agronomist actually completed that day.
 \end{flushleft}
 
 
-\begin{figure}[hbt!]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/agronomist_sendReport.png}\\
 \caption{\label{fig:agrSeqSendReport}Sequence Diagram for Agronomist.}
 \end{figure}
 
+\begin{flushleft}
+Thee sequence diagram in \textbf{Figure \ref{fig:agrSeqSendReport}} shows the interaction between the agronomist user and the DREAM servers when submitting a report evaluating the status of a farmer during a visit. 
+\end{flushleft}
+
+
+\newpage
 \subsubsection{Policy Maker}
 
 
+\begin{flushleft}
+The policy maker's use cases revolve around examining the results of the data analysis from a holistic point of view. The sequence diagram in \textbf{Figure \ref{fig:policySeqSetFlag}} shows how the policy maker user interacts with the DREAM servers when they set a flag on a farmer. After the policy maker flags a farmer from the ranking list view, the DREAM servers save the flag and send the policy maker user a confirmation that the flag has been set. 
+\end{flushleft}
 
-\begin{figure}[hbt!]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_setFlag.png}\\
 \caption{\label{fig:policySeqSetFlag}Sequence Diagram for Policy Maker.}
 \end{figure}
 
-\begin{figure}[hbt!]
+
+
+\begin{flushleft}
+The sequence diagram in \textbf{Figure \ref{fig:policySeqSetTrig}} shows how the policy maker user interacts with the DREAM servers when setting a trigger. Once the trigger parameters are set by the policy maker user, the DREAM servers saves them and confirms them with the user. Then, the data that the farmer enters thereafter is checked against the triggers saves on the DREAM servers. If the data entered satisfies a trigger, a notification is sent to the policy maker users. 
+\end{flushleft}
+
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_setTrigger.png}\\
 \caption{\label{fig:policySeqSetTrig}Sequence Diagram for Policy Maker.}
 \end{figure}
 
-\begin{figure}[hbt!]
+
+\begin{flushleft}
+The sequence diagram in \textbf{Figure \ref{fig:policySeqViewRank}} shows the simple interaction between the policy maker user and the DREAM servers when the policy maker navigates to a ranking view. According to this sequence diagram, the ranking is calculated when the policy maker requests the view. This way, the view considers the most up-to-date data when ranking the farmers. The policy maker can also filter their view such as only considering corn farmers or only considering farmers from specific subareas. 
+\end{flushleft}
+
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.6]{Files/sequence_disgrams/thePNGs/policy_viewRanking.png}\\
 \caption{\label{fig:policySeqViewRank}Sequence Diagram for Policy Maker.}
 \end{figure}
 
 
-\subsection{Performance Requirements}
-- many users
-- expected widespread use among farmer population
--policy makers are not many, about 100 users
-- main thing will be the amount of data to handle
-- 
 
+\newpage
+\subsection{Performance Requirements}
+
+\begin{flushleft}
+
+The DREAM application is expected to be accessed by users in the Telangana region. The servers should support over 1000 users simultaneously. The large majority of users will be farmers, whereas the number of policy makers and agronomists is strictly the number of government employees that anticipate utilizing DREAM as a tool to manage their job responsibilities. Farmers are expected to interact with the system while managing their fields in the day and agronomists and policy makers are expected to interact with the system strictly during business hours. From around 6:00 to 18:00 DREAM servers should sustain simultaneous requests from multiple users. Due to the large amount of data handled by the system it is crucial to ensure that data loss is minimal in order to preserve the integrity of the results of the data analysis produced by the system. For this reason, data integrity is prioritized over response time.\\
+\end{flushleft}
 
 \subsection{Design Constraints}
 
 
-
-
-\subsubsection{Standards compliance}
+\subsubsection{Standards compliance}\label{standards}
 -security?
 -geolocation?
 -government 
 \subsubsection{Hardware limitations}
-- for the policy makers, thier screen must be sufficient to generate good and accurate visutalizations of the data
-- gps sensors on devices are not required because users can enter location data manually but it would 1) make for a more seamless user expereince and 2) more convenient for the user
-- cameras are not required but definitely can be helpful and effective when farmers communicate their issues in their requests for help
-- need good internet connects so devices must be somewhat current 
-- 
+
+Since DREAM will be accessed from a mobile-friendly web application, there are few hardware limitations to consider. Instead, the limitations outlined will be easily met with common devices that are probably already used by the users.\smallskip\\
+Policy makers already utilize a desktop computer for their work so with respect to the DREAM system they would need a screen that is large enough to comfortably view and configure the data visualizations offered by the DREAM application. Since DREAM will be accessed from a web application, the policy maker will need a modern internet browser; the operating system of the computer does not matter.\smallskip\\
+Agronomists and farmers both may access the DREAM application from a mobile or tablet device. Current iOS/Android devices already come with GPS antennas, internet connectivity, and cameras, therefore no additional limitations need to be considered. Devices without a GPS antenna and without a camera can still be used to access the DREAM system but the user experience will be somewhat compromised: users will have to manually enter location information; users will not have turn-by-turn navigation guidance; and users will not be able to include pictures when describing issues or updates in their reports, forum posts, or help requests.\\
 
 \subsubsection{Any other constraints}
-since we are going to be working with alot of data, the interface should be simple enough as to not overwhelm the user but also ensure that the user has access to all the feature, tools, and configurations (ie, policy makers and agronomists configuring ranking views, or farmers providing qualitative data. 
-
-
+\begin{flushleft}
+Since users will have access to data visualizations, the interface should be simple enough as to no overwhelm the user but also ensure that the user has access to all the features, tools, and options when configuring their data views. Additionally, the format offered for farmers to report their data must be defined well enough so that DREAM can effectively parse through it and generate solutions with data analysis but also be flexible enough for farmers to capture qualitative data. 
+\end{flushleft}
 
 \subsubsection{Reliability}
-- data backups 
+\begin{flushleft}
+Since one of DREAM's primary value-add as a product is the data analysis, preserving the data is very important. In order to recover from potential data loss, offline data backups that are updated weekly are needed for redundancy. Ideally, the DREAM system should have the highest MTTF and the lowest MTTR as possible. However, since DREAM is not dealing with time-critical features, the system can afford a higher MTTR if pending data can be saved on the user's local device while waiting for DREAM system to recover. 
+\end{flushleft}
 
-
-mtbf: mean time between failure
-mttf: mean time to failure
-mttr: mean time to recover
 \subsubsection{Availability}
-policy makers will work exclusively during buisness hours: access to DREAM servers msut be available
-agronomists will also work during business hours so this is also just dream servers
-farmers may have extended hours but suggestions (access to external db generated by agronomists can be made; also a possibility: farmers can complete their data entry while physically in their fields but then the app submits their data when they get stable internet connection
+\begin{flushleft}
 
-also access to a db can be done during evenings. off hours when traffic across the DREAM servers is low to distribute strain on the system
+Since users depend on DREAM as a tool to execute their work, it is crucial to ensure the system is characterized by an availability of at least 99.99\%. This translates to about 1 minute of downtime per week. This is tolerable because the system will be used primary during business hours and will have reduced usage or traffic during the weekends; policy makers and agronomists will likely not be accessing the DREAM application during the weekend but farmers might access the DREAM application.\smallskip\\
+As mentioned, if users try to send data to the DREAM servers when they are unavailable, the data should get saved on the user's device until communication can be reestablished with the DREAM servers. Although this time duration may be perceivable to the end-user, the user will not notice that their transactions with the DREAM servers are taking about a minute to complete during a period of downtime. This mitigation technique ensures that the DREAM servers still receive all the data sent to it and the user's experience is not severely interrupted.\\
+\end{flushleft}
+
 \subsubsection{Security}
+\begin{flushleft}
+Since government employees will be accessing the DREAM application with sensitive credentials. Additionally, the data produced by farmer users is associated with sensitive location data. The data around the daily plans for the agronomists contains location-identifying information during an agronomist's work day. Primarily due to these reasons, security should be prioritized in the design of the DREAM system so safeguard from data leaks, exploits, and malicious users.\smallskip\\
+User credentials should be hashed and encrypted. Transactions, especially those involved with sensitive location data such as the daily plans or field GPS information, should only occur through connections that are secure and encrypted through the most updated version of TLS protocol. This minimizes the risk of data breaches.
+\end{flushleft}
 
-log in credentials may be extra sensitive because some users are government employees
-farmer data is senstive, because 1) their livelihood and 2) address information
 \subsubsection{Maintainability}
-scalability as data collection grows
-good coding practices
-adherence to standards
+\begin{flushleft}
+During the design, maintainability can only be sustained if good design, documentation, and coding practices are followed. Proper adherence to the standards cited in Section \ref{standards} will also preserve maintainability in the design of the system. Ensuring that the system is designed for maintainability will also enable the system to be easily scaleable; either to more farmers in the region, to other regions in India, or to other nations who wish to use DREAM. 
+\end{flushleft}
 
 \subsubsection{Portability}
-android devices
-ios devices
-web browser
-
+\begin{flushleft}
+DREAM's web application should be compatible with a variety of operating systems, both mobile and non-mobile. Since DREAM is serving a market with a wide range of access to devices (from self-funded farmers to government-funded entities), DREAM system and layout should accommodate mobile users from at least iOS 11.4.1 and Android 8.1.0. For users accessing DREAM from a computer, the OS must support a web browser in order to access the web application. 
+\end{flushleft}
