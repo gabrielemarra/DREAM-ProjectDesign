@@ -254,6 +254,11 @@ fact {
 	all t1, t2: Thread, p:Post | ((p in t1.posts) and (p in t2.posts)) implies t1=t2
 }
 
+// At leas a post by the Thread creator
+fact {
+	all t:Thread | some p:Post | t.creator = p.creator
+}
+
 sig PostContent{}
 
 // Each PostContent has one post
