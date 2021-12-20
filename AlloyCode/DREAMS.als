@@ -27,20 +27,26 @@ fact {
 	all ff:Farm, f:Farmer|f.farm=ff iff ff.farmer=f
 }
 
-//TODO Production data? Production problems?
 abstract sig Report{
-	timestamp : one Timestamp,
+	timestamp : one Timestamp
+}
+
+sig FarmerReport extends Report{
+	field : one Field,
 	fieldStatus : one FieldStatus,
 	waterUsage : lone WaterUsage,
 	harvestAmount : lone HarvestAmount
 }
 
-sig FarmerReport extends Report{}
-
 //Each FarmerReport belongs to only one Farmer
 fact {
 	all f1,f2:Farmer, fr:FarmerReport | ((fr in f1.farmerReports) and (fr in f2.farmerReports)) implies f1=f2
 	all fr:FarmerReport | one f:Farmer | fr in f.farmerReports
+}
+
+//The Field inside the FarmerReport belongs to Farmer issuing the Report
+fact {
+	all f:Farmer, fr:FarmerReport | (fr in f.farmerReports) implies (fr.field in f.farm.fields)
 }
 
 sig WaterUsage{}
@@ -340,11 +346,8 @@ pred sendRequestToAgronomist (newRequest: Request, firstMessage:Message, far:Far
 }
 
 // Create an AgronomistReport inside a Visit
-pred createAgronomistReport (newReport: AgronimistReport, vis:Visit, ts:Timestamp, fs: FieldStatus, wu:WaterUsage, ha:HarvestAmount, sc:Score){
+pred createAgronomistReport (newReport: AgronimistReport, vis:Visit, ts:Timestamp, sc:Score){
 	newReport.timestamp = ts
-	newReport.fieldStatus = fs
-	newReport.waterUsage = wu
-	newReport.harvestAmount = ha
 	newReport.score = sc
 	
 	vis.agronomistReport = newReport
@@ -370,6 +373,15 @@ assert allFarmersHaveAtLeastAnAgronomist {
 	all f:Farmer | some a:Agronomist | f.farm.subarea = a.subarea
 }
 
+// All Request sent are properly filled
+assert requestSent { 
+	all r: Request, m:Message, far:Farmer, agr:Agronomist, mc:MessageContent, ts:Timestamp | sendRequestToAgronomist[r,m,far,agr,mc,ts] implies (r in far.requests and r in agr.requests and r.farmer=far and r.agronomist=agr and m in r.messages and m.messageContent=mc and m.timestamp=ts) 
+}
+
+// All Visit created are properly filled
+assert visitCreated {
+	all v: Visit, p:Plan, f:Farmer, t:Time, dur: VisitDuration, ar:AgronimistReport | createVisit[v,p,f,t,dur,ar] implies (v in p.visits and v.farmer=f and v.time=t and v.duration=dur and v.agronomistReport=ar)	
+}
 
 pred show{}
 
@@ -382,4 +394,6 @@ run createAgronomistReport for 4
 run createVisit for 4
 run confirmPlan for 3
 check allFarmersHaveAtLeastAnAgronomist for 10
+check requestSent for 10
+check visitCreated for 10
 
