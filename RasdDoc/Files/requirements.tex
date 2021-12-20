@@ -139,6 +139,8 @@ As demonstrated in the sequence diagram in \textbf{Figure \ref{fig:farmerSeqRequ
 \subsection{Goal mapping}
 \input{Files/goal_mapping.tex}
 
+\subsubsection{Farmer}
+
 \begin{flushleft}
 The sequence diagram in \textbf{Figure \ref{fig:farmerSeqNewThread}} shows the exchange of information between the user and the DREAM application when the farmer user creates a new thread. After the user publishes the new thread, the DREAM application saves the submitted form and updates its servers.
 \end{flushleft}
@@ -151,7 +153,7 @@ The sequence diagram in \textbf{Figure \ref{fig:farmerSeqNewThread}} shows the e
 
 
 \begin{flushleft}
-The sequence diagram in \textbf{Figure \ref{fig:farmerSeqNewField}} shows how the farmer user interacts with the DREAM application when adding a new field to their farm. Part of adding a new field to their farm involves providing the GPS location (if the user chooses to consent the DREAM application to access their location) and entering some information about the field such as the crop planted and the fertilizer used. After submitting the necessary information, the DREAM application saves and updated its servers and the farmer can then view the new field in their "My Fields" interface.
+The sequence diagram in \textbf{Figure \ref{fig:farmerSeqNewField}} shows how the farmer user interacts with the DREAM application when adding a new field to their farm. Part of adding a new field to their farm involves providing the GPS location (if the user chooses to consent the DREAM application to access their location) and entering some information about the field such as the crop planted and the fertilizer used. After submitting the necessary information, the DREAM application saves and updated its servers and the farmer can then view the new field in their "My Farm" interface.
 \end{flushleft}
 
 \begin{figure}[htb!]
@@ -263,7 +265,8 @@ The DREAM application is expected to be accessed by users in the Telangana regio
 
 Since DREAM will be accessed from a mobile-friendly web application, there are few hardware limitations to consider. Instead, the limitations outlined will be easily met with common devices that are probably already used by the users.\smallskip\\
 Policy makers already utilize a desktop computer for their work so with respect to the DREAM system they would need a screen that is large enough to comfortably view and configure the data visualizations offered by the DREAM application. Since DREAM will be accessed from a web application, the policy maker will need a modern internet browser; the operating system of the computer does not matter.\smallskip\\
-Agronomists and farmers both may access the DREAM application from a mobile or tablet device. Current iOS/Android devices already come with GPS antennas, internet connectivity, and cameras, therefore no additional limitations need to be considered. Devices without a GPS antenna and without a camera can still be used to access the DREAM system but the user experience will be somewhat compromised: users will have to manually enter location information; users will not have turn-by-turn navigation guidance; and users will not be able to include pictures when describing issues or updates in their reports, forum posts, or help requests.\\
+Agronomists and farmers both may access the DREAM application from a mobile or tablet device. Current iOS/Android devices already come with GPS antennas, internet connectivity, and cameras, therefore no additional limitations need to be considered. Devices without a GPS antenna and without a camera can still be used to access the DREAM system but the user experience will be somewhat compromised: users will have to manually enter location information; users will not have turn-by-turn navigation guidance; and users will not be able to include pictures when describing issues or updates in their reports, forum posts, or help requests.\smallskip\\
+Regarding the back-end, the system needs a server with constant internet access that can host the web application. A virtual machine on a cloud service, such as AWS or Azure, is a suitable solution to host the web application.\\
 
 \subsubsection{Any other constraints}
 \begin{flushleft}
@@ -278,13 +281,13 @@ Since one of DREAM's primary value-add as a product is the data analysis, preser
 \subsubsection{Availability}
 \begin{flushleft}
 
-Since users depend on DREAM as a tool to execute their work, it is crucial to ensure the system is characterized by an availability of at least 99.99\%. This translates to about 1 minute of downtime per week. This is tolerable because the system will be used primary during business hours and will have reduced usage or traffic during the weekends; policy makers and agronomists will likely not be accessing the DREAM application during the weekend but farmers might access the DREAM application.\smallskip\\
-As mentioned, if users try to send data to the DREAM servers when they are unavailable, the data should get saved on the user's device until communication can be reestablished with the DREAM servers. Although this time duration may be perceivable to the end-user, the user will not notice that their transactions with the DREAM servers are taking about a minute to complete during a period of downtime. This mitigation technique ensures that the DREAM servers still receive all the data sent to it and the user's experience is not severely interrupted.\\
+Since users depend on DREAM as a tool to execute their work, it is crucial to ensure the system is characterized by an availability of at least 99.9\%. This translates to about 10 minutes of downtime per week. This is tolerable because the system will be used primary during business hours and will have reduced usage or traffic during the weekends; policy makers and agronomists will likely not be accessing the DREAM application during the weekend but farmers might access the DREAM application.\smallskip\\
+As mentioned, if users try to send data to the DREAM servers when they are unavailable, the data should get saved on the user's device until communication can be reestablished with the DREAM servers. Although this time duration may be perceivable to the end-user, the downtime does not interrupt the user experience since the system will handle the delayed communication. This mitigation technique ensures that the DREAM servers still receive all the data sent to it and the user's experience is not severely interrupted.\\ 
 \end{flushleft}
 
 \subsubsection{Security}
 \begin{flushleft}
-Since government employees will be accessing the DREAM application with sensitive credentials. Additionally, the data produced by farmer users is associated with sensitive location data. The data around the daily plans for the agronomists contains location-identifying information during an agronomist's work day. Primarily due to these reasons, security should be prioritized in the design of the DREAM system so safeguard from data leaks, exploits, and malicious users.\smallskip\\
+Government employees will be accessing the DREAM application with sensitive credentials. Additionally, the data produced by farmer users is associated with sensitive location data. The data around the daily plans for the agronomists contains location-identifying information during an agronomist's work day. Primarily due to these reasons, security should be prioritized in the design of the DREAM system to safeguard from data leaks, exploits, and malicious users.\smallskip\\
 User credentials should be hashed and encrypted. Transactions, especially those involved with sensitive location data such as the daily plans or field GPS information, should only occur through connections that are secure and encrypted through the most updated version of TLS protocol. This minimizes the risk of data breaches.
 \end{flushleft}
 
@@ -295,5 +298,5 @@ During the design, maintainability can only be sustained if good design, documen
 
 \subsubsection{Portability}
 \begin{flushleft}
-DREAM's web application should be compatible with a variety of operating systems, both mobile and non-mobile. Since DREAM is serving a market with a wide range of access to devices (from self-funded farmers to government-funded entities), DREAM system and layout should accommodate mobile users from at least iOS 11.4.1 and Android 8.1.0. For users accessing DREAM from a computer, the OS must support a web browser in order to access the web application.
+DREAM's web application should be compatible with a variety of operating systems, both mobile and non-mobile. Since DREAM is serving a market with a wide range of access to devices (from self-funded farmers to government-funded entities), DREAM system and layout should accommodate mobile users with a modern web browser, such as Chrome, Safari, or Firefox. Similarly, for users accessing DREAM from a computer, the OS must support a web browser, such as Chrome, Safari, or Firefox, in order to access the web application.
 \end{flushleft}
