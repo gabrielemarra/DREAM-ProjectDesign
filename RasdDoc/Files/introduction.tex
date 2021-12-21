@@ -13,7 +13,7 @@ The world's food supply chain is threatened by climate change and an unsustainab
 \subsection{Purpose}
 \subsubsection{Purpose of the Document}
 \begin{flushleft}
-The purpose of this document is to present a comprehensive description of the requirements and specifications for the project. This is achieved by outlining the main goals of the product as well as describing the domain. The product will be specified further with the aid of more detailed descriptions, models, and diagrams. This document will specify all the information needed to understand exactly the requirements that should be satisfied. 
+The purpose of this document is to present a comprehensive description of the requirements and specifications for the project. This document will specify all the information needed to understand exactly the requirements that should be satisfied. 
 \end{flushleft} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,14 +43,14 @@ The general aim is to take advantage of the present-day abundance of data and th
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Goals} \label{goalsection}
 
-The DREAM system is intended to provide a solution for the many issues that arise when the food production sector is strained by slow communication and ineffective policies. Regarding the utility for farmers, the approach of the DREAM system is to serve as a tool for farmers to input and manage the data relevant to their farms, provide a discussion forum for farmers to draw support from their community, provide a messaging tool to make support from agronomists more accessible, and aggregate the raw data to provide farmers custom and automated suggestions. For agronomists, the DREAM system serves as a tool to manage their work-flows such as: managing their responsible area, managing their daily plans, providing a messaging tool to easily communicate with farmers directly, and providing a visualization of the data regarding the farmers in their responsible area.
-Finally, DREAM serves policy makers by providing a tool to visualize the data and quantify the performance of the farmers from the entire Telangana region. \textbf{Table \ref{tab:goals}} provides an aggregate list of the specific goals that are to be accomplished by the DREAM system.
+The DREAM system is intended to provide a solution for the many issues that arise when the food production sector is strained by slow communication and ineffective policies. Regarding the utility for farmers, purpose of the DREAM system is to: serve as a tool for farmers to input and manage the data relevant to their farms, provide a discussion forum for farmers to draw support from their community, provide a messaging tool to make support from agronomists more accessible, provide farmers custom and automated suggestions from the raw data. For agronomists, the DREAM system serves as a tool to manage their work-flows such as: managing their responsible area, managing their daily plans, providing a messaging tool to easily communicate with farmers directly, and providing a visualization of the data regarding the farmers in their responsible area. Finally, DREAM serves policy makers by providing a tool to visualize the data and quantify the performance of the farmers from the entire Telangana region. \textbf{Table \ref{tab:goals}} provides an aggregate list of the specific goals that are to be accomplished by the DREAM system.
 
 %%%% GOALS TABLE %%%%
 \renewcommand{\arraystretch}{1.25}
 \begin{table}[hbt!]
 \centering
-\caption{\label{tab:goals}The goals on the system derived from the needs of the end-user.}
+\small
+\caption{\label{tab:goals}Goals of the system.}
 \begin{tabular}{|c| >{\raggedright\arraybackslash}p{12cm}|} \hline
     \textbf{ID} & \textbf{Goals}\\
     \hline
@@ -85,13 +85,13 @@ Finally, DREAM serves policy makers by providing a tool to visualize the data an
 \subsection{Scope}
 
 \begin{flushleft} 
-Considering the three users in the scope of this initiative, the design of the system must first consider the following phenomena to define the context in which the system will operate. 
+Considering the three users in the scope of this initiative, farmers, agronomists, and policy makers, the design of the system must first consider the following phenomena to define the context in which the system will operate. 
 % world phenomena description
-The world phenomena specifies phenomena or attributes of the environment that merely exist. For example, WP2 in \textbf{Table \ref{tab:worldphenomena}} indicates that farmers will have issues on the farm, whether the system exists, or not.\\ 
+The world phenomena specifies phenomena or attributes of the environment that merely exist. For example, WP2 in \textbf{Table \ref{tab:worldphenomena}} indicates that farmers will have issues on the farm, whether the system exists, or not.
 % machine phenomena description
-The machine phenomena specifies the phenomena that occur inside the system and because of the system. For example, MP5 in \textbf{Table \ref{tab:machinephenomena}} indicates that the best path connecting all the farmers in the daily plan will be calculated. This real-world event would not occur if the system did not exist. \\
+The machine phenomena specifies the phenomena that occur inside the system and because of the system. For example, MP5 in \textbf{Table \ref{tab:machinephenomena}} indicates that the best path connecting all the farmers in the daily plan will be calculated. This real-world event would not occur if the system did not exist. 
 % shared phenomena description
-The shared phenomena, however, specifies the phenomena that satisfies both descriptions above. For example, SP2 in \textbf{Table \ref{tab:sharedphenomena}} indicates that a farmer sends a message to the agronomist. This real-world event would happen if the system did not exist, but due to the functionality offered by the DREAM product, this event occurs within the system. 
+The shared phenomena, however, specifies the phenomena that satisfy the descriptions for both the world and machine phenomena. For example, SP2 in \textbf{Table \ref{tab:sharedphenomena}} indicates that a farmer sends a message to the agronomist. This real-world event would still happen if the system did not exist, but due to the functionality offered by the DREAM product, this event occurs within the system. 
 \end{flushleft}
 
 %%%% PHENOMENA TABLE %%%%
@@ -125,6 +125,7 @@ The shared phenomena, however, specifies the phenomena that satisfies both descr
     Production yields & The amount of crop harvested compared to the amount of crop planted. Measured comparatively by percentage or numerically by weight.\\
     Flag & A marker on a farmer that signals the system to increase the priority for the farmer to get visited by an agronomist.\\
     TSDPS & Telangana State Development Planning Society which manages the automated weather stations around the state. \\
+    World & A graphical representation of an instance of the Alloy model.\\
     \hline
 \end{tabular}
 \end{center}
@@ -143,10 +144,10 @@ The shared phenomena, however, specifies the phenomena that satisfies both descr
 
 
 \subsection{Reference Documents}
-A.Y. 2020-2021 Software Engineering 2 Requirement Engineering and Design Project \smallskip\\
-% enter doc name \smallskip\\
-% enter doc name \smallskip\\
-
+\begin{itemize}
+\item Assignment RDD A.Y. 2020-2021
+\item \textit{Software Abstractions: Logic Language, and Analysis} by Daniel Jackson
+\end{itemize}
 
 
 
@@ -154,7 +155,7 @@ A.Y. 2020-2021 Software Engineering 2 Requirement Engineering and Design Project
 The document is structured with the following sections:
 \begin{itemize}
 \item \textbf{Introduction}: This sections outlines the problem statement, the purpose of the document and of the project, the scope of the domain, and introduces the main goals of the system. 
-\item \textbf{Overall Description}: This section goes into more detail about the mains functions of the system. This description is aided with diagrams such as a class diagram for the system and flowcharts for select processes. The users of the system are also defined in this section. The system's domain is then described as well as any dependencies and constraints. 
+\item \textbf{Overall Description}: This section goes into more detail about the main functions of the system. This description is aided with diagrams such as a class diagram for the system and flowcharts for select processes. The users of the system are also defined in this section. The system's domain is then described along with any dependencies and constraints. 
 \item \textbf{Specific Requirements}: This section describes use cases further with a general use case diagram, use case tables, scenarios, and sequence diagrams. The individual requirements describing the entire system are listed and mapped to the goals and domain assumptions defined in the Introduction and in the Overall Description. Performance requirements and other design constraints are described at the end of the section.
 \item \textbf{Formal Analysis Using Alloy}: The alloy code modeling the system is organized by general function. The facts are co-located with their associated signatures. The predicates and assertions are at the end of the code. Four different worlds have been generated, each one describing a different situation.
 \item \textbf{Effort Spent}: For the purposes of the project assignment, this section itemized the time each participate allotted to different phases of the project. 
