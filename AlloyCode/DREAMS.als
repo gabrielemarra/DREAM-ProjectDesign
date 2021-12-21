@@ -70,9 +70,7 @@ fact {
 	all fi:Field, f:Farm | (fi in f.fields) iff (fi.farm=f)
 }
 
-
 sig SqMetersArea{}
-
 
 sig Suggestion {}
 
