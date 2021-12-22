@@ -1,6 +1,15 @@
 \input{commandsFile}
 \usepackage{longtable} 
+\usepackage{multicol}
 \begin{document}
+
+
+\newcounter{figure_counter}
+\setcounter{figure_counter}{1}
+
+\newcounter{table_counter}
+\setcounter{table_counter}{1}
+
 
 %TITLE PAGE
 
@@ -37,11 +46,11 @@
 
 \textbf{Deliverable:} & RASD\\
 \textbf{Title:} & Requirement Analysis and Verification Document \\
-\textbf{Authors:} Marra, Miceli, Mora \\
+\textbf{Authors:} & Marra, Miceli, Mora \\
 \textbf{Version:} & 1.0 \\ 
-\textbf{Date:} & 31-January-2016 \\
-\textbf{Download page:} & LINK TO YOUR REPOSITORY \\
-\textbf{Copyright:} & Copyright © 2017, YOUR NAMES – All rights reserved \\
+\textbf{Date:} & 23-December-2021 \\
+\textbf{Download page:} & \href{https://github.com/gabrielemarra/MarraMiceliMora}{GitHub} \\
+\textbf{Copyright:} & Copyright © 2021, Marra, Miceli, Mora – All rights reserved \\
 \hline
 \end{tabu}
 \end{table}
@@ -94,10 +103,19 @@
 
 
 %------------------------------------------------------------------------------------------------------------------------------------------------
+%\clearpage
+%\addcontentsline{toc}{section}{References}
+%\bibliographystyle{plain}
+%\bibliography{main}
+%\label{sect:references}
+%\input{Files/references}
+
 \clearpage
-\addcontentsline{toc}{section}{References}
-\bibliographystyle{plain}
-\bibliography{main}
+\section{References}
+\label{sect:references}
+\input{Files/references}
+
+
 %------------------------------------------------------------------------------------------------------------------------------------------------
 
 

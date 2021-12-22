@@ -2,14 +2,16 @@
 \setcounter{shared_counter}{1}
 
 
-\begin{table}[H]
+\begin{table}[hbt!]
 \centering
+\small
 \renewcommand{\arraystretch}{1.25}
-%\begin{tabular}{|l|>{\raggedright\arraybackslash}m{12cm}|} \hline
 
-\begin{tabular}{|m{3cm}|m{9cm}|m{3cm}|}
+\caption{\label{tab:sharedphenomena} Shared Phenomena.}
+\begin{tabular}{|m{2cm}|m{10cm}|m{2cm}|}
+
 \hline
-\textbf{Shared Phenomena}  & \textbf{Description} & \textbf{Who controls it} \\ \hline
+\textbf{Shared \newline Phenomena}  & \textbf{Description} & \textbf{Controlled By} \\ \hline
 
 SP\addOne{shared_counter} & An agronomist confirms a plan and send all the data about the visits he performed& W \\ \hline
 SP\addOne{shared_counter} & A farmer sends a message to an agronomist &  W\\ \hline
@@ -19,6 +21,5 @@ SP\addOne{shared_counter} & A user inspects data  & W \\ \hline
 SP\addOne{shared_counter} & Policy maker flags poor performing and well performing farmers & W \\ \hline
 \end{tabular}
 
-\caption{World and Machine Phenomena table}
-\label{PhenomenaTable}
+
 \end{table}
