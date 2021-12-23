@@ -1,8 +1,10 @@
 \input{commandsFile}
 \usepackage{longtable} 
 \usepackage{multicol}
-\begin{document}
 
+\pagenumbering{roman}
+
+\begin{document}
 
 \newcounter{figure_counter}
 \setcounter{figure_counter}{1}
@@ -14,7 +16,6 @@
 %TITLE PAGE
 
 \begin{titlepage}
-
 
 %LOGO
 
@@ -73,6 +74,9 @@
 
 %------------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
+
+\pagenumbering{arabic}
+
 {\color{Blue}{\section{Introduction}}}
 \label{sect:introduction}
 \input{Files/introduction}
