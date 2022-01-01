@@ -1,0 +1,136 @@
+\input{commandsFile}
+\usepackage{longtable} 
+\usepackage{multicol}
+
+\pagenumbering{roman}
+
+\begin{document}
+
+\newcounter{figure_counter}
+\setcounter{figure_counter}{1}
+
+\newcounter{table_counter}
+\setcounter{table_counter}{1}
+
+
+%TITLE PAGE
+
+\begin{titlepage}
+
+%LOGO
+\centering
+{\includegraphics[scale=0.7]{Images/PolimiLogo}}\\[4cm]
+
+%\textcolor{Blue}
+{\textbf{\Large{Software Engineering 2 Project}}}\\ [4cm]
+
+
+%TITLE 
+
+
+\centering
+%Replace the text string with your title
+{\textcolor{Blue}{\textbf{\Huge{Design Document (DD)}}}} \\ [4cm]
+
+%\textcolor{Blue}
+{\textbf{{\huge{DREAM}}\\[2mm]\large{Data-dRiven PrEdictive FArMing in Telangana}}}\\ [4cm]
+
+%\textcolor{Blue}
+{\textbf{\large{\textit{Authors:}}\\[1mm]\Large{Marra, Miceli, Mora}}}\\ [3cm]
+
+\end{titlepage}
+
+%Define deliverable specific info
+%Replace cell contents where needed
+\begin{table}[h!]
+\begin{tabu} to \textwidth { X[0.3,r,p] X[0.7,l,p] }
+\hline
+
+\textbf{Deliverable:} & DD\\
+\textbf{Title:} & Design Document \\
+\textbf{Authors:} & Marra Gabriele, Miceli Matteo, Mora Destiny \\
+\textbf{Version:} & 1.0 \\ 
+\textbf{Date:} & 09-January-2022 \\
+\textbf{Download page:} & \href{https://github.com/gabrielemarra/MarraMiceliMora}{GitHub} \\
+\textbf{Copyright:} & Copyright © 2022, Marra, Miceli, Mora – All rights reserved \\
+\hline
+\end{tabu}
+\end{table}
+
+
+
+
+\setcounter{page}{2}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\newpage
+\addcontentsline{toc}{section}{Table of Contents}
+\tableofcontents
+\newpage
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+
+\pagenumbering{arabic}
+
+{\color{Blue}{\section{Introduction}}}
+\label{sect:introduction}
+\input{Files/introduction}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{Architectural Design}}}
+\label{sect:architecture}
+\input{Files/architecture}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{User Interface Design}}}
+\label{sect:userinterface}
+\input{Files/userinterface}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{Requirements Traceability}}}
+\label{sect:reqtraceability}
+\input{Files/reqtraceability}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{Implementation, Integration And Test Plan}}}
+\label{sect:implementIntegTest}
+\input{Files/implementIntegTest}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{Effort Spent}}}
+\label{sect:effort}
+\input{Files/effort}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+%\clearpage
+%\addcontentsline{toc}{section}{References}
+%\bibliographystyle{plain}
+%\bibliography{main}
+%\label{sect:references}
+%\input{Files/references}
+
+\clearpage
+%\section{References}
+%\label{sect:references}
+%\input{Files/references}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+\end{document}
