@@ -25,6 +25,19 @@ Lastly, given the importance of the historical data kept inside the database, a 
 \end{figure}
 
 \subsection{Deployment View}
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=\textwidth]{../images_diagrams/dd/highlevel_deployment.png}
+\caption{High-Level Deployment View.}
+\label{fig:highLevelDeploy}
+\end{figure}
+
+The main components in the deployment view in Figure \ref{fig:highLevelDeploy} are the client devices and the cloud platform. Policy makers will access the DREAM Policy Application via a computer device whereas agronomists and farmers will access the DREAM AgroFarmer Application via a mobile device. The CDN is represented as an external service. Then, the server components of the DREAM cloud include the application server, the web server, the database server, and the storage server. Within the cloud platform there is also a load balancer and a queue manager.
+
+
+
+
+
 \subsection{Runtime View}
 You can use sequence diagrams to describe the way components interact
 to accomplish specific tasks typically related to your use cases
