@@ -1,1 +1,609 @@
-Explain how the requirements you have defined in the RASD map to the design elements that you have defined in this document.
+\newcommand\req[1]{\item[[ R#1]]}
+
+Explain how the requirements you have defined in the RASD map to the design elements that you have defined in this document.\\
+
+Components list:\\
+
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item ForumManager
+\item FarmManager
+\item FarmerReportManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RecommenderManager
+\item DailyPlanManager
+\item MessageManager
+\item TriggerManager
+\item RankingManager
+\item WeatherManager
+
+\end{itemize}
+
+
+\begin{itemize}
+\req{1} The system must allow the farmer to set the production types of their fields.
+
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item RecommenderManager
+\end{itemize}
+
+\req{2} The system must allow the farmer to set the position of their fields manually.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmManager
+\item DataAggregationManager
+
+\end{itemize}
+\req{3} The system must allow the farmer to set the position of their fields through their devices' GPS.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmManager
+\item DataAggregationManager
+\end{itemize}
+
+\req{4} The system must keep track of the data about farmers
+\begin{itemize}
+
+
+\item FarmManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item StatisticsManager
+\item TriggerManager
+\item RankingManager
+
+\end{itemize}
+\req{5} The system must provide an interface to visualize data //TODO
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item ForumManager
+\item FarmManager
+\item FarmerReportManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RecommenderManager
+\item DailyPlanManager
+\item MessageManager
+\item RankingManager
+\item WeatherManager
+
+\end{itemize}
+\req{6} The system must be able to analyze data and show statistics
+\begin{itemize}
+
+
+\item DataAggregationManager
+\item StatisticsManager
+
+\end{itemize}
+\req{7} The system must enable farmers to modify their production type.
+\begin{itemize}
+
+
+\item AuthenticationManager
+\item FarmManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+
+\end{itemize}
+
+
+\req{8} The system must enable farmers to report issues they may face.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmManager
+\item FarmerReportManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item StatisticsManager
+\item RecommenderManager
+\item MessageManager
+\item WeatherManager
+
+\end{itemize}
+\req{9} The system must allow the farmer to report production data at a frequency chosen by the farmer.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmManager
+\item FarmerReportManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item TriggerManager
+
+\end{itemize}
+\req{10} The system must retrieve the weather forecast data from the data that the Telangana government collects.
+\begin{itemize}
+
+
+\item DataAggregationManager
+\item StatisticsManager
+\item RecommenderManager
+\item WeatherManager
+
+\end{itemize}
+\req{11} The system must show updated weather forecast data at most 5 minutes from which the data has been published by the Telangana government.
+\begin{itemize}
+
+
+\item DataAggregationManager
+\item StatisticsManager
+\item RecommenderManager
+\item WeatherManager
+
+\end{itemize}
+\req{12} The system must provide weather data that forecasts at least 3 days ahead
+\begin{itemize}
+
+\item DataAggregationManager
+\item StatisticsManager
+\item RecommenderManager
+\item WeatherManager
+
+\end{itemize}
+\req{13} The system must allow agronomists to access weather forecast data specific to their responsible area
+\begin{itemize}
+
+
+\item AuthenticationManager
+\item StatisticsManager
+\item RecommenderManager
+\item WeatherManager
+
+\end{itemize}
+
+\req{14} The system must allow farmers to access weather forecast data based on their GPS location [or from the location of their farm on record]
+
+\begin{itemize}
+
+\item AuthenticationManager
+\item DataAggregationManager
+\item WeatherManager
+
+\end{itemize}
+
+\req{15} The system must provide an interface for farmers to request help and suggestions from other farmers
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item ForumManager
+\item FarmManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item RecommenderManager
+
+\end{itemize}
+\req{16} The system must provide an interface for farmers to receive help requests and receive suggestions sent to them from other farmers
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item ForumManager
+\item FarmManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item RecommenderManager
+
+
+\end{itemize}
+\req{17} The system must provide an interface for farmers to provide suggestions to other farmers
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item ForumManager
+\item FarmManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item RecommenderManager
+
+
+\end{itemize}
+
+\req{18} The system must provide an interface for farmers to respond to help requests sent to them from other farmers
+
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item ForumManager
+\item FarmManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item RecommenderManager
+
+\end{itemize}
+
+\req{19} The system must provide an interface for farmers to request help and suggestions from other agronomists
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item FarmManager
+\item FarmerSuggestionManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RecommenderManager
+\item MessageManager
+\item RankingManager
+
+\end{itemize}
+
+\req{20} The system must provide an interface for agronomists to receive help requests sent to them from other farmers
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item MessageManager
+
+\end{itemize}
+\req{21} The system must provide an interface for agronomists to respond to help requests sent to them from other farmers 
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RecommenderManager
+\item MessageManager
+\item RankingManager
+
+\end{itemize}
+\req{22} The system must provide an interface for agronomists to provide suggestions to other farmers
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RecommenderManager
+\item MessageManager
+\item RankingManager
+
+\end{itemize}
+\req{23}  The system must provide a forum interface
+\begin{itemize}
+
+\item AuthenticationManager
+\item ForumManager
+
+
+\end{itemize}
+
+\req{24}  The system must allow the farmer to create discussion forums.
+
+\begin{itemize}
+
+\item AuthenticationManager
+\item ForumManager
+\item DataAggregationManager
+
+
+\end{itemize}
+
+\req{25}  The system must allow farmers to view all posts in the discussion forum.
+\begin{itemize}
+
+\item AuthenticationManager
+\item ForumManager
+
+
+\end{itemize}
+\req{26}  The system must allow farmers to post replies in the discussion forum
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item ForumManager
+
+\end{itemize}
+
+\req{27}  The system must keep track of all the forum discussion
+\begin{itemize}
+
+
+\item ForumManager
+\item DataAggregationManager
+
+\end{itemize}
+
+\req{28} The system must allow agronomists to specify the geographic area in which they are responsible for.
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item DataAggregationManager
+
+\end{itemize}
+
+\req{29} The system must allow agronomists to modify their responsible geographic area.
+\begin{itemize}
+
+
+\item AuthenticationManager
+
+
+\end{itemize}
+
+\req{30}  The system must allow agronomist to view the list of all farmers in their area.
+\begin{itemize}
+
+\item NotificationManager
+\item AuthenticationManager
+\item FarmManager
+\item DataAggregationManager
+\item RankingManager
+
+\end{itemize}
+\req{31}  The system must provide an evaluation of farmers such that the evaluation reflects the quality and quantity of their crop production
+\begin{itemize}
+
+
+\item FarmManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RankingManager
+
+
+\end{itemize}
+\req{32}  The system must enable agronomists to access farmer evaluations from their specific area
+\begin{itemize}
+
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RankingManager
+
+\end{itemize}
+
+\req{33}  The system updates farmers' evaluation when new data is available (ie, new farmer event entries or after an agronomist visit, etc)
+\begin{itemize}
+
+
+\item FarmManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item TriggerManager
+\item RankingManager
+
+\end{itemize}
+
+\req{34}  The system must provide an interface for daily plans
+\begin{itemize}
+
+
+\item AuthenticationManager
+\item DailyPlanManager
+
+
+\end{itemize}
+
+\req{35}  The system must recommend which farmers should be included in the agronomist's daily plan
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RecommenderManager
+\item DailyPlanManager
+\item RankingManager
+
+\end{itemize}
+
+\req{36}  The system must generate recommendations such that farmers are visited by their respective agronomists at least twice a year
+
+\begin{itemize}
+
+\item AuthenticationManager
+\item AgronomistReportManager
+\item RecommenderManager
+\item DailyPlanManager
+
+\end{itemize}
+\req{37}  The system must generate recommendations such that farmers with low evaluation are visited more often than twice a year
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RecommenderManager
+\item DailyPlanManager
+\item RankingManager
+
+\end{itemize}
+\req{38}  The system must allow agronomist to view the list of all farms to visit on a specific day.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item DailyPlanManager
+
+
+\end{itemize}
+\req{39}  The system must allow agronomists to modify which farmers they visit in their plan
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RecommenderManager
+\item DailyPlanManager
+\item RankingManager
+
+\end{itemize}
+
+\req{40}  The system must allow agronomists to specify and modify the duration of the visits in their plan
+\begin{itemize}
+
+\item AuthenticationManager
+\item DailyPlanManager
+
+\end{itemize}
+\req{41}  The system must maintain a record of farmers who have been visited by their respective agronomists
+\begin{itemize}
+
+\item AuthenticationManager
+\item AgronomistReportManager
+\item DataAggregationManager
+\item DailyPlanManager
+
+\end{itemize}
+\req{42} The system must allow agronomists to modify the daily plan at the end of the day.
+\begin{itemize}
+
+\item AuthenticationManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item DailyPlanManager
+
+\end{itemize}
+\req{43} The system must allow agronomists to confirm that the daily plan was executed that the end of that day
+\begin{itemize}
+
+\item AuthenticationManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item DailyPlanManager
+
+\end{itemize}
+
+\req{44} The system must not allow anymore modifications to the plan after the plan is confirmed by the agronomist
+\begin{itemize}
+
+\item AuthenticationManager
+\item DataAggregationManager
+\item DailyPlanManager
+
+\end{itemize}
+
+\req{45} The system must only generate a new plan for a new day after the plan from the preceding day was confirmed by the agronomist.
+\begin{itemize}
+
+\item AuthenticationManager
+\item DataAggregationManager
+\item DailyPlanManager
+
+\end{itemize}
+\req{46} The system must allow Telangana’s policy makers to view the list of all farmers.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RankingManager
+
+\end{itemize}
+\req{47} The system must allow Telangana’s policy makers to view the performance and evaluation of the farmers.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RankingManager
+
+
+\end{itemize}
+\req{48} The system must allow Telangana’s policy makers to view the ranking of the farmers.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RankingManager
+
+\end{itemize}
+\req{49} The system must allow Telangana’s policy makers to view well-performing and poor-performing farmers.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RankingManager
+
+\end{itemize}
+\req{50} The system must allow Telangana’s policy makers to flag the farmers that need to be helped based on their performance.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item TriggerManager
+\item RankingManager
+
+\end{itemize}
+\req{52} The system must allow policy makers to view the history of farmers’ performance/ evaluation (score over time)
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RankingManager
+
+\end{itemize}
+\req{53} The system must allow Telangana policy makers to view this measure of support designated to each farmer.
+\begin{itemize}
+
+\item AuthenticationManager
+\item FarmerReportManager
+\item DataAggregationManager
+\item AgronomistReportManager
+\item StatisticsManager
+\item RankingManager
+
+\end{itemize}
+\end{itemize}
