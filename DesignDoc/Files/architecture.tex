@@ -15,12 +15,28 @@ To allow the system to work always in ideal conditions, a load balancer routes a
 An additional tier is then placed between the user and the DREAM Cloud: a Content Delivery Network (CDN) will relieve some load from the system and improve performances in serving static contents. Overall, the resulting application will have five tiers.\\
 Lastly, given the importance of the historical data kept inside the database, a backup system clone frequently the data on a different server, possibly located in a different availability zone.\\ 
 
+\clearpage
 \subsection{Component View}
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=\textwidth]{../images_diagrams/dd/high_level_cloud.png}
 \caption{High-Level Component View.}
+\label{fig:highLevelComp}
+\end{figure}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=\textwidth]{../images_diagrams/dd/component_only_cloud.png}
+\caption{Application Server Component View.}
+\label{fig:highLevelComp}
+\end{figure}
+
+\clearpage
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=\textwidth]{../images_diagrams/dd/component_only_application.png}
+\caption{DREAM Cloud Component View.}
 \label{fig:highLevelComp}
 \end{figure}
 
