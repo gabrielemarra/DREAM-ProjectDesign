@@ -1,13 +1,16 @@
-% Identify here the order in which you plan to implement the subcomponents of your system and the order in which you plan to integrate such subcomponents and test the integration.
-
-
 \subsection{Overview}
 \begin{flushleft}
-To comply with standard design practices it is suggested to undergo unit testing as each component is built, integration testing as component get pieced together, and system testing to validate the system as a whole. This section will detail the order in which the components should be built, the method to carry out testing, and the manner in which to integrate the components.
+To comply with standard design practices it is suggested to undergo unit testing as each component is built, integration testing as components get pieced together, and system testing to validate the system as a whole. This section will detail the order in which the components should be built, the method to carry out testing, and the manner in which to integrate the components.
 \end{flushleft}
 
- 
 \subsection{Implementation Plan}
+\subsubsection{DBMS and Storage}
+\begin{flushleft}
+The structure of the database and storage servers should be implemented first. Investing in the implementation of these components first lays out the foundation of the structure of the data expected by the system before starting the implementation of the application components as described in Section \ref{sect:AppIIT}. Additionally, after the DBMS and storage components are implemented, these components can serve as a bed for continuous integration testing as the system gets incrementally built. This is explained in further detail in Section \ref{sect:ITP}. 
+\end{flushleft}
+
+\subsubsection{DREAM Application}
+\label{sect:AppIIT}
 \begin{flushleft}
 As stated previously, the entire system can be decomposed into 15 components which shall be built in the following order: 
 \end{flushleft}
@@ -43,6 +46,10 @@ These four phases are also shown in Figure \ref{fig:implementationPhases}. The c
 \label{fig:implementationPhases}
 \end{figure}
 
+\subsubsection{Web Server}
+\begin{flushleft}
 
-\subsection{Integration and Testing Plan}
+\end{flushleft}
+
+\subsection{Integration and Testing Plan} \label{sect:ITP}
 \subsection{System Testing}
