@@ -15,8 +15,17 @@ To allow the system to work always in ideal conditions, a load balancer routes a
 An additional tier is then placed between the user and the DREAM Cloud: a Content Delivery Network (CDN) will relieve some load from the system and improve performances in serving static contents. Overall, the resulting application will have five tiers.\\
 Lastly, given the importance of the historical data kept inside the database, a backup system clone frequently the data on a different server, possibly located in a different availability zone.\\ 
 
-\clearpage
+%\clearpage
 \subsection{Component View}
+
+The following diagrams will depict the internal structure of the DREAM system, showing off the components and interfaces that allow communication between them. The architecture is made of three different parts:
+\begin{itemize}
+	\item the Agro-Farmer mobile web application which will be used by farmers and agronomists
+	\item the Policy web application used by policymakers
+	\item the DREAM cloud that hosts the backend for all the previously introduced functionalities
+\end{itemize}
+An additional element is presented for completeness: the Google Maps API is utilized by the mobile application for offering directions. \\
+For simplicity, these three parts will be presented at different levels of abstraction, starting from the highest level, shown in Figure \ref{fig:highLevelComp}.\\
 
 \begin{figure}[hbt!]
 \centering
@@ -25,11 +34,13 @@ Lastly, given the importance of the historical data kept inside the database, a 
 \label{fig:highLevelComp}
 \end{figure}
 
+\subsubsection{Component diagram of DREAM Cloud}
+
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=\textwidth]{../images_diagrams/dd/component_only_cloud.png}
 \caption{Application Server Component View.}
-\label{fig:highLevelComp}
+\label{fig:CloudOnlyComp}
 \end{figure}
 
 \clearpage
@@ -37,7 +48,7 @@ Lastly, given the importance of the historical data kept inside the database, a 
 \centering
 \includegraphics[width=\textwidth]{../images_diagrams/dd/component_only_application.png}
 \caption{DREAM Cloud Component View.}
-\label{fig:highLevelComp}
+\label{fig:ApplicationServerOnlyComp}
 \end{figure}
 
 \subsection{Deployment View}
