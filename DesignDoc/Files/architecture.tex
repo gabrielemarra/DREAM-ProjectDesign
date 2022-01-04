@@ -9,6 +9,7 @@ The client will only show the graphical interface to the end-user, while the bac
 \label{fig:highLevelArch}
 \end{figure}
 
+\noindent
 Since the application must be reliable and flexible enough in handling the growth of the user base, a cloud-based architecture seems to be suited for this task.\\
 In particular, DREAM Cloud is a 3-tier architecture with a WebServer, an Application Server, and a Storage Server (DBMS Server).\\
 To allow the system to work always in ideal conditions, a load balancer routes all the requests to different application servers: if necessary, new instances of the servers should be created and used to balance the computational load.\\
@@ -19,11 +20,11 @@ Lastly, given the importance of the historical data kept inside the database, a 
 \subsection{Component View}
 
 The following diagrams will depict the internal structure of the DREAM system, showing off the components and interfaces that allow communication between them. The architecture is made of three different parts:
-\begin{itemize}
+\begin{enumerate}
 	\item the Agro-Farmer mobile web application which will be used by farmers and agronomists
-	\item the Policy web application used by policymakers
+	\item the Policy desktop web application used by policymakers
 	\item the DREAM cloud that hosts the backend for all the previously introduced functionalities
-\end{itemize}
+\end{enumerate}
 An additional element is presented for completeness: the Google Maps API is utilized by the mobile application for offering directions. \\
 For simplicity, these three parts will be presented at different levels of abstraction, starting from the highest level, shown in Figure \ref{fig:highLevelComp}.\\
 
@@ -39,17 +40,50 @@ For simplicity, these three parts will be presented at different levels of abstr
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=\textwidth]{../images_diagrams/dd/component_only_cloud.png}
-\caption{Application Server Component View.}
+\caption{DREAM Cloud Component View.}
 \label{fig:CloudOnlyComp}
 \end{figure}
 
-\clearpage
+The cloud architecture illustrated in Figure \ref{fig:CloudOnlyComp} is based upon these components:
+\begin{itemize}
+	\item a CDN is implemented as the first component to improve the availability, performance, and redundancy of the entire system
+	\item a Web Server is used to accept the HTTP requests and send HTTP responses. It provides static data as well as dynamic data obtained by the application server.
+	\item the Application Server is the main component at this granularity. It contains about fifteen smaller components that implement the business logic of the system. The dynamic content of the application is generated here.
+	\item the DBMS server is responsible for the storage of data inside a database
+\end{itemize}
+Aside from the Application Server, all the others can be implemented using Commercial off-the-shelf products. \\
+
+\subsubsection{Component diagram of Application Server}
+
+The Figure \ref{fig:ApplicationServerOnlyComp} describes the application server and its components with the highest level of detail, as developers will have to implement the business logic themselves.\\
+
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=\textwidth]{../images_diagrams/dd/component_only_application.png}
-\caption{DREAM Cloud Component View.}
+\caption{Application Server Component View.}
 \label{fig:ApplicationServerOnlyComp}
 \end{figure}
+
+\noindent
+The main components in the application server, providing all the business logic in DREAM, are:
+
+\begin{itemize}
+	\item The \textbf{AuthenticationManager} is responsible for the login, registration, and logout operation. It allows the users to use their credentials to get access to the application.
+	\item \textbf{ForumManager}
+	\item \textbf{FarmManager}
+	\item \textbf{FarmerReportManager}
+	\item \textbf{FarmerSuggestionManager}
+	\item \textbf{DataAggregationManager}
+	\item \textbf{AgronomistReportManager}
+	\item \textbf{StatisticsManager}
+	\item \textbf{RecommenderManager}
+	\item \textbf{DailyPlanManager}
+	\item \textbf{MessageManager}
+	\item The \textbf{NotificationManager} module is in charge of sending notifications to users. It is used on different occasions, such as when an agronomist receives a new message from a farmer or there is a new thread in the Farmers Forum.
+	\item \textbf{TriggerManager}
+	\item \textbf{RankingManager}
+	\item \textbf{WeatherManager}
+\end{itemize}
 
 \subsection{Deployment View}
 \begin{figure}[hbt!]
