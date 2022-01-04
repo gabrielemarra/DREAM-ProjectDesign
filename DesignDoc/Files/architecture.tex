@@ -68,21 +68,21 @@ The Figure \ref{fig:ApplicationServerOnlyComp} describes the application server 
 The main components in the application server, providing all the business logic in DREAM, are:
 
 \begin{itemize}
-	\item The \textbf{AuthenticationManager} is responsible for the login, registration, and logout operation. It allows the users to use their credentials to get access to the application.
-	\item \textbf{ForumManager}
-	\item \textbf{FarmManager}
-	\item \textbf{FarmerReportManager}
-	\item \textbf{FarmerSuggestionManager}
-	\item \textbf{DataAggregationManager}
-	\item \textbf{AgronomistReportManager}
-	\item \textbf{StatisticsManager}
-	\item \textbf{RecommenderManager}
-	\item \textbf{DailyPlanManager}
-	\item \textbf{MessageManager}
+	\item The \textbf{AuthenticationManager} is responsible for the login, registration, and logout operation. It allows the users to use their credentials to get access to the application. It is also in charge of the password reset procedure.
+	\item The \textbf{ForumManager} manages the Farmer Forum with the creation, deletion, and edits of posts and threads. 
+	\item The \textbf{FarmManager} handles the "MyFarm" section in the mobile application, providing the farmer with all the information about their farm and fields.
+	\item The \textbf{FarmerReportManager} is in charge of collecting the production data and other information about the yields from the farmer and storing everything inside the database.
+	\item The \textbf{AgronomistReportManager} is in charge of collecting the production data, a score, and other information about the yields from the agronomist and storing everything inside the database.
+	\item The \textbf{DataAggregationManager} is responsible for aggregating data and information obtained from the reports.
+	\item The \textbf{StatisticsManager} manages the calculation of various statistics based on historical data.
+	\item The \textbf{RecommenderManager} generates suggestions for farmers and agronomists, based on the previously calculated statistics.
+	\item The \textbf{FarmerSuggestionManager} provides suggestions about the production, such as which plant species to plant or the fertilizers to use, to the farmers.
+	\item The \textbf{DailyPlanManager} is responsible for the creation, edit, and confirmation of the daily plans.
+	\item The \textbf{MessageManager} handles the communication between farmers and agronomists. It collects the message from the sender and forwards it to the recipient.
 	\item The \textbf{NotificationManager} module is in charge of sending notifications to users. It is used on different occasions, such as when an agronomist receives a new message from a farmer or there is a new thread in the Farmers Forum.
-	\item \textbf{TriggerManager}
-	\item \textbf{RankingManager}
-	\item \textbf{WeatherManager}
+	\item The \textbf{TriggerManager} handles the creation, edit, and deletion of triggers by the Policymakers. It creates a trigger at the database level (where it is possible) and executes a check for each trigger each time new data is provided through the reports.
+	\item The \textbf{RankingManager} is responsible for the creation and update of farmer ranking based on the provided data and calculated statistics.
+	\item The \textbf{WeatherManager} collects and provides data about the weather to farmers and agronomists.
 \end{itemize}
 
 \subsection{Deployment View}
