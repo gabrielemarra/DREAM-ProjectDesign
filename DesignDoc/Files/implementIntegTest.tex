@@ -4,7 +4,7 @@ To comply with standard design practices it is suggested to undergo unit testing
 \end{flushleft}
 
 \subsection{Implementation Plan}
-\subsubsection{DBMS and Storage}
+\subsubsection{DBMS}
 \begin{flushleft}
 The structure of the database and storage servers should be implemented first. Investing in the implementation of these components first lays out the foundation of the structure of the data expected by the system before starting the implementation of the application components as described in Section \ref{sect:AppIIT}. Additionally, after the DBMS and storage components are implemented, these components can serve as a bed for continuous integration testing as the system gets incrementally built. This is explained in further detail in Section \ref{sect:ITP}. 
 \end{flushleft}
@@ -48,8 +48,17 @@ These four phases are also shown in Figure \ref{fig:implementationPhases}. The c
 
 \subsubsection{Web Server}
 \begin{flushleft}
-
+As stated in Section \ref{sect:cloudComponent} the web server component can be implemented using a commercial-off-the-shelf product that can receive and handle HTTP requests. This should be implemented early in the development stages in order to enable early testing of the application components. 
 \end{flushleft}
 
 \subsection{Integration and Testing Plan} \label{sect:ITP}
-\subsection{System Testing}
+\subsubsection{Continuous Integration}
+\label{sect:CI}
+\begin{flushleft}
+Due to the complexity and size of this effort, it is best to adopt a continuous integration methodology to ensure that integration and testing is exhaustive, thorough, and complete. Continuous integration enable on-going testing; each time new code is developed and pushed, the entire software undergoes a full suite of tests. This practice requires a lot of set-up and maintenance, but it is preferable in order to successfully integrate the system and catch errors early.\\
+\smallskip
+With CI, testing occurs frequently even with small increments of development. As such a cadence, developers can find and address code and integration errors early in the development process. This does, however, mean that whenever new components are developed, the corresponding test modules need to be developed in parallel to support CI. This model tightly couples the implementation and the test phases of the development.
+\end{flushleft}
+
+\subsubsection{System Testing}
+As explained in Section \ref{sect:CI}, the system will continuously undergo testing as the implementation progresses. This lightens the load of final system testing. Once the system has been fully implemented and integrated with the CI testing model, the system will have undergone and passed all the CI tests as a whole. The final system testing phase would simply be a final validation of the system; to ensure that the system successfully meets the customer's expectations. 
