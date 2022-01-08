@@ -105,5 +105,8 @@ This diagram shows the components of the application server with the main access
 \end{figure}
 
 \subsection{Selected Architectural Styles and Patterns}
-Please explain which styles/patterns you used, why, and how
+As stated in the overview, the system is designed as a \textbf{client-server architecture}, adapted in a \textbf{multi-tiered cloud configuration}. This choice favors, first of all, the decoupling of the system, increasing reusability, scalability, and flexibility.\smallskip \\
+The presence of only web applications, thus implementing only the presentation layer, is typical of a \textbf{thin client}. The main advantage of such a configuration is the simplified management both for the user, not forced to download any software and for the developers, who can adopt a write once, run everywhere approach and push updates to the clients very easily.\smallskip \\
+Finally, the architecture uses an \textbf{external CDN} to distribute static content with the highest efficiency and performance. The CDN caches the static contents implemented by the web applications, while it acts as a proxy for the dynamic contents and API requests to the backend.\\
+
 \subsection{Other Design Decisions}
