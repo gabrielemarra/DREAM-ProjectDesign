@@ -92,43 +92,47 @@ The main components in the deployment view in Figure \ref{fig:highLevelDeploy} a
 
 
 \subsection{Runtime View}
-You can use sequence diagrams to describe the way components interact
-to accomplish specific tasks typically related to your use cases
+
+
+\begin{flushleft}
+As shown in the \textbf{Figure \ref{fig:messagesSequenceDiagram}}, when the farmer user access the “Ask Experts" area in the application, the farmer will send a request for help to their assigned agronomist in the form of a message. The agronomist and the farmer can continue to exchange messages until either user chooses to end the conversation. Perhaps the sequence diagram only represents one message exchanged between them for more clarity.\\
+The MessageManager has a key role in this interaction, it is the component that communicates with the DBMS for storing data and with the NotificationManager for notify the other user of the message received.
+
+\end{flushleft}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=\textwidth]{../images_diagrams/dd/messagesSequenceDiagram.png}
+\caption{Messages Sequence Diagram}
+\label{fig:messagesSequenceDiagram}
+\end{figure}
+
+\begin{flushleft}
+The  \textbf{Figure \ref{fig:agronomistDailyPlanSequenceDiagramer } represents the daily plan creation performed by an Agronomist. The key component this time is the DailyPlanManager. It interfaces with the RecommenderManager that, after retrieving data and statistics by the other components, generates a suggestion list of Farmers to return to the DailyPlanManager. Then, when it receives the list of suggested farmers, the DailyPlanManager also has to communicate with the Google API to get the path connecting them all. It then stores the daily plan by getting through the DBMS.
+
+\end{flushleft}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=\textwidth]{../images_diagrams/dd/agronomist_sequencediagram.png}
+\caption{Agronomist Creating Daily Plan Sequence Diagram}
+\label{fig:agronomistDailyPlanSequenceDiagram}
+\end{figure}
+
+\begin{flushleft}
+In the  \textbf{Figure \ref{fig:agronomistDailyPlanSequenceDiagramer } is represented the actions of viewing the ranking of the farmers and applying a filter to the ranking. The RankingManager is the protagonist of this interaction, it deals with delegating to the DataAggregationManager and StatisticManager for asking for data to all the other components shown in the figure. Then when it has all the information can generate the ranking and returns it to the web app.
+Once it has calculated the ranking it is available for applying filters to it and showing them to the user. 
+
+\end{flushleft}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=\textwidth]{../images_diagrams/dd/policyMakerSequenceDiaEXT.drawio.png}
+\caption{Policy Maker Ranking Sequence Diagram}
+\label{fig:policyMakerRankingSequenceDiagram}
+\end{figure}
+
 \subsection{Component Interfaces}
-This diagram shows the components of the application server with the main accessible methods.
-
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=\textwidth]{../images_diagrams/dd/component_interfaces_diagram.png}
-\caption{Application Server Component Interfaces Diagram.}
-\label{fig:componentInterface}
-\end{figure}
-
 \subsection{Selected Architectural Styles and Patterns}
-As stated in the overview, the system is designed as a \textbf{client-server architecture}, adapted in a \textbf{multi-tiered cloud configuration}. This choice favors, first of all, the decoupling of the system, increasing reusability, scalability, and flexibility.\smallskip \\
-The presence of only web applications, thus implementing only the presentation layer, is typical of a \textbf{thin client}. The main advantage of such a configuration is the simplified management both for the user, not forced to download any software and for the developers, who can adopt a write once, run everywhere approach and push updates to the clients very easily.\smallskip \\
-Finally, the architecture uses an \textbf{external CDN} to distribute static content with the highest efficiency and performance. The CDN caches the static contents implemented by the web applications, while it acts as a proxy for the dynamic contents and API requests to the backend.\\
-
+Please explain which styles/patterns you used, why, and how
 \subsection{Other Design Decisions}
-
-\subsubsection{Entity–Relationship Model}
-Figure \ref{fig:ERDiagram} represents an entity-relationship diagram of the database to help the reader identify the key entities and the main relationships and attributes.
-
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=\textwidth]{../images_diagrams/dd/er_diagram.png}
-\caption{ER Diagram.}
-\label{fig:ERDiagram}
-\end{figure}
-
-For more graphical clarity, the Agronomist entity is represented twice:
-\begin{itemize}
-	\item on the left to show the exclusive hierarchy relation between the User, Agronomist, Policy maker, and Farmer entities
-	\item on the right with all the other relations. 
-\end{itemize}
-
-The hierarchy relation between the Report, FarmerReport, and AgronomistReport entities is exclusive. The ER diagram closely follows the relationships as they are described in the Alloy model in the RASD. For graphical clarity, not all the attributes are included in this diagram. Only some interesting attributes, such as crop, fertilizer, and location for the Field entity, are included to specify that such descriptions are attributes instead of entities themselves. Other features of the system such as ranking are not included in this diagram because those are calculated at runtime; only entities related to the database storage are relevant in this diagram.
-
-\subsubsection{HTTPS connection}
-The communication between the front-end client and the back-end servers is implemented with an encrypted standard such as HTTPS in order to provide a high level of security.
-
