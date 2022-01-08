@@ -8,12 +8,12 @@ DREAM will be used by thousands of users each day, with different needs, and loc
 \end{figure}
 
 \noindent
-Since the application must be reliable and flexible enough in handling the growth of the user base, a cloud-based architecture is suitable for this task. In particular, DREAM Cloud is a 3-tier architecture with a web server, an application server, and a storage server (DBMS). To enable the system to always work in ideal conditions, a load balancer routes all the requests to different application servers. If necessary, new instances of the servers should be created and used to balance the computational load. An additional tier is then placed between the user and the DREAM Cloud: a Content Delivery Network. The CDN will relieve some load from the system and improve performances in serving static contents. Overall, the resulting application will have five tiers. Lastly, given the importance of the historical data kept inside the database, a backup system will frequently clone the data on a different server, possibly located in a different availability zone.
+Since the application must be reliable and flexible enough in handling the growth of the user base, a cloud-based architecture is suitable for this task. In particular, DREAM Cloud is a 3-tier architecture with a web server, an application server, and a storage server (DBMS). To enable the system to always work in ideal conditions, a load balancer routes all the requests to different application servers. When the computational load exceeds the available resources, new instances of the servers are created and used to balance the extra requests. An additional tier is then placed between the user and the DREAM Cloud: a content delivery network (CDN). The CDN will relieve some load from the system and improve performances in serving static contents. Overall, the resulting application will have five tiers. Lastly, given the importance of the historical data kept inside the database, a backup system will frequently clone the data on a different server, possibly located in a different availability zone.
 
 %\clearpage
 \subsection{Component View}
 
-The following diagrams will depict the internal structure of the DREAM system, demonstrating the components and interfaces that facilitate communication between them. The architecture consists of three different parts:
+The component view of the system depicts the internal structure of the DREAM system, demonstrating the components and interfaces that facilitate communication between them. The architecture consists of three different parts:
 \begin{enumerate}
 	\item the Agro-Farmer mobile web application which will be used by farmers and agronomists
 	\item the Policy desktop web application used by policy makers
