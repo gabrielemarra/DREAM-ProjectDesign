@@ -1,18 +1,13 @@
 \subsection{Purpose}
-\begin{flushleft}
+\noindent
 The purpose of this document is to provide a functional description of the design details of the DREAM product. The design details described in this document are chosen to meet the requirements and specifications outlined in the Requirements and Specification Document (RASD). This document is intended for designers in the implementation phase; the design descriptions provided outline the overall architecture of the system, offer different technical views of the system, provide more detailed user interface mock-ups, and present traceability back to the requirements from the RASD. This document also provides developers a general description of a plan to implement, integrate, and test the system.
-\end{flushleft}
 
 \subsection{Scope}
-\begin{flushleft}
+\noindent
 The scope of this document includes functional descriptions at the architectural level, at the component level, and at the user interface level. Then, this document also includes a section dedicated to the implementation, system integration, and test plan phases of the development process. The main scope of this document is on the design of the DREAM product which is decomposed into its different components and functions. This decomposition of the system is supported by a traceability mapping: the main artery that links the DD and RASD documents. \\
 The scope of the DREAM product focuses on three main stakeholders: farmers, agronomists, and policy makers. This includes offering farmers a tool to manage their production and facilitate communication when seeking assistance; offering agronomists a tool to manage their workflows including managing their daily plans, reports, and requests for assistance; and offering policy makers a tool to easily view the data collected from the entire region to observe trends as they relate to their policies. This product is only focused on serving the Telangana region. 
 
-\end{flushleft}
-
 \subsection{Definitions, Acronyms, Abbreviations}
-
-\hl{\textbf{NOTE: this is copied from RASD}}
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{l >{\raggedright\arraybackslash}p{12cm} } \hline
@@ -27,10 +22,23 @@ The scope of the DREAM product focuses on three main stakeholders: farmers, agro
     Production yields & The amount of crop harvested compared to the amount of crop planted. Measured comparatively by percentage or numerically by weight.\\
     Flag & A marker on a farmer that signals the system to increase the priority for the farmer to get visited by an agronomist.\\
     TSDPS & Telangana State Development Planning Society which manages the automated weather stations around the state. \\
-    World & A graphical representation of an instance of the Alloy model.\\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l >{\raggedright\arraybackslash}p{12cm} } \hline
+    \textbf{Term} & \textbf{Definition}\\ 
     UML & Unified Modeling Language\\
-    MTTF & Mean Time To Failure\\
-    MTTR & Mean Time To Recovery\\
+    DD & Design Document\\
+    RASD & Requirements Analysis and Specifications Document\\
+    	COTS & Commercial Off-the-Shelf\\
+    	HTTPS & Hypertext Transfer Protocol Secure\\
+    	CDN & Content Delivery Network\\
+    	DBMS & Database Management System\\
+    	API & Application Programming Interface\\
+    	ER & Entity–Relationship\\
+    	CI & Continuous Integration\\
     \hline
 \end{tabular}
 \end{center}
@@ -48,16 +56,21 @@ The scope of the DREAM product focuses on three main stakeholders: farmers, agro
 \end{flushleft}
 
 \subsection{Reference Documents}
+\begin{itemize}
+\item Assignment RDD A.Y. 2021-2022
+\item RASD - DREAM - Marra, Miceli, Mora
+\item ISO/IEC/IEEE 29148 dated 2018, Systems and software engineering - Life cycle processes - Requirements engineerings
+\end{itemize}
+
 \subsection{Document Structure}
 The document is structured with the following sections:
 \begin{itemize}
-\item \textbf{Introduction}:
-\item \textbf{Architectural Design}:
-\item \textbf{User Interface Design}:
-\item \textbf{Requirements Traceability}:
-\item \textbf{Implementation, Integration, and Test Plan}:
-\item \textbf{Effort Spent}: For the purposes of the project assignment, this section itemizes the time each participate allotted to different phases of the project. 
-\item \textbf{References}:
+\item \textbf{Introduction}: This section introduces the document describing the purpose, scope, and other logistical elements.
+\item \textbf{Architectural Design}: This section provides multiple technical views to elaborate on the architecture of the system. This includes the component view, deployment view, runtime view, component interfaces, and other design choices.
+\item \textbf{User Interface Design}: This section provides mockups of the application including specific user flows for each of the three users.
+\item \textbf{Requirements Traceability}: This section explains how the RASD requirements map to the design components described in the Architectural Design section.
+\item \textbf{Implementation, Integration, and Test Plan}: This section details a methodology to implement, integrate, and test the system.
+\item \textbf{Effort Spent}: This section itemizes the time each participant allotted to different phases of the project. 
 \end{itemize}
 
 
