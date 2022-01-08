@@ -108,7 +108,7 @@ The MessageManager has a key role in this interaction, it is the component that 
 \end{figure}
 
 \begin{flushleft}
-The  \textbf{Figure \ref{fig:agronomistDailyPlanSequenceDiagramer } represents the daily plan creation performed by an Agronomist. The key component this time is the DailyPlanManager. It interfaces with the RecommenderManager that, after retrieving data and statistics by the other components, generates a suggestion list of Farmers to return to the DailyPlanManager. Then, when it receives the list of suggested farmers, the DailyPlanManager also has to communicate with the Google API to get the path connecting them all. It then stores the daily plan by getting through the DBMS.
+The  \textbf{Figure \ref{fig:agronomistDailyPlanSequenceDiagram }} represents the daily plan creation performed by an Agronomist. The key component this time is the DailyPlanManager. It interfaces with the RecommenderManager that, after retrieving data and statistics by the other components, generates a suggestion list of Farmers to return to the DailyPlanManager. Then, when it receives the list of suggested farmers, the DailyPlanManager also has to communicate with the Google API to get the path connecting them all. It then stores the daily plan by getting through the DBMS.
 
 \end{flushleft}
 
@@ -120,7 +120,7 @@ The  \textbf{Figure \ref{fig:agronomistDailyPlanSequenceDiagramer } represents t
 \end{figure}
 
 \begin{flushleft}
-In the  \textbf{Figure \ref{fig:agronomistDailyPlanSequenceDiagramer } is represented the actions of viewing the ranking of the farmers and applying a filter to the ranking. The RankingManager is the protagonist of this interaction, it deals with delegating to the DataAggregationManager and StatisticManager for asking for data to all the other components shown in the figure. Then when it has all the information can generate the ranking and returns it to the web app.
+In the  \textbf{Figure \ref{fig:policyMakerRankingSequenceDiagram}} is represented the actions of viewing the ranking of the farmers and applying a filter to the ranking. The RankingManager is the protagonist of this interaction, it deals with delegating to the DataAggregationManager and StatisticManager for asking for data to all the other components shown in the figure. Then when it has all the information can generate the ranking and returns it to the web app.
 Once it has calculated the ranking it is available for applying filters to it and showing them to the user. 
 
 \end{flushleft}
