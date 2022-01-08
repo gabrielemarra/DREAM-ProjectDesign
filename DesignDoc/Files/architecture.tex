@@ -110,3 +110,23 @@ The presence of only web applications, thus implementing only the presentation l
 Finally, the architecture uses an \textbf{external CDN} to distribute static content with the highest efficiency and performance. The CDN caches the static contents implemented by the web applications, while it acts as a proxy for the dynamic contents and API requests to the backend.\\
 
 \subsection{Other Design Decisions}
+
+\subsubsection{Entity–Relationship Model}
+Figure \ref{fig:ERDiagram} represents an entity-relationship diagram of the database to help the reader identify the key entities and the main relationships and attributes.
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=\textwidth]{../images_diagrams/dd/er_diagram.png}
+\caption{ER Diagram.}
+\label{fig:ERDiagram}
+\end{figure}
+
+For more graphical clarity, the Agronomist entity is represented twice:
+\begin{itemize}
+	\item on the left to show the exclusive hierarchy relation between User, Agronomist, Policy maker, and Farmer.
+	\item on the right with all the other relations. 
+\end{itemize}
+
+The hierarchy relation between Report, FarmerReport, and AgronomistReport is exclusive.
+
+\subsubsection{HTTPS connection}
