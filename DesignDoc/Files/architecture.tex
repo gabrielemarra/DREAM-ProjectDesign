@@ -1,4 +1,5 @@
 \subsection{Overview}
+\label{sect:overview}
 DREAM will be used by thousands of users each day, with different needs, and located all over the Telangana region. To achieve this result and to respect all the requirements stated in the RASD, DREAM will be developed as a distributed application with clients and servers. The client will only show the graphical interface to the end-user, while the back-end will execute and support all the business logic operations. 
 \begin{figure}[hbt!]
 \centering
@@ -40,15 +41,15 @@ An additional element is presented for completeness: the Google Maps API is util
 The cloud architecture illustrated in Figure \ref{fig:CloudOnlyComp} is based on the following components:
 \begin{itemize}
 	\item a CDN is implemented as the first component to improve the availability, performance, and redundancy of the entire system
-	\item the Web Server is used to accept the HTTP requests and send HTTP responses. It provides static data as well as dynamic data obtained by the application server.
-	\item the Application Server is the main component at this granularity. It contains about 15 smaller components that implement the business logic of the system. The dynamic content of the application is generated here.
+	\item the web server is used to accept the HTTPS requests and send HTTPS responses. It provides static data as well as dynamic data obtained by the application server.
+	\item the application server is the main component at this granularity. It contains about 15 smaller components that implement the business logic of the system. The dynamic content of the application is generated here.
 	\item the DBMS server is responsible for the storage of data inside a database
 \end{itemize}
-Aside from the Application Server, all the others can be implemented using Commercial off-the-shelf products. \\
+Aside from the application server, all the others can be implemented using commercial off-the-shelf products (COTS). \\
 
 \subsubsection{Application Server Component}
 
-The Figure \ref{fig:ApplicationServerOnlyComp} describes the application server and its components with the highest level of detail, as developers will have to implement the business logic themselves.\\
+Figure \ref{fig:ApplicationServerOnlyComp} describes the application server and its components with the highest level of detail, as developers will have to implement the business logic themselves.\\
 
 \begin{figure}[hbt!]
 \centering
@@ -61,19 +62,19 @@ The Figure \ref{fig:ApplicationServerOnlyComp} describes the application server 
 The main components in the application server, providing all the business logic in DREAM, are:
 
 \begin{itemize}
-	\item The \textbf{AuthenticationManager} is responsible for the login, registration, and logout operation. It allows the users to use their credentials to get access to the application. It is also in charge of the password reset procedure.
+	\item The \textbf{AuthenticationManager} is responsible for the login, registration, and logout operations. It allows the users to use their credentials to get access to the application. It is also in charge of the password reset procedure.
 	\item The \textbf{ForumManager} manages the Farmer Forum with the creation, deletion, and edits of posts and threads. 
-	\item The \textbf{FarmManager} handles the "MyFarm" section in the mobile application, providing the farmer with all the information about their farm and fields.
-	\item The \textbf{FarmerReportManager} is in charge of collecting the production data and other information about the yields from the farmer and storing everything inside the database.
-	\item The \textbf{AgronomistReportManager} is in charge of collecting the production data, a score, and other information about the yields from the agronomist and storing everything inside the database.
+	\item The \textbf{FarmManager} handles the My Farm section in the mobile application, providing the farmer with all the information about their farm and fields.
+	\item The \textbf{FarmerReportManager} is in charge of collecting the production data. Other information such as production yields is collected from the farmer and stored inside the database.
+	\item The \textbf{AgronomistReportManager} is in charge of collecting data from the agronomist. Data such as production data, a numerical score, and other information about the yields is stored inside the database.
 	\item The \textbf{DataAggregationManager} is responsible for aggregating data and information obtained from the reports.
 	\item The \textbf{StatisticsManager} manages the calculation of various statistics based on historical data.
-	\item The \textbf{RecommenderManager} generates suggestions for farmers and agronomists, based on the previously calculated statistics.
-	\item The \textbf{FarmerSuggestionManager} provides suggestions about the production, such as which plant species to plant or the fertilizers to use, to the farmers.
-	\item The \textbf{DailyPlanManager} is responsible for the creation, edit, and confirmation of the daily plans.
+	\item The \textbf{RecommenderManager} generates recommendations for farmers and agronomists, based on the previously calculated statistics.
+	\item The \textbf{FarmerSuggestionManager} relays suggestions about the production, such as which plant species to plant or the fertilizers to use, to the farmers.
+	\item The \textbf{DailyPlanManager} is responsible for the creation, modification, and confirmation of the daily plans.
 	\item The \textbf{MessageManager} handles the communication between farmers and agronomists. It collects the message from the sender and forwards it to the recipient.
 	\item The \textbf{NotificationManager} module is in charge of sending notifications to users. It is used on different occasions, such as when an agronomist receives a new message from a farmer or when there is a new thread in the Farmer Forum.
-	\item The \textbf{TriggerManager} handles the creation, edit, and deletion of triggers by the policy makers. It creates a trigger at the database level, whenever possible, and executes a check for each trigger each time new data is provided through the reports.
+	\item The \textbf{TriggerManager} handles the creation, modification, and deletion of triggers by the policy makers. It creates a trigger at the database level, whenever possible, and executes a check for each trigger each time new data is provided through the reports.
 	\item The \textbf{RankingManager} is responsible for the creation and update of farmer rankings based on the provided data and calculated statistics.
 	\item The \textbf{WeatherManager} collects and provides data about the weather to farmers and agronomists.
 \end{itemize}
@@ -87,7 +88,7 @@ The main components in the application server, providing all the business logic 
 \end{figure}
 
 \noindent
-The main components in the deployment view in Figure \ref{fig:highLevelDeploy} are the client devices and the cloud platform. Policy makers will access the DREAM Policy Application via a computer device whereas agronomists and farmers will access the DREAM AgroFarmer Application via a mobile device. The CDN is represented as an external service. Then, the server components of the DREAM cloud include the application server, the web server, the database server, and the storage server. Within the cloud platform there is also a load balancer.
+The main components in the deployment view in Figure \ref{fig:highLevelDeploy} are the client devices and the cloud platform. Policy makers will access the DREAM Policy Application via a computer device whereas agronomists and farmers will access the DREAM AgroFarmer Application via a mobile device. The CDN is represented as an external service. Then, the server components of the DREAM Cloud include the application server, the web server, the database server, and the load balancer.
 
 
 
@@ -95,19 +96,23 @@ The main components in the deployment view in Figure \ref{fig:highLevelDeploy} a
 
 
 \noindent
-As shown in the \textbf{Figure \ref{fig:messagesSequenceDiagram}}, when the farmer user access the “Ask Experts" area in the application, the farmer will send a request for help to their assigned agronomist in the form of a message. The agronomist and the farmer can continue to exchange messages until either user chooses to end the conversation. Perhaps the sequence diagram only represents one message exchanged between them for more clarity.\\
-The MessageManager has a key role in this interaction, it is the component that communicates with the DBMS for storing data and with the NotificationManager for notify the other user of the message received.\\
+As shown in the Figure \ref{fig:messagesSequenceDiagram}, when the farmer user accesses the Ask Experts area in the application, the farmer will send a request for help to their assigned agronomist in the form of a message. The agronomist and the farmer can continue to exchange messages until either user chooses to end the conversation. The sequence diagram only represents one message exchanged between them for clarity. The MessageManager has a key role in this interaction; it is the component that communicates with the DBMS for storing data and with the NotificationManager for notifying the other user of the message received.\\
 
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=\textwidth]{../images_diagrams/dd/messagesSequenceDiagram.png}
+\includegraphics[width=0.9\textwidth]{../images_diagrams/dd/messagesSequenceDiagram.png}
 \caption{Messages Sequence Diagram}
 \label{fig:messagesSequenceDiagram}
 \end{figure}
 
 \noindent
-The  \textbf{Figure \ref{fig:agronomistDailyPlanSequenceDiagram}} represents the daily plan creation performed by an Agronomist. The key component this time is the DailyPlanManager. It interfaces with the RecommenderManager that, after retrieving data and statistics by the other components, generates a suggestion list of Farmers to return to the DailyPlanManager. Then, when it receives the list of suggested farmers, the DailyPlanManager also has to communicate with the Google API to get the path connecting them all. It then stores the daily plan by getting through the DBMS.\\
+Figure \ref{fig:agronomistDailyPlanSequenceDiagram} represents the daily plan creation performed by an agronomist. The key component this time is the DailyPlanManager. It interfaces with the RecommenderManager that, after retrieving data and statistics by the other components, generates a suggested list of farmers to return to the DailyPlanManager. Then, when it receives the list of suggested farmers, the DailyPlanManager also has to communicate with the Google API to get the path connecting them all. It then stores the daily plan by communicating with the DBMS server.\\
+
+\noindent
+Figure \ref{fig:policyMakerRankingSequenceDiagram} represents the actions of viewing the ranking of the farmers and applying a filter to the ranking. The RankingManager is the protagonist of this interaction; it instigates the DataAggregationManager and StatisticManager to retrieve data from all the other components shown in the figure. Then, when it has all the information, it can generate the ranking and returns it to the web application.
+Once it has calculated the ranking, it is available for applying filters to it and showing them to the user.\\
+
 
 
 \begin{figure}[hbt!]
@@ -117,9 +122,6 @@ The  \textbf{Figure \ref{fig:agronomistDailyPlanSequenceDiagram}} represents the
 \label{fig:agronomistDailyPlanSequenceDiagram}
 \end{figure}
 
-\noindent
-In the  \textbf{Figure \ref{fig:policyMakerRankingSequenceDiagram}} is represented the actions of viewing the ranking of the farmers and applying a filter to the ranking. The RankingManager is the protagonist of this interaction, it deals with delegating to the DataAggregationManager and StatisticManager for asking for data to all the other components shown in the figure. Then when it has all the information can generate the ranking and returns it to the web app.
-Once it has calculated the ranking it is available for applying filters to it and showing them to the user.\\
 
 \begin{figure}[hbt!]
 \centering
@@ -130,6 +132,7 @@ Once it has calculated the ranking it is available for applying filters to it an
 
 \newpage
 \subsection{Component Interfaces}
+\noindent
 This diagram shows the components of the application server with the main accessible methods.\\
 
 \begin{figure}[H]
@@ -140,13 +143,15 @@ This diagram shows the components of the application server with the main access
 \end{figure}
 
 \subsection{Selected Architectural Styles and Patterns}
-As stated in the overview, the system is designed as a \textbf{client-server architecture}, adapted in a \textbf{multi-tiered cloud configuration}. This choice favors, first of all, the decoupling of the system, increasing reusability, scalability, and flexibility.\smallskip \\
-The presence of only web applications, thus implementing only the presentation layer, is typical of a \textbf{thin client}. The main advantage of such a configuration is the simplified management both for the user, not forced to download any software and for the developers, who can adopt a write once, run everywhere approach and push updates to the clients very easily.\smallskip \\
-Finally, the architecture uses an \textbf{external CDN} to distribute static content with the highest efficiency and performance. The CDN caches the static contents implemented by the web applications, while it acts as a proxy for the dynamic contents and API requests to the backend.\\
+\noindent
+As stated in Section \ref{sect:overview}, the system is designed as a \textbf{client-server architecture}, adapted in a \textbf{multi-tiered cloud configuration}. This choice favors, first of all, the decoupling of the system, which maximizes reusability, scalability, and flexibility.\smallskip \\
+The presence of only web applications, thus implementing only the presentation layer, is typical of a \textbf{thin client}. The main advantage of such a configuration is the simplified management both for the user, not forced to download any software and for the developers, who can adopt a “write once, run everywhere" approach and push updates to the clients very easily.\smallskip \\
+Finally, the architecture uses an \textbf{external CDN} to distribute static content with the highest efficiency and performance. The CDN caches the static contents implemented by the web applications, while it acts as a proxy for the dynamic contents and API requests to the back-end.\\
 
 \subsection{Other Design Decisions}
 
 \subsubsection{Entity–Relationship Model}
+\noindent
 Figure \ref{fig:ERDiagram} represents an entity-relationship diagram of the database to help the reader identify the key entities and the main relationships and attributes.
 
 \begin{figure}[hbt!]
@@ -156,13 +161,16 @@ Figure \ref{fig:ERDiagram} represents an entity-relationship diagram of the data
 \label{fig:ERDiagram}
 \end{figure}
 
+\noindent
 For more graphical clarity, the Agronomist entity is represented twice:
 \begin{itemize}
 	\item on the left to show the exclusive hierarchy relation between the User, Agronomist, Policy maker, and Farmer entities
 	\item on the right with all the other relations. 
 \end{itemize}
 
+\noindent
 The hierarchy relation between the Report, FarmerReport, and AgronomistReport entities is exclusive. The ER diagram closely follows the relationships as they are described in the Alloy model in the RASD. For graphical clarity, not all the attributes are included in this diagram. Only some interesting attributes, such as crop, fertilizer, and location for the Field entity, are included to specify that such descriptions are attributes instead of entities themselves. Other features of the system such as ranking are not included in this diagram because those are calculated at runtime; only entities related to the database storage are relevant in this diagram.
 
 \subsubsection{HTTPS connection}
+\noindent
 The communication between the front-end client and the back-end servers is implemented with an encrypted standard such as HTTPS in order to provide a high level of security.
