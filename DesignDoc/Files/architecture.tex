@@ -71,7 +71,7 @@ The main components in the application server, providing all the business logic 
 	\item The \textbf{StatisticsManager} manages the calculation of various statistics based on historical data.
 	\item The \textbf{RecommenderManager} generates recommendations for farmers and agronomists, based on the previously calculated statistics.
 	\item The \textbf{FarmerSuggestionManager} relays suggestions about the production, such as which plant species to plant or the fertilizers to use, to the farmers.
-	\item The \textbf{DailyPlanManager} is responsible for the creation, modification, and confirmation of the daily plans.
+	\item The \textbf{DailyPlanManager} is responsible for choosing the area the agronomist is responsible of and the creation, modification, and confirmation of the daily plans.
 	\item The \textbf{MessageManager} handles the communication between farmers and agronomists. It collects the message from the sender and forwards it to the recipient.
 	\item The \textbf{NotificationManager} module is in charge of sending notifications to users. It is used on different occasions, such as when an agronomist receives a new message from a farmer or when there is a new thread in the Farmer Forum.
 	\item The \textbf{TriggerManager} handles the creation, modification, and deletion of triggers by the policy makers. It creates a trigger at the database level, whenever possible, and executes a check for each trigger each time new data is provided through the reports.
